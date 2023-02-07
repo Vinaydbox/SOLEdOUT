@@ -304,7 +304,7 @@
 											</div>
 											<div class="d-flex justify-content-center align-content-center">
 
-												<button type="submit" id="pushUser" class="btn btn-outline-primary">Add
+												<button type="submit" id="pushProduct" class="btn btn-outline-primary">Add
 													User</button>
 											</div>
 										</div>
@@ -332,9 +332,16 @@
 												<div class="row mb-4">
 													<div class="col-md-12">
 														<div class="form-outline">
+															<label class="form-label" for="carimg">Product ID</label>
+															<input type="text" id="productID" class="form-control" />
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<div class="form-outline">
 															<label class="form-label" for="titlecard">Poduct
 																Title</label>
-															<input type="text" id="titlecard" class="form-control" />
+															<input type="text" id="productName" class="form-control" />
 														</div>
 													</div>
 													<br>
@@ -343,14 +350,26 @@
 														<div class="form-outline">
 															<label class="form-label" for="desccard">Product
 																Description</label>
-															<input type="text" id="desccard" class="form-control" />
+															<input type="text" id="productDESC" class="form-control" />
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-outline">
+															<label class="form-label" for="carimg">Product Price</label>
+															<input type="text" id="price" class="form-control" />
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-outline">
+															<label class="form-label" for="carimg">Product Category</label>
+															<input type="text" id="category" class="form-control" />
 														</div>
 													</div>
 													<div class="col-md-12">
 														<div class="form-outline">
 															<label class="form-label" for="carimg">Product Image
 																URL</label>
-															<input type="text" id="carimg" class="form-control" />
+															<input type="text" id="productURL" class="form-control" />
 														</div>
 													</div>
 												</div>
@@ -359,8 +378,6 @@
 													<button type="submit" id="pushCard"
 														class="btn btn-outline-primary">Add Product</button>
 												</div>
-
-
 											</form>
 										</div>
 									</div>
@@ -414,6 +431,7 @@
 	<script src="./js/datatable.js" defer></script>
 	<script src="./js/addUser.js"></script>
 	<script src="./js/signup.js" ></script>
+	<script src="./js/postrender.js"></script>
 	<!-- <script src="./assets/js/cardpush.js" defer></script>
 	<script src="./addUser.js" defer></script> -->
 	<!-- <script src="./assets/js/services.js" defer></script> -->
