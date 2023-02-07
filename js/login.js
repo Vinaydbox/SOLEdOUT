@@ -3,6 +3,7 @@ let loginPassword = document.getElementById("loginPassword");
 let loginbtn = document.getElementById('loginSignup');
 let profilebtn = document.getElementById("profileName")
 let dropdownbtn = document.getElementById("Dropdown-list")
+let invalidPasswordField = document.getElementById("invalidPassword");
 
 let check = document.getElementById('loginbt');
 
@@ -37,8 +38,7 @@ check.addEventListener("click", () => {
             }
         },
         error: function () {
-            $("#error").text("Invalid Username or Password");
-            console.log("We are sorry but our servers are having an issue right now");
+           invalidPasswordField.style.display = "inline";
         },
     });
 });

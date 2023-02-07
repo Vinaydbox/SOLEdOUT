@@ -10,10 +10,10 @@ routes.get('/fetchAllUsers', fetchAllUsers.fetchAllUsers)
 
 // const addUser = require('../controllers/users/addUser')
 // const fetchAllUsers = require('../controllers/users/fetchAllUsers')
-// const fetchOneUser = require('../controllers/users/fetchOneUser')
+const fetchOneUser = require('../controllers/users/fetchOneUser')
 // routes.post('/addUser', addUser.addUser);
 // routes.get('/fetchAllUsers', fetchAllUsers.fetchAllUsers);
-// routes.get('/fetchOneUser/:name', fetchOneUser.fetchOneUser);
+routes.get('/fetchOneUser/:email', fetchOneUser.fetchOneUser);
 
 
 module.exports = routes;
