@@ -14,8 +14,10 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    userCategory: {
+        type: String,
     }
-
 })
 
 let userModel = mongoose.model('userdetails', userSchema);

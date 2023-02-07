@@ -9,7 +9,8 @@ addUserbtn.addEventListener("click",()=>{
     let data = {
         username : fullName.value,
         email: newEmail.value,
-        password: newPwd.value,
+        password : newPwd.value,
+        userCategory: "Vendor"
     }
     console.log(data)
     $.ajax({
@@ -24,6 +25,7 @@ addUserbtn.addEventListener("click",()=>{
             console.log("success")
             // data = JSON.parse(data);
             // window.location.href = './adminIndex.html';
+            alert("User added successfully...")
         },
         error: function () {
             $("#error").text("Invalid Username or Password");
