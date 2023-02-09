@@ -1,4 +1,4 @@
-const db = require('./conn').db;
+const db = require('../conn').db;
 const mongoose = require('mongoose');
 
 //! For users
@@ -12,15 +12,17 @@ const productSchema = mongoose.Schema({
     price:{
         type: Number
     },
-    category:{
+    brand:{
         type: String
     },
     productDesc:{
         type:String
+    },
+    productURL:{
+        type:String
     }
-
 })
 
-let productModel = mongoose.model('productdetails', playerSchema);
+let productModel = mongoose.model('productdetails', productSchema);
 module.exports = { productModel }
 

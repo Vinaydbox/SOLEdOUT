@@ -1,5 +1,6 @@
 const userModelCtrl = require('../../models/users/userModel')
 
+//! to add user to the database
 
 async function addUser(req, res) {
     console.log(req.body);

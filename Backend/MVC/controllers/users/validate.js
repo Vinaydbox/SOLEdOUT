@@ -7,12 +7,9 @@ async function validate(req, res) {
             res.send("Error")
         } else {
             console.log(docs);
-
             res.send(JSON.stringify(docs));
-
         }
     })
-
 }
 
 module.exports = { validate }
