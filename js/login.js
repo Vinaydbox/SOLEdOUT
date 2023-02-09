@@ -26,19 +26,25 @@ check.addEventListener("click", () => {
             console.log(data);
 
             data = JSON.parse(data);
-            console.log(data[0].username);
-            if (data[0].email == "admin@gmail.com" && data[0].password == "admin") {
-                window.location.href = "./adminIndex.html";
-                
+            // console.log(data[0].username);
+            if (data.length == 0) {
+                invalidPasswordField.style.display = "inline";
+
             }
             else {
-                localStorage.setItem("username", data[0].username);
-                window.location.href = "./index.html";
-                profilebtn.innerHTML = localStorage.getItem("username");
+                if (data[0].email == "admin@gmail.com" && data[0].password == "admin") {
+                    window.location.href = "./adminIndex.html";
+
+                }
+                else {
+                    localStorage.setItem("username", data[0].username);
+                    window.location.href = "./index.html";
+                    profilebtn.innerHTML = localStorage.getItem("username");
+                }
             }
         },
         error: function () {
-           invalidPasswordField.style.display = "inline";
+            invalidPasswordField.style.display = "inline";
         },
     });
 });

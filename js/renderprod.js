@@ -10,7 +10,7 @@ $.get(url,function(data){
         pid=data[i].pid;
         productName = data[i].productName;
         price = data[i].price;
-        category = data[i].category;
+        category = data[i].brand;
         productDesc = data[i].productDesc;
         purl = data[i].productURL;
         let x;

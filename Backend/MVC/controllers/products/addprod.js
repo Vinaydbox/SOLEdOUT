@@ -6,7 +6,7 @@ async function addProd(req, res){
         pid: req.body.pid,
         productName: req.body.productName,
         price:req.body.price,
-        category: req.body.category,
+        brand: req.body.brand,
         productDesc : req.body.productDesc,
         productURL: req.body.productURL
     })

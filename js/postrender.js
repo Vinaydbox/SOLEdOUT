@@ -5,6 +5,7 @@ let picurl = document.getElementById('productURL');
 let pid = document.getElementById('productID');
 let category = document.getElementById('category');
 let desc = document.getElementById('productDESC');
+let productAdded = document.getElementById('productAdded');
 
 let button = document.getElementById('pushProduct');
 
@@ -16,7 +17,7 @@ button.addEventListener('click',()=>{
         price:price.value,
         productURL: picurl.value,
         productDesc: desc.value,
-        category: category.value
+        brand: category.value
     }
     $.ajax({
         type: "post",
@@ -27,7 +28,8 @@ button.addEventListener('click',()=>{
         headers: {},
         success: function(data){
             console.log("hogaya bhai");
-            alert("Product Added");
+            // alert("Product Added Successfully");
+            productAdded.style.display = "inline";
         },
         error: ()=>{
             console.log("We are sorry but our servers are having an issue right now");

@@ -32,10 +32,10 @@
 	<link href="./adminAssets/css/adminStyle.css" rel="stylesheet">
 
 	<!-- for datatable -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
 
-        <link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
-	
+	<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 
 
 </head>
@@ -111,9 +111,9 @@
 			</li><!-- End Profile Page Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="#">
+				<a class="nav-link collapsed" href="./category.html">
 					<i class="bi bi-question-circle"></i>
-					<span>Services</span>
+					<span>Sneakers</span>
 				</a>
 			</li><!-- End F.A.Q Page Nav -->
 
@@ -203,10 +203,10 @@
 									<div class="d-flex align-items-center">
 										<div
 											class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-											<i class="bi bi-geo-alt-fill"></i>
+											<i class="bi bi-bar-chart-fill"></i>
 										</div>
 										<div class="ps-3">
-											<h6>342</h6>
+											<h6>4</h6>
 											<!-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
 
 										</div>
@@ -275,6 +275,25 @@
 							<div class="row" id="addUser" style="display:none">
 								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
 									<div class="card mb-4">
+										<!-- !User added succesfullly msg -->
+										<div id="userAdded" style="display:none;"
+											class="alert alert-warning alert-dismissible fade show " role="alert">
+											<strong class="text-success">User Added Successfully </strong>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+
+										<!-- ! User already exists field -->
+										<div id="userAlreadyExists" style="display:none;"
+											class="alert alert-warning alert-dismissible fade show " role="alert">
+											<strong class="text-danger">User Already Exists!!!</strong>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+
+											</button>
+										</div>
+
 										<div class="card-header py-3">
 											<h5 class="mb-0 text-center">Add New User</h5>
 										</div>
@@ -284,7 +303,7 @@
 												<div class="col-md-12">
 													<div class="form-outline">
 														<label class="form-label" for="newUserName">Name</label>
-														<input type="text" id="newUserName" class="form-control" />
+														<input type="text" id="newUserName1" class="form-control" />
 													</div>
 												</div>
 												<br>
@@ -292,19 +311,20 @@
 												<div class="col-md-12">
 													<div class="form-outline">
 														<label class="form-label" for="userEmail">Email</label>
-														<input type="email" id="userEmail" class="form-control" />
+														<input type="email" id="userEmail1" class="form-control" />
 													</div>
 												</div>
 												<div class="col-md-12">
 													<div class="form-outline">
 														<label class="form-label" for="userpwd">Password</label>
-														<input type="password" id="userpwd" class="form-control" />
+														<input type="password" id="userpwd1" class="form-control" />
 													</div>
 												</div>
 											</div>
 											<div class="d-flex justify-content-center align-content-center">
 
-												<button type="submit" id="pushProduct" class="btn btn-outline-primary">Add
+												<button type="submit" id="pushNewUser"
+													class="btn btn-outline-primary">Add
 													User</button>
 											</div>
 										</div>
@@ -318,11 +338,21 @@
 
 
 
-						<!--Add Services Begins-->
+						<!--Add producst Begins-->
 						<section class="mt-5 d-flex justify-content-center align-content-center">
 							<div class="row" id="addService" style="display:none">
 								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
 									<div class="card mb-4">
+										<!-- !product added succesfullly msg -->
+										<div id="productAdded" style="display:none;"
+											class="alert alert-warning alert-dismissible fade show " role="alert">
+											<strong class="text-success">Product Added Successfully </strong>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+
+
 										<div class="card-header py-3">
 											<h5 class="mb-0 text-center">Add New Product</h5>
 										</div>
@@ -339,7 +369,7 @@
 
 													<div class="col-md-12">
 														<div class="form-outline">
-															<label class="form-label" for="titlecard">Poduct
+															<label class="form-label" for="titlecard">Product
 																Title</label>
 															<input type="text" id="productName" class="form-control" />
 														</div>
@@ -361,7 +391,8 @@
 													</div>
 													<div class="col-md-12">
 														<div class="form-outline">
-															<label class="form-label" for="carimg">Product Category</label>
+															<label class="form-label" for="carimg">Product
+																Brand</label>
 															<input type="text" id="category" class="form-control" />
 														</div>
 													</div>
@@ -375,7 +406,7 @@
 												</div>
 												<div class="d-flex justify-content-center align-content-center">
 
-													<button type="submit" id="pushCard"
+													<button type="submit" id="pushProduct"
 														class="btn btn-outline-primary">Add Product</button>
 												</div>
 											</form>
@@ -430,7 +461,7 @@
 	<script src="./js/adminPage.js" defer></script>
 	<script src="./js/datatable.js" defer></script>
 	<script src="./js/addUser.js"></script>
-	<script src="./js/signup.js" ></script>
+	<!-- <script src="./js/signup.js" ></script> -->
 	<script src="./js/postrender.js"></script>
 	<!-- <script src="./js/signup.js" ></script> -->
 	<!-- <script src="./assets/js/cardpush.js" defer></script>
