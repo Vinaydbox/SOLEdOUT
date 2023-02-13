@@ -4,15 +4,17 @@ $("#productName")
 $("#productPrice")
 */
 
-$("#addToCartBtn").click(() => {
+// $("#addToCartBtn").click(() => {
 
-    alert("Product Added to cart Successfully!");
+function addToCart() {
+
 
     let productData = {
         productName: $("#productName").text(),
         price: $("#productPrice").text(),
         productURL: $("#productImg").attr('src'),
         loggedinUserEmail: localStorage.getItem('loggedinUserEmail')
+        
     }
     console.log(productData)
     $.ajax({
@@ -22,16 +24,13 @@ $("#addToCartBtn").click(() => {
         data: JSON.stringify(productData),
         xhrFields: { withCredentials: false, },
         headers: {},
-        
-        success: function (productData) {
-            // console.log("hogaya bhai");
-            alert("Product Added Successfully to cart");
-            // productAdded.style.display = "inline";
-            // addedToCart.style.display = "inline";
+
+        success: function (productData) {   
 
         },
         error: () => {
             console.log("We are sorry but our servers are having an issue right now");
         }
     })
-})
+    alert("Product Added to cart Successfully!");
+}

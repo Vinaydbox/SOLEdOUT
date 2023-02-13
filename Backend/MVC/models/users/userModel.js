@@ -22,6 +22,7 @@ const userSchema = mongoose.Schema({
         productName: {type:String},
         price: {type:String},
         productURL: {type:String},
+        count:{type:Number},
     }]
 })
 

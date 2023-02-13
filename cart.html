@@ -51,8 +51,7 @@
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                             <li class="nav-item submenu dropdown">
-                                <a href="./category.html" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                                <a href="./category.html" class="nav-link dropdown-toggle"  aria-haspopup="true" aria-expanded="false">Shop</a>
                                 <!-- <ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
 									<li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
@@ -381,22 +380,23 @@
 
                         </tbody>
 
-                        <tfoot>
-                            <!-- <tr class="bottom_button">
+                        <tfoot id="cartfooter">
+                            <tr class="bottom_button">
                                 <td>
                                     <a class="gray_btn" href="#">Update Cart</a>
                                 </td>
+                                <td></td>
                                 
                                 <td>
                                     <div class="cupon_text d-flex align-items-center">
                                         <input type="text" placeholder="Coupon Code">
                                         <a class="primary-btn" href="#">Apply</a>
-                                        <a class="gray_btn" href="#">Close Coupon</a>
+                                        <!-- <a class="gray_btn" href="#">Close Coupon</a> -->
                                     </div>
                                 </td>
-                            </tr> -->
+                            </tr>
 
-                            <tr>
+                            <!-- <tr>
                                 <td></td>
                                 <td></td>
                                 <td>
@@ -405,7 +405,7 @@
                                 <td>
                                     <h5>$2160.00</h5>
                                 </td>
-                            </tr>
+                            </tr> -->
 
                             <!-- <tr class="shipping_area">
                                 
@@ -436,13 +436,12 @@
                                     </div>
                                 </td>
                             </tr> -->
-
                             <tr class="out_button_area">
                                 <td></td>
                                 <td>
-                                    <div class="checkout_btn_inner d-flex justify-content-end align-items-end ">
-                                        <a class="gray_btn" href="./category.html">Continue Shopping</a>
-                                        <a class="primary-btn" href="#">Proceed to checkout</a>
+                                    <div class="checkout_btn_inner d-flex justify-content-end">
+                                        <!-- <a class="gray_btn" href="./category.html">Continue Shopping</a> -->
+                                        <a class="primary-btn pull-right">Proceed to checkout</a>
                                     </div>
                                 </td>
                             </tr>
