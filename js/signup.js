@@ -28,9 +28,12 @@ signupbtn.addEventListener("click", () => {
                     headers: {},
                     success: function (data) {
                         console.log("success")
-                        // data = JSON.parse(data);
+                        console.log(data)
+                        // data = JSON.stringify(data);
                         alert("your acc has been created successfully, Login via home page")
-                        localStorage.setItem("username", data[0].username);
+                        localStorage.setItem("username", data.username);
+                        alert(data.username)
+                        alert(localStorage.getItem("username"))
                         window.location.href = "./index.html";
                     },
                     error: function () {

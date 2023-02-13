@@ -17,7 +17,12 @@ const userSchema = mongoose.Schema({
     },
     userCategory: {
         type: String,
-    }
+    },
+    userCart:[{
+        productName: {type:String},
+        price: {type:String},
+        productURL: {type:String},
+    }]
 })
 
 let userModel = mongoose.model('userdetails', userSchema);

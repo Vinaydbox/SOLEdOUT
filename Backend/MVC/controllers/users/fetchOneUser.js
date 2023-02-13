@@ -20,4 +20,6 @@ async function fetchOneUser(req, res) {
     })
 }
 
+
+
 module.exports = { fetchOneUser }

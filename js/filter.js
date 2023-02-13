@@ -107,9 +107,9 @@ puma.addEventListener("click", (res) => {
 function renderCard1(pid, pname, price, category, pdesc, imgurl) {
     return `<div class="col-lg-4 col-md-6">
      <div class="single-product">
-         <img class="img-fluid" src="${imgurl}" alt="">
+        <a href="./single-product.html#${pid}"> <img class="img-fluid" src="${imgurl}" alt="">
          <div class="product-details">
-             <h6>${pname}</h6>
+             <h6>${pname}</h6></a>
              <div class="price">
                  <h6>$${price}</h6>
                  <h6 class="l-through">$210.00</h6>
@@ -134,9 +134,9 @@ function renderCard1(pid, pname, price, category, pdesc, imgurl) {
 function renderCard2(pid, pname, price, category, pdesc, imgurl) {
     return `<div class="col-lg-4 col-md-6">
      <div class="single-product">
-         <img class="img-fluid" src="${imgurl}" alt="">
+         <a href="./single-product.html#${pid}"><img class="img-fluid" src="${imgurl}" alt="">
          <div class="product-details">
-             <h6>${pname}</h6>
+             <h6>${pname}</h6></a>
              <div class="price">
                  <h6>$${price}</h6>
                  <h6 class="l-through">$210.00</h6>
@@ -159,9 +159,9 @@ function renderCard2(pid, pname, price, category, pdesc, imgurl) {
 function renderCard3(pid, pname, price, category, pdesc, imgurl) {
     return `<div class="col-lg-4 col-md-6">
      <div class="single-product">
-         <img class="img-fluid" src="${imgurl}" alt="">
+         <a href="./single-product.html#${pid}"><img class="img-fluid" src="${imgurl}" alt="">
          <div class="product-details">
-             <h6>${pname}</h6>
+             <h6>${pname}</h6></a>
              <div class="price">
                  <h6>$${price}</h6>
                  <h6 class="l-through">$210.00</h6>
@@ -176,14 +176,7 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
                      <span class="lnr lnr-heart"></span>
                      <p class="hover-text">Wishlist</p>
                  </a>
-                 <a href="" class="social-info">
-                     <span class="lnr lnr-sync"></span>
-                     <p class="hover-text">compare</p>
-                 </a>
-                 <a href="" class="social-info">
-                     <span class="lnr lnr-move"></span>
-                     <p class="hover-text">view more</p>
-                 </a>
+                 
              </div>
          </div>
      </div>

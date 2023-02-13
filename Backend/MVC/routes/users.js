@@ -14,6 +14,7 @@ const fetchOneUser = require('../controllers/users/fetchOneUser')
 // routes.post('/addUser', addUser.addUser);
 // routes.get('/fetchAllUsers', fetchAllUsers.fetchAllUsers);
 routes.get('/fetchOneUser/:email', fetchOneUser.fetchOneUser);
-
+const getUserCart = require('../controllers/users/getUserCart')
+routes.get('/getUserCart/:email', getUserCart.getUserCart)
 
 module.exports = routes;

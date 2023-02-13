@@ -1,7 +1,7 @@
 const db = require('../conn').db;
 const mongoose = require('mongoose');
 
-//! For users
+//! For Products
 const productSchema = mongoose.Schema({
     pid:{
         type: Number

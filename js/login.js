@@ -32,12 +32,16 @@ check.addEventListener("click", () => {
 
             }
             else {
+                // localStorage.setItem("username", data[0].username);
                 if (data[0].email == "admin@gmail.com" && data[0].password == "admin") {
+                    localStorage.setItem("username","Admin")
                     window.location.href = "./adminIndex.html";
 
                 }
                 else {
                     localStorage.setItem("username", data[0].username);
+                    console.log("username set")
+                    localStorage.setItem("loggedinUserEmail", data[0].email);
                     window.location.href = "./index.html";
                     profilebtn.innerHTML = localStorage.getItem("username");
                 }

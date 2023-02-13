@@ -17,7 +17,7 @@ async function addUser(req, res) {
             res.send("Error " + err)
         }
         else {
-            res.send("User registration successful...")
+            res.send(result)
         }
     })
 

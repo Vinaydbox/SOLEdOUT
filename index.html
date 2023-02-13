@@ -65,7 +65,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="./category.html">Shop</a></li>
-							
+
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
 									aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -93,10 +93,10 @@
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
 									aria-haspopup="true" aria-expanded="false">Login/Signup</a>
 								<ul class="dropdown-menu">
-									<li id="loginButter" class="nav-item"><a href="#" class="nav-link" data-toggle="modal"
-											data-target="#loginModal">Login</a></li>
-									<li id="signupButter" class="nav-item"><a href="#" class="nav-link" data-toggle="modal"
-											data-target="#signupModal">SignUp</a>
+									<li id="loginButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#loginModal">Login</a></li>
+									<li id="signupButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#signupModal">SignUp</a>
 									</li>
 								</ul>
 							</li>
@@ -124,9 +124,9 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="nav-item"><a href="./cart.html" class="cart"><span
 										class="lnr lnr-cart"></span></a></li>
-							<!-- <li class="nav-item">
-								<button class="search"><span class="lnr lnr-cart" id="search"></span></button>
-							</li> -->
+							<li class="nav-item">
+								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -152,16 +152,18 @@
 			</form> -->
 				<!-- </div> -->
 				<a href="#" class="d-flex justify-content-center align-content-center" id="welcomemsg"></a>
-				<!-- ! Invalid username or password -->
 				<div class="modal-body d-block text-center" id="loginpage">
-					<div id="invalidPassword" style="display:none;" class="alert alert-warning alert-dismissible fade show " role="alert">
-						<strong class="text-danger">Invalid Username/Password </strong> 
+					<!-- ! Invalid username or password -->
+					<div id="invalidPassword" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
+						<strong class="text-danger">Invalid Username/Password </strong>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-						  <br>
+							<span aria-hidden="true">&times;</span>
+							<br>
 						</button>
-					  </div>
-					<div  class="form-title text-center">
+					</div>
+					<!-- ! Invalid username or password -->
+					<div class="form-title text-center">
 						<br>
 						<h4>Login</h4>
 					</div>
@@ -228,30 +230,32 @@
 
 				<div class="modal-body d-block text-center" id="signuppage">
 					<!-- ! Password mismatch field -->
-					<div  id="passwordMismatch" style="display:none;" class="alert alert-warning alert-dismissible fade show " role="alert">
+					<div id="passwordMismatch" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
 						<strong class="text-danger">Password Mismatch!!! </strong> check your passwords.
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-						  
+							<span aria-hidden="true">&times;</span>
+
 						</button>
 					</div>
 					<!-- ! User already exists field -->
-					<div  id="userAlreadyExists" style="display:none;" class="alert alert-warning alert-dismissible fade show " role="alert">
+					<div id="userAlreadyExists" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
 						<strong class="text-danger">User Already Exists!!!</strong> Try with other email.
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-						  
+							<span aria-hidden="true">&times;</span>
+
 						</button>
 					</div>
 
 					<div class="form-title text-center">
-						<br><h4>Create your account</h4>
+						<br>
+						<h4>Create your account</h4>
 					</div>
 					<div class="d-flex flex-column text-center">
 						<form>
 							<div class="form-group">
-								<input type="text" class="form-control" id="fullname" placeholder="FullName"
-									required>
+								<input type="text" class="form-control" id="fullname" placeholder="FullName" required>
 							</div>
 							<div class="form-group">
 								<input type="email" class="form-control" id="signupEmail" placeholder="Email address"
@@ -262,8 +266,8 @@
 									required>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="signupPasswordConfirm" placeholder="confirm password"
-									required>
+								<input type="password" class="form-control" id="signupPasswordConfirm"
+									placeholder="confirm password" required>
 							</div>
 							<!-- !Signup button -->
 							<button id="signupbt" type="button" class="btn btn-info btn-block btn-round">Signup</button>
@@ -1036,7 +1040,7 @@
 	</section>
 	<!-- end product Area -->
 
-	
+
 
 	<!-- Start brand Area -->
 	<!-- <section class="brand-area section_gap">

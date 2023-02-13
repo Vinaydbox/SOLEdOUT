@@ -1,23 +1,23 @@
-const  addp= require('../../models/products/productModel').productModel;
+const addp = require('../../models/products/productModel').productModel;
 
-async function addProd(req, res){
+async function addProd(req, res) {
     console.log(req.body);
-    let prodData= addp({
+    let prodData = addp({
         pid: req.body.pid,
         productName: req.body.productName,
-        price:req.body.price,
+        price: req.body.price,
         brand: req.body.brand,
-        productDesc : req.body.productDesc,
+        productDesc: req.body.productDesc,
         productURL: req.body.productURL
     })
     prodData.save((err, result) => {
-        if(err){
+        if (err) {
             res.send("Error " + err)
         }
-        else{
+        else {
             res.send("Pushed the card");
         }
     })
 }
 
-module.exports = {addProd}
+module.exports = { addProd }
