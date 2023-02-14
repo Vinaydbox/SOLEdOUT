@@ -3,8 +3,6 @@ const usergen = require('../../models/users/userModel').userModel;
 
 
 async function addToCart(req, res) {
-	let qqty = 0;
-	// let username=localStorage.getItem('username');
 	console.log("this is backend");
 	let doc;
 	let obj;
@@ -30,7 +28,8 @@ async function addToCart(req, res) {
 					productName: req.body.productName,
 					price: req.body.price,
 					productURL: req.body.productURL,
-					count: 1
+					count: 1,
+					brand:req.body.brand
 				}
 				console.log(obj);
 				usergen.updateOne({ email: req.body.loggedinUserEmail }, { $push: { userCart: obj } }, (err, data) => {

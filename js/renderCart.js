@@ -1,15 +1,22 @@
+let applyCouponBtn = document.getElementById("applyCoupon");
+let couponEntered = document.getElementById("couponEntered");
+let cartFooter = document.getElementById("cartfooter");
+let doc;
 
 
 window.onload = function () {
     let url = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
     $.get(url, (data) => {
         // alert("render cart")
+        doc = data;
         console.log(data);
         // alert("renderin cart")
         // alert(data[0].userCart[0].productURL)
         // console.log(data[0].userCart);
         let totalprice = 0;
         for (let x = 0; x < data[0].userCart.length; x++) {
+            // console.log(data[0].userCart[x].count)
+            // console.log(data[0].userCart[x].price)
             $("#cartItem1").append(`
                 <tr>
                 <td>
@@ -36,14 +43,13 @@ window.onload = function () {
                         <h5>${data[0].userCart[x].price}</h5>
                     </td>
                 <td>
-                    <h5>${data[0].userCart[x].price * data[0].userCart[x].count}</h5>
+                    <h5>$${data[0].userCart[x].price.substring(1) * data[0].userCart[x].count}</h5>
                 </td>
             </tr>     
-    `);
+        `);
         }
-
         for (let x = 0; x < data[0].userCart.length; x++) {
-            totalprice = totalprice + (data[0].userCart[x].price * data[0].userCart[x].count);
+            totalprice = totalprice + (data[0].userCart[x].price.substring(1) * data[0].userCart[x].count);
         }
         $("#cartItem1").append(`<td></td>
         <td></td>
@@ -52,8 +58,50 @@ window.onload = function () {
         </td>
         <td>
             <h5>$${totalprice}</h5>
-        </td>`)
+        </td>
+        `)
     });
-
 }
 
+applyCouponBtn.addEventListener("click", () => {
+    let url = "http://localhost:3003/fetchCoupon/" + couponEntered.value;
+    $.get(url, (data) => {
+        
+        console.log("this is my data")
+        console.log(data)
+        console.log(doc[0])
+        if (data.length == 0) {
+            alert("Coupon not found")
+        }
+        else {
+            let finalPrice = 0;
+            for (let i = 0; i < doc[0].userCart.length; i++) {
+                let tempBrand = doc[0].userCart[i].brand
+                console.log(tempBrand)
+                let flag = false;
+                for (let j = 0; j < data[0].brand.length; j++) {
+                    
+                    if (data[0].brand[j] == tempBrand) {
+                        flag = true;
+                        console.log("in 2nd for loop if")
+                        finalPrice += (doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count * data[0].discount) / 100;
+                    }
+                }
+                console.log(finalPrice)
+                if(flag==false){
+                    finalPrice += doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count;
+                }
+            }
+            $("#cartItem1").append(`<tr><td></td>
+            <td></td>
+            <td>
+                <h5>Final Price</h5>
+            </td>
+            <td>
+                <h5>$${finalPrice}</h5>
+            </td>
+            </tr>`
+            )
+        }
+    })
+})

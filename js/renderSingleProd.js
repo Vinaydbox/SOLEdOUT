@@ -12,9 +12,9 @@ window.onload = function () {
                 <div class="col-lg-5 offset-lg-1">
                     <div class="s_product_text">
                         <h3 id="productName">${data.productName}</h3>
-                        <h2 id="productPrice">${data.price}</h2>
+                        <h2 id="productPrice">$${data.price}</h2>
                         <ul class="list">
-                            <li><a class="active" href="#"><span>Brand</span> : Nike</a></li>
+                            <li><a class="active" id="productBrand" href="#"><span >Brand</span> : ${data.brand}</a></li>
                             <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                         </ul>
                         <p>${data.productDesc}</p>

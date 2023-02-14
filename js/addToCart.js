@@ -7,16 +7,14 @@ $("#productPrice")
 // $("#addToCartBtn").click(() => {
 
 function addToCart() {
-
-
     let productData = {
         productName: $("#productName").text(),
         price: $("#productPrice").text(),
         productURL: $("#productImg").attr('src'),
-        loggedinUserEmail: localStorage.getItem('loggedinUserEmail')
-        
+        loggedinUserEmail: localStorage.getItem('loggedinUserEmail'),
+        brand:$("#productBrand").text().substring(8)
     }
-    console.log(productData)
+    // console.log(productData)
     $.ajax({
         type: "post",
         url: "http://localhost:3003/addToCart",

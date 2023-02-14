@@ -105,3 +105,5 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
      </div>
  </div>`
 }
+
+

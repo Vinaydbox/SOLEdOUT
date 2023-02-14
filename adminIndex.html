@@ -355,7 +355,8 @@
 										<!-- ! product already exists field -->
 										<div id="productAlreadyExists" style="display:none;"
 											class="alert alert-warning alert-dismissible fade show " role="alert">
-											<strong class="text-danger">Product Already Exists!!!</strong> Try with other
+											<strong class="text-danger">Product Already Exists!!!</strong> Try with
+											other
 											pid.
 											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
@@ -377,7 +378,6 @@
 															<input type="text" id="productID" class="form-control" />
 														</div>
 													</div>
-
 													<div class="col-md-12">
 														<div class="form-outline">
 															<label class="form-label" for="titlecard">Product
@@ -427,8 +427,79 @@
 
 							</div>
 						</section>
-
 						<!--Add services ends-->
+
+
+
+						<!-- Add Coupon starts -->
+						<section class="mt-5 d-flex justify-content-center align-content-center">
+							<div class="row" id="addCoupon">
+								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
+									<div class="card mb-4">
+										<div class="card-header py-3">
+											<h5 class="mb-0 text-center">Add New Coupon</h5>
+										</div>
+										<div class="card-body">
+											<form>
+												<!-- 2 column grid layout with text inputs for the first and last names -->
+												<div class="row mb-4">
+													<div class="col-md-12">
+														<div class="form-outline">
+															<label class="form-label" for="carimg">Coupon Code</label>
+															<input type="text" id="couponCode" class="form-control" />
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-outline">
+															<label class="form-label" for="titlecard">Brands
+																Applicable</label><br>
+															<div class="form-check form-switch ml-5"><input
+																	class="form-check-input" type="checkbox"
+																	id="Nike"><label class="form-check-label"
+																	for="flexSwitchCheck">Nike</label>
+															</div>
+															<div class="form-check form-switch ml-5"><input
+																	class="form-check-input" type="checkbox"
+																	id="Puma"><label class="form-check-label"
+																	for="flexSwitchCheckChecked">Puma</label>
+															</div>
+															<div class="form-check form-switch ml-5"><input
+																	class="form-check-input" type="checkbox"
+																	id="Adidas"><label class="form-check-label"
+																	for="flexSwitchCheckChecked">Adidas</label>
+															</div>
+														</div>
+													</div>
+													<br>
+													<!-- <hr> -->
+													<div class="col-md-12">
+														<div class="form-outline">
+															<label class="form-label" for="desccard">Discount(in
+																%)</label>
+															<input type="number" id="discount" class="form-control" />
+														</div>
+													</div>
+
+												</div>
+												<div class="d-flex justify-content-center align-content-center">
+
+													<button type="submit" id="pushCoupon"
+														class="btn btn-outline-primary">Add Coupon</button>
+												</div>
+											</form>
+
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+
+
+						</section>
+
+
+						<!-- Add coupon ends -->
 
 					</div>
 				</div>
