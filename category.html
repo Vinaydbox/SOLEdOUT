@@ -28,6 +28,8 @@
 	<link rel="stylesheet" href="css/nouislider.min.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link href="./adminAssets/css/adminStyle.css" rel="stylesheet">
+
 </head>
 
 <body id="category">
@@ -343,20 +345,13 @@
 					<!-- ! Search bar in shop -->
 					<div class="sorting mr-auto">
 						<div class="search-bar">
-							<form class="search-form d-flex align-items-center">
-								<input type="text" name="query" placeholder="Search" title="Enter search keyword">
-								<button type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button>
-							</form>
+							<!-- <form class="search-form d-flex align-items-center"> -->
+								<input id="searchInputField" type="text" name="query" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
+								<button id="searchBtn" class="btn " type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button>
+							<!-- </form> -->
 						</div>
 					</div>
 					
-						<ul class="d-flex align-items-center">
-							<li class="nav-item">
-								<a class="btn btn-outline-success nav-link nav-icon search-bar-toggle" href="">
-									<i class="lnr lnr-magnifier"></i>
-								</a>
-							</li>
-						</ul>
 					<div class="pagination">
 						<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 						<a href="#" class="active">1</a>
@@ -587,6 +582,7 @@
 	<script src="js/main.js"></script>
 	<script src="js/renderprod.js"></script>
 	<script src="./js/filter.js"></script>
+	<script src="./js/search.js"></script>
 	<!-- <script src="./js/login.js"></script> -->
 </body>
 
