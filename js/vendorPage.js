@@ -9,14 +9,18 @@ adminlogout.addEventListener('click', function () {
 
 
 // userListbtn = document.getElementById("userListbtn");
-// addUserbtn = document.getElementById("addUserbtn");
+addCouponBtn = document.getElementById("addCouponBtn");
 addServicebtn = document.getElementById("addServicebtn");
 
 
 addServicebtn.addEventListener("click", function () {
-    // document.getElementById("userList").style.display = "none";
-    // document.getElementById("addUser").style.display = "none";
+    document.getElementById("addCoupon").style.display = "none";
     document.getElementById("addService").style.display = "inline";
+})
+
+addCouponBtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "inline";
+    document.getElementById("addService").style.display = "none";
 })
 
 let couponCode = document.getElementById("couponCode");

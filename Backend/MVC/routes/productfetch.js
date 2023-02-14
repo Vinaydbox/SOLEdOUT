@@ -7,11 +7,15 @@ const fetchOneProduct=require('../controllers/products/fetchOneProduct');
 const addToCart = require('../controllers/products/addToCart');
 const fetchProdByID = require('../controllers/products/fetchProdByID');
 const getProdDetailsByID = require('../controllers/products/getProdDetailsByID');
+const deleteProductFromCart = require('../controllers/products/delProdFromCart');
+
+
 routes.get('/getproducts',getusers.fetchAllProducts);
 routes.post('/addProduct',addProducts.addProd);
 routes.get('/fetchOneProduct/:brand',fetchOneProduct.fetchOneProduct)
 routes.post('/addToCart/', addToCart.addToCart);
 routes.get('/fetchProdByID/:pid',fetchProdByID.fetchProdByID)
 routes.get('/getProdDetailsByID/:pid',getProdDetailsByID.getProdDetailsByID)
+routes.post('/deleteProductFromCart/',deleteProductFromCart.deleteProdFromCart)
 
 module.exports = routes;

@@ -20,8 +20,8 @@ window.onload = function () {
             $("#cartItem1").append(`
                 <tr>
                 <td>
-                    <div class="media">
-                        <div class="d-flex">
+                <div class="media">
+                <div class="d-flex">
                             <img src="${data[0].userCart[x].productURL}" alt="" width="150px" height="150px">
                         </div>
                         <div class="media-body">
@@ -45,7 +45,12 @@ window.onload = function () {
                 <td>
                     <h5>$${data[0].userCart[x].price.substring(1) * data[0].userCart[x].count}</h5>
                 </td>
-            </tr>     
+                <td>
+                <button onclick="deleteProdFromCart(${data[0].userCart[x].pid})" class="btn btn-outline-danger"><i class="lnr lnr-trash"></i></button>
+                
+                </td>  
+            </tr> 
+             
         `);
         }
         for (let x = 0; x < data[0].userCart.length; x++) {
@@ -59,6 +64,7 @@ window.onload = function () {
         <td>
             <h5>$${totalprice}</h5>
         </td>
+        
         `)
     });
 }
@@ -84,7 +90,9 @@ applyCouponBtn.addEventListener("click", () => {
                     if (data[0].brand[j] == tempBrand) {
                         flag = true;
                         console.log("in 2nd for loop if")
-                        finalPrice += (doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count * data[0].discount) / 100;
+                        console.log(data[0].discount)
+                        //var effectivPirce = totalprice*(100-discount)/100;
+                        finalPrice += ((doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count)*(100 - data[0].discount)) / 100;
                     }
                 }
                 console.log(finalPrice)

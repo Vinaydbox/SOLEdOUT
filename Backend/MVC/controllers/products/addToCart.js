@@ -29,7 +29,8 @@ async function addToCart(req, res) {
 					price: req.body.price,
 					productURL: req.body.productURL,
 					count: 1,
-					brand:req.body.brand
+					brand:req.body.brand,
+					pid:req.body.pid,
 				}
 				console.log(obj);
 				usergen.updateOne({ email: req.body.loggedinUserEmail }, { $push: { userCart: obj } }, (err, data) => {

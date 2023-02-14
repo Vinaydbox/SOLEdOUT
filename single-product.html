@@ -52,8 +52,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 							<li class="nav-item submenu dropdown active">
-								<a href="./category.html" class="nav-link dropdown-toggle" data-toggle="dropdown"
-									role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+								<a href="./category.html" class="nav-link"  aria-expanded="false">Shop</a>
 								<!-- <ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
 									<li class="nav-item active"><a class="nav-link" href="single-product.html">Product Details</a></li>
@@ -910,6 +909,7 @@
 			localStorage.setItem("userloggedin", "0");
 			loginbtn.style.display = "inline";
 			dropdownbtn.style.display = "none";
+			window.location.href = "./index.html"
 		})
 	</script>
 

@@ -24,6 +24,7 @@ const userSchema = mongoose.Schema({
         productURL: {type:String},
         count:{type:Number},
         brand:{type:String},
+        pid:{type:Number}
     }]
 })
 

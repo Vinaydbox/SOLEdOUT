@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Admin</title>
+	<title>Vendor</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
@@ -46,12 +46,13 @@
 	<header id="header" class="header fixed-top d-flex align-items-center">
 
 		<div class="d-flex align-items-center justify-content-between">
-			<a href="./adminIndex.html" class="logo d-flex align-items-center">
+			<a href="./vendor.html" class="logo d-flex align-items-center">
 				<img src="adminAssets/img/logo.png" alt="">
-				<span class="d-none d-lg-block">Admin Console</span>
+				<span class="d-none d-lg-block">Vendor Console</span>
 			</a>
 			<i class="bi bi-list toggle-sidebar-btn"></i>
-		</div><!-- End Logo -->
+		</div>
+		<!-- End Logo -->
 
 		<div class="search-bar">
 			<form class="search-form d-flex align-items-center" method="POST" action="#">
@@ -135,6 +136,13 @@
 				<a class="nav-link collapsed" id="addServicebtn" href="#addService">
 					<i class="bi bi-server"></i>
 					<span>Add Products</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" id="addCouponBtn" href="#addCoupon">
+					<i class="bi bi-tags-fill"></i>
+					<span>Add Coupons</span>
 				</a>
 			</li>
 
@@ -336,9 +344,11 @@
 						</section>
 
 						<!--Add services ends-->
+
+
 						<!-- Add Coupon starts -->
 						<section class="mt-5 d-flex justify-content-center align-content-center">
-							<div class="row" id="addCoupon">
+							<div class="row" id="addCoupon" style="display:none">
 								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
 									<div class="card mb-4">
 										<div class="card-header py-3">
@@ -354,10 +364,18 @@
 															<input type="text" id="couponCode" class="form-control" />
 														</div>
 													</div>
+													<!-- !Brands -->
 													<div class="col-md-12">
 														<div class="form-outline">
 															<label class="form-label" for="titlecard">Brands
 																Applicable</label><br>
+																<!-- <select class="select" multiple data-mdb-placeholder="Example placeholder" multiple>
+																	<option value="1">One</option>
+																	<option value="2">Two</option>
+																	<option value="3">Three</option>
+																	<option value="4">Four</option>
+																	<option value="5">Five</option>
+																  </select> -->
 															<div class="form-check form-switch ml-5"><input
 																	class="form-check-input" type="checkbox"
 																	id="Nike" value="Nike" name="brandCheckbox" checked><label class="form-check-label"
@@ -399,11 +417,7 @@
 									</div>
 								</div>
 							</div>
-
-
 						</section>
-
-
 						<!-- Add coupon ends -->
 
 					</div>

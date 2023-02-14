@@ -7,14 +7,17 @@ $("#productPrice")
 // $("#addToCartBtn").click(() => {
 
 function addToCart() {
+    let currPID = window.location.hash.substring(1);
+    console.log(currPID)
     let productData = {
         productName: $("#productName").text(),
         price: $("#productPrice").text(),
         productURL: $("#productImg").attr('src'),
         loggedinUserEmail: localStorage.getItem('loggedinUserEmail'),
-        brand:$("#productBrand").text().substring(8)
+        brand:$("#productBrand").text().substring(8),
+        pid:currPID
     }
-    // console.log(productData)
+    console.log(productData)
     $.ajax({
         type: "post",
         url: "http://localhost:3003/addToCart",

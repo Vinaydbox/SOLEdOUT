@@ -35,19 +35,31 @@ adminlogout.addEventListener('click', function () {
 userListbtn = document.getElementById("userListbtn");
 addUserbtn = document.getElementById("addUserbtn");
 addServicebtn = document.getElementById("addServicebtn");
+addCouponBtn = document.getElementById("addCouponBtn");
+
 
 userListbtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "none";
     document.getElementById("addUser").style.display = "none";
     document.getElementById("addService").style.display = "none";
     document.getElementById("userList").style.display = "inline";
 })
 addUserbtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "none";
     document.getElementById("userList").style.display = "none";
     document.getElementById("addService").style.display = "none";
     document.getElementById("addUser").style.display = "inline";
 })
 addServicebtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "none";
     document.getElementById("userList").style.display = "none";
     document.getElementById("addUser").style.display = "none";
     document.getElementById("addService").style.display = "inline";
+})
+
+addCouponBtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "inline";
+    document.getElementById("addService").style.display = "none";
+    document.getElementById("userList").style.display = "none";
+    document.getElementById("addUser").style.display = "none";
 })

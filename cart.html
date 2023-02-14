@@ -316,6 +316,7 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Total</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody id="cartItem1">
@@ -555,6 +556,7 @@
             localStorage.setItem("userloggedin", "0");
             loginbtn.style.display = "inline";
             dropdownbtn.style.display = "none";
+            window.location.href = "./index.html"
         })
     </script>
 
@@ -576,6 +578,7 @@
     <script src="js/main.js"></script>
     <script src="./js/renderCart.js"></script>
     <script src="./js/newPrice.js"></script>
+    <script src="./js/deleteProdFromCart.js"></script>
     <!-- <script src="./js/login.js"></script> -->
 </body>
 
