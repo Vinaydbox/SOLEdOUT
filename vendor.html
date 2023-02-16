@@ -36,7 +36,9 @@
 
 	<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
-
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
 </head>
 
@@ -110,7 +112,7 @@
 					<span>Users</span>
 				</a>
 			</li> -->
-            <!-- End Profile Page Nav -->
+			<!-- End Profile Page Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="./category.html">
@@ -253,30 +255,31 @@
 						<!-- End Emp Card -->
 
 
-						<!--Add producst Begins-->
+						<!--Add products Begins-->
 						<section class="mt-5 d-flex justify-content-center align-content-center">
 							<div class="row" id="addService" style="display:none">
 								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
 									<div class="card mb-4">
 										<!-- !product added succesfullly msg -->
-										<div id="productAdded" style="display:none;"
+										<!-- <div id="productAdded" style="display:none;"
 											class="alert alert-warning alert-dismissible fade show " role="alert">
 											<strong class="text-success">Product Added Successfully </strong>
 											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
-										</div>
+										</div> -->
 
 										<!-- ! product already exists field -->
-										<div id="productAlreadyExists" style="display:none;"
+										<!-- <div id="productAlreadyExists" style="display:none;"
 											class="alert alert-warning alert-dismissible fade show " role="alert">
-											<strong class="text-danger">Product Already Exists!!!</strong> Try with other
+											<strong class="text-danger">Product Already Exists!!!</strong> Try with
+											other
 											pid.
 											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 
 											</button>
-										</div>
+										</div> -->
 
 
 										<div class="card-header py-3">
@@ -292,7 +295,6 @@
 															<input type="text" id="productID" class="form-control" />
 														</div>
 													</div>
-
 													<div class="col-md-12">
 														<div class="form-outline">
 															<label class="form-label" for="titlecard">Product
@@ -325,8 +327,8 @@
 													<div class="col-md-12">
 														<div class="form-outline">
 															<label class="form-label" for="carimg">Product Image
-																URL</label>
-															<input type="text" id="productURL" class="form-control" />
+																</label>
+															<input type="file" id="productURL" class="form-control" />
 														</div>
 													</div>
 												</div>
@@ -342,8 +344,7 @@
 
 							</div>
 						</section>
-
-						<!--Add services ends-->
+						<!--Add products ends-->
 
 
 						<!-- Add Coupon starts -->
@@ -351,65 +352,54 @@
 							<div class="row" id="addCoupon" style="display:none">
 								<div class="col-md-12 mb-4 d-flex justify-content-center align-content-center">
 									<div class="card mb-4">
+										<!-- !coupon added succesfullly msg -->
+										<!-- <div id="couponAddedField"  class="alert alert-warning alert-dismissible fade show"
+										 role="alert" style="display:none;" >
+											<strong class="text-success">Coupon Added Successfully </strong>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div> -->
 										<div class="card-header py-3">
 											<h5 class="mb-0 text-center">Add New Coupon</h5>
 										</div>
 										<div class="card-body">
-											<form>
-												<!-- 2 column grid layout with text inputs for the first and last names -->
-												<div class="row mb-4">
-													<div class="col-md-12">
-														<div class="form-outline">
-															<label class="form-label" for="carimg">Coupon Code</label>
-															<input type="text" id="couponCode" class="form-control" />
-														</div>
-													</div>
-													<!-- !Brands -->
-													<div class="col-md-12">
-														<div class="form-outline">
-															<label class="form-label" for="titlecard">Brands
-																Applicable</label><br>
-																<!-- <select class="select" multiple data-mdb-placeholder="Example placeholder" multiple>
-																	<option value="1">One</option>
-																	<option value="2">Two</option>
-																	<option value="3">Three</option>
-																	<option value="4">Four</option>
-																	<option value="5">Five</option>
-																  </select> -->
-															<div class="form-check form-switch ml-5"><input
-																	class="form-check-input" type="checkbox"
-																	id="Nike" value="Nike" name="brandCheckbox" checked><label class="form-check-label"
-																	for="flexSwitchCheck">Nike</label>
-															</div>
-															<div class="form-check form-switch ml-5"><input
-																	class="form-check-input" type="checkbox"
-																	id="Puma" value="Puma" name="brandCheckbox" checked><label class="form-check-label"
-																	for="flexSwitchCheckChecked">Puma</label>
-															</div>
-															<div class="form-check form-switch ml-5"><input
-																	class="form-check-input" type="checkbox"
-																	id="Adidas" value="Adidas" name="brandCheckbox" checked><label class="form-check-label"
-																	for="flexSwitchCheckChecked">Adidas</label>
-															</div>
-														</div>
-													</div>
-													<br>
-													<!-- <hr> -->
-													<div class="col-md-12">
-														<div class="form-outline">
-															<label class="form-label" for="desccard">Discount(in
-																%)</label>
-															<input type="number" id="couponDiscount" class="form-control" />
-														</div>
-													</div>
 
+											<!-- 2 column grid layout with text inputs for the first and last names -->
+											<div class="row mb-4">
+												<div class="col-md-12">
+													<div class="form-outline">
+														<label class="form-label" for="carimg">Coupon Code</label>
+														<input type="text" id="couponCode" class="form-control" />
+													</div>
 												</div>
-												<div class="d-flex justify-content-center align-content-center">
+												<!-- !Brands -->
+												<div class="col-md-12">
+													<label for="brandMultiSelect">Brands Applicable: </label><br>
+													<select name="brandsarr[]" id="brandMultiSelect"
+														class="selectpicker" multiple>
+													<option value="Nike">Nike</option>
+														<option value="Puma">Puma</option>
+														<option value="Adidas">Adidas</option>
+													</select>
+												</div>
+												<br>
+												<!-- <hr> -->
+												<div class="col-md-12">
+													<div class="form-outline">
+														<label class="form-label" for="desccard">Discount(in
+															%)</label>
+														<input type="number" id="couponDiscount" class="form-control" />
+													</div>
+												</div>
 
-													<button type="submit" id="pushCoupon"
-														class="btn btn-outline-primary">Add Coupon</button>
-												</div>
-											</form>
+											</div>
+											<div class="d-flex justify-content-center align-content-center">
+
+												<button type="submit" id="pushCoupon"
+													class="btn btn-outline-primary">Add Coupon</button>
+											</div>
+
 
 										</div>
 
@@ -459,7 +449,7 @@
 	<!-- Template Main JS File -->
 
 	<script src="./adminAssets/js/adminMain.js" defer></script>
-	<script src="./js/vendorPage.js" defer></script>
+	<script src="./js/addCoupon.js" defer></script>
 	<script src="./js/datatable.js" defer></script>
 	<!-- <script src="./js/addUser.js"></script> -->
 	<!-- <script src="./js/signup.js" ></script> -->
@@ -472,9 +462,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 	<script src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 	<script src="//cdn.datatables.net/1.13.2/js/dataTables.bootstrap4.min.js"></script>
-
 
 
 

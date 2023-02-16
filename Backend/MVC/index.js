@@ -15,8 +15,10 @@ app.post('/login', (req, res) => {
     // console.log(req.body)
     res.send("hello")
 })
+//! search
+// app.use(express.urlencoded({ extended: true}));
 
-
-app.listen(3003, () => {
-    console.log('server is running on port localhost:3003')
+var port=3003;
+app.listen(port, () => {
+    console.log('server is running on port localhost:',port)
 })

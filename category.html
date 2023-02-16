@@ -345,13 +345,29 @@
 					<!-- ! Search bar in shop -->
 					<div class="sorting mr-auto">
 						<div class="search-bar">
-							<!-- <form class="search-form d-flex align-items-center"> -->
-								<input id="searchInputField" type="text" name="query" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
-								<button id="searchBtn" class="btn " type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button>
-							<!-- </form> -->
-						</div>
-					</div>
-					
+							<!-- <form id="searchEnter"> -->
+								<div class="input-group">
+									<div class="form-outline">
+										<!-- <label class="form-label" for="form1">Search</label> -->
+										<input id="searchInput" type="text" onkeyup="sendData(this)" placeholder="Enter your sneaker"
+											id="form1" class="form-control lnr lnr-magnifier" />
+										</div>
+										<button type="submit" id="searchBtn" type="button" class="btn btn-warning">
+											<i class="lnr lnr-magnifier"></i>
+										</button>
+									</div>
+								<!-- </form> -->
+								<!-- <form class="search-form d-flex align-items-center"> -->
+									<!-- <input id="searchInputField" type="text" name="query" onkeyup="sendData(this)" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
+										<section id="searchResults">
+											
+										</section>
+										<button id="searchBtn" class="btn " type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button> -->
+										<!-- </form> -->
+									</div>
+								</div>
+								
+
 					<div class="pagination">
 						<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 						<a href="#" class="active">1</a>
@@ -362,6 +378,10 @@
 						<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
+
+				<section class="ml-5" id="searchResults">
+
+				</section>
 				<!-- End Filter Bar -->
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
@@ -551,7 +571,7 @@
 		let profilebtn = document.getElementById("profileName")
 		let dropdownbtn = document.getElementById("Dropdown-list")
 		logout = document.getElementById("logoutbt");
-		if (localStorage.getItem("username") != null) {
+		if (localStorage.getItem("username") != null && localStorage.getItem("userloggedin") == 1) {
 			loginbtn.style.display = "none";
 			dropdownbtn.style.display = "inline";
 			profilebtn.innerHTML = localStorage.getItem("username");
@@ -563,6 +583,11 @@
 			dropdownbtn.style.display = "none";
 			window.location.href = "./index.html"
 		})
+
+
+
+		// search bar
+
 	</script>
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -581,6 +606,7 @@
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/renderprod.js"></script>
+
 	<script src="./js/filter.js"></script>
 	<script src="./js/search.js"></script>
 	<!-- <script src="./js/login.js"></script> -->

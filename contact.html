@@ -33,14 +33,18 @@
 <body>
 
 	<!-- Start Header Area -->
+	<!-- Start Header Area -->
 	<header class="header_area sticky-header">
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<a class="navbar-brand logo_h" href="index.html">
+						<img src="./img/logo.png" alt="..">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -48,39 +52,67 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+							<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="./category.html">Shop</a></li>
+
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Shop</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-									<li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-									<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-									<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-								</ul>
-							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul class="dropdown-menu">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Blog</a>
+								<!-- <ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-								</ul>
+									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a>
+									</li>
+								</ul> -->
 							</li>
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Pages</a>
+								<!-- <ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="./login.html">Login</a></li>
+									<li class="nav-item"><a class="nav-link" href="./tracking.html">Tracking</a></li>
+									<li class="nav-item"><a class="nav-link" href="./elements.html">Elements</a></li>
+								</ul> -->
+							</li>
+							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="#">Login</a></li> -->
+							<!-- <li id="Butter" class="nav-item"><a href="#" class="nav-link" data-toggle="modal"
+									data-target="#loginModal">Login</a>
+							</li> -->
+							<li class="nav-item submenu dropdown" id="loginSignup">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Login/Signup</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-									<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+									<li id="loginButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#loginModal">Login</a></li>
+									<li id="signupButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#signupModal">SignUp</a>
+									</li>
 								</ul>
 							</li>
-							<li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
+							<!-- Dropdown for profile and logout -->
+							<li class="nav-item submenu dropdown" id="Dropdown-list">
+								<a href="#" id="profileName" class="nav-link dropdown-toggle" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false"></a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="./profile.html">Profile</a></li>
+									<li class="nav-item"><a class="nav-link" id="logoutbt" href="#">Logout</a>
+									</li>
+								</ul>
+							</li>
 						</ul>
+						<!-- <div class="dropdown" style="display: none;" id="Dropdown-list">
+							<button id="profileName" class="btn btn-secondary dropdown-toggle" type="button"
+								id="profile" data-bs-toggle="dropdown" aria-expanded="false">
+
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+								<li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+								<li><a class="dropdown-item" id="logout" href="#">Logout</a></li>
+							</ul>
+						</div> -->
 						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
+							<li class="nav-item"><a href="./cart.html" class="cart"><span
+										class="lnr lnr-cart"></span></a></li>
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>
@@ -89,16 +121,9 @@
 				</div>
 			</nav>
 		</div>
-		<div class="search_input" id="search_input_box">
-			<div class="container">
-				<form class="d-flex justify-content-between">
-					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
-					<button type="submit" class="btn"></button>
-					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-				</form>
-			</div>
-		</div>
+
 	</header>
+	<!-- End Header Area -->
 	<!-- End Header Area -->
 
 	<!-- Start Banner Area -->
@@ -120,16 +145,26 @@
 	<!--================Contact Area =================-->
 	<section class="contact_area section_gap_bottom">
 		<div class="container">
-			<div id="mapBox" class="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="13" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
-			 data-mlat="40.701083" data-mlon="-74.1522848">
+			<!-- <div id="mapBox" class="mapBox" data-lat="17.447927492167306" data-lon="78.37569716771178" data-zoom="13" data-info="Darwinbox, Phase 2, HITEC City, Hyderabad, Telangana"
+			 data-mlat="17.447927492167306" data-mlon="78.37569716771178">
+			</div> -->
+			<!--Google map-->
+			<div id="map-container-google-1" class="z-depth-1-half map-container d-flex justify-content-center mt-5" style="height: 500px">
+				<h3>You can find us at:</h3>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2504522500426!2d78.37351921410726!3d17.44772278804244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91449d140b2b%3A0xfc3a4f97e4236622!2sDarwinbox!5e0!3m2!1sen!2sin!4v1676445529159!5m2!1sen!2sin"
+					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
+
+			<!--Google Maps-->
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="contact_info">
 						<div class="info_item">
 							<i class="lnr lnr-home"></i>
-							<h6>California, United States</h6>
-							<p>Santa monica bullevard</p>
+							<h6>Darwinbox, India</h6>
+							<p>Hyderabad, Telangana</p>
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-phone-handset"></i>
@@ -138,27 +173,36 @@
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-envelope"></i>
-							<h6><a href="#">support@colorlib.com</a></h6>
+							<h6><a href="#">support@karma.com</a></h6>
 							<p>Send us your query anytime!</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+					<form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+						novalidate="novalidate">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'">
+								<input type="text" class="form-control" id="name" name="name"
+									placeholder="Enter your name" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter your name'">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+								<input type="email" class="form-control" id="email" name="email"
+									placeholder="Enter email address" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter email address'">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'">
+								<input type="text" class="form-control" id="subject" name="subject"
+									placeholder="Enter Subject" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter Subject'">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"></textarea>
+								<textarea class="form-control" name="message" id="message" rows="1"
+									placeholder="Enter Message" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter Message'"></textarea>
 							</div>
 						</div>
 						<div class="col-md-12 text-right">
@@ -179,7 +223,8 @@
 					<div class="single-footer-widget">
 						<h6>About Us</h6>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+							ut labore dolore
 							magna aliqua.
 						</p>
 					</div>
@@ -190,18 +235,22 @@
 						<p>Stay update with our latest</p>
 						<div class="" id="mc_embed_signup">
 
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
+							<form target="_blank" novalidate="true"
+								action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+								method="get" class="form-inline">
 
 								<div class="d-flex flex-row">
 
-									<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-									 required="" type="email">
+									<input class="form-control" name="EMAIL" placeholder="Enter Email"
+										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+										required="" type="email">
 
 
-									<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+									<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
+											aria-hidden="true"></i></button>
 									<div style="position: absolute; left: -5000px;">
-										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+											type="text">
 									</div>
 
 									<!-- <div class="col-lg-4 col-md-4">
@@ -242,10 +291,14 @@
 				</div>
 			</div>
 			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+				<p class="footer-text m-0">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
+					made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+						target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
 			</div>
 		</div>
 	</footer>
@@ -283,10 +336,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 	<!--================End Contact Success and Error message Area =================-->
 
+	<script>
+		let loginbtn = document.getElementById('loginSignup');
+		let profilebtn = document.getElementById("profileName")
+		let dropdownbtn = document.getElementById("Dropdown-list")
+		logout = document.getElementById("logoutbt");
+		if (localStorage.getItem("username") != null && localStorage.getItem("userloggedin") == 1) {
+			loginbtn.style.display = "none";
+			dropdownbtn.style.display = "inline";
+			profilebtn.innerHTML = localStorage.getItem("username");
+		}
+		logout.addEventListener("click", () => {
+			localStorage.setItem("userloggedin", "0");
+			loginbtn.style.display = "inline";
+			dropdownbtn.style.display = "none";
+			window.location.href = "./index.html"
+		})
+	</script>
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/jquery.ajaxchimp.min.js"></script>
 	<script src="js/jquery.nice-select.min.js"></script>

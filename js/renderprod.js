@@ -3,9 +3,9 @@ let container = document.getElementById('productSection');
 let url = "http://localhost:3003/getproducts";
 
 $.get(url, function (data) {
-    console.log(data);
+    // console.log(data);
     data = JSON.parse(data);
-    console.log(data);
+    // console.log(data);
     for (i = 0; i < data.length; i++) {
         pid = data[i].pid;
         productName = data[i].productName;

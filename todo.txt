@@ -1,6 +1,11 @@
-1) add user in admin 
-2) add products by admin
-3) cart whole thing
-4) some design edits
-5) updating whole data to mongodb(no static data)
-adding new branch 
+IMPORTANT
+
+1)Search Functionality(submit action pending)
+2)Recommendation engine
+3)Dynamic rendering of product brands(in shop page)
+4)Dynamic addeventlisteners for every brand (in shop page)
+5)Profile page(if time permits add edit button)
+6)Add Wishlist
+
+ADDITIONAL
+1)

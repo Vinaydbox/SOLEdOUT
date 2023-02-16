@@ -8,6 +8,7 @@ const addToCart = require('../controllers/products/addToCart');
 const fetchProdByID = require('../controllers/products/fetchProdByID');
 const getProdDetailsByID = require('../controllers/products/getProdDetailsByID');
 const deleteProductFromCart = require('../controllers/products/delProdFromCart');
+const getSneakers = require('../controllers/products/searchBar');
 
 
 routes.get('/getproducts',getusers.fetchAllProducts);
@@ -17,5 +18,6 @@ routes.post('/addToCart/', addToCart.addToCart);
 routes.get('/fetchProdByID/:pid',fetchProdByID.fetchProdByID)
 routes.get('/getProdDetailsByID/:pid',getProdDetailsByID.getProdDetailsByID)
 routes.post('/deleteProductFromCart/',deleteProductFromCart.deleteProdFromCart)
+routes.post('/getSneakers/', getSneakers.searchSneakers)
 
 module.exports = routes;

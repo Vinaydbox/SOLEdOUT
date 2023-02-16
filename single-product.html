@@ -900,7 +900,7 @@
 		let profilebtn = document.getElementById("profileName")
 		let dropdownbtn = document.getElementById("Dropdown-list")
 		logout = document.getElementById("logoutbt");
-		if (localStorage.getItem("username") != null) {
+		if (localStorage.getItem("username") != null && localStorage.getItem("userloggedin")==1) {
 			loginbtn.style.display = "none";
 			dropdownbtn.style.display = "inline";
 			profilebtn.innerHTML = localStorage.getItem("username");
