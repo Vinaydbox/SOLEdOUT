@@ -1,10 +1,11 @@
 let container = document.getElementById('productSection');
 
+let brands = [];
 let url = "http://localhost:3003/getproducts";
-
 $.get(url, function (data) {
     // console.log(data);
     data = JSON.parse(data);
+
     // console.log(data);
     for (i = 0; i < data.length; i++) {
         pid = data[i].pid;
@@ -105,5 +106,18 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
      </div>
  </div>`
 }
+
+
+//! brands sec under sneakers
+let sneakerBrandList = document.getElementById("sneakerBrandList")
+var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
+
+sneakerBrandList.addEventListener("click", function () {
+    $("#fruitsVegetable").html("");
+    for (let i = 0; i < brandsArr.length; i++) {
+        $("#fruitsVegetable").append(`<li style="cursor:pointer" class="main-nav-list child"><a onclick="getBrandItems('${brandsArr[i]}')">${brandsArr[i]}<span
+    class="number"></span></a></li>`)
+    }
+})
 
 

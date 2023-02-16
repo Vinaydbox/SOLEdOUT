@@ -11,28 +11,42 @@ let productAlreadyExists = document.getElementById('productAlreadyExists');
 
 let button = document.getElementById('pushProduct');
 
+if (localStorage.getItem("brandsArr") == null) {
+    localStorage.setItem("brandsArr", JSON.stringify(["Nike", "Puma", "Adidas"]));
+}
+
 button.addEventListener('click', () => {
     $.get("http://localhost:3003/fetchProdByID/" + pid.value, (data) => {
         // console.log("data"+data);
         if (data == "DoNotExist") {
             console.log("clicked");
             let fd = new FormData();
-            fd.append("pid",pid.value);
-            fd.append("pname",pname.value);
-            fd.append("price",price.value);
-            fd.append("productURL",picurl.files[0]);
-            fd.append("productDesc",desc.value);
-            fd.append("brand",brand.value);
+            fd.append("pid", pid.value);
+            fd.append("pname", pname.value);
+            fd.append("price", price.value);
+            fd.append("productURL", picurl.files[0]);
+            fd.append("productDesc", desc.value);
+            fd.append("brand", brand.value);
+            // console.log(brand.value)
+            // alert(brand.value)
+            var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
+            // console.log("before",brandsArr)
+            if (brandsArr.includes(brand.value) == false) {
+                // console.log("in if")
+                brandsArr.push(brand.value);
+                localStorage.setItem("brandsArr", JSON.stringify(brandsArr));
+            }
+            console.log("after",brandsArr)
             $.ajax({
                 type: "post",
                 url: "http://localhost:3003/addProduct",
                 contentType: false,
                 data: fd,
-                processData:false,
+                processData: false,
                 xhrFields: { withCredentials: false, },
                 headers: {},
                 success: function (data) {
-                    console.log("hogaya bhai");
+                    console.log("product added successfully");
                     // alert("Product Added Successfully");
                     productAdded.style.display = "inline";
                 },
@@ -41,10 +55,11 @@ button.addEventListener('click', () => {
                 }
             })
         }
-        else{
+        else {
             productAlreadyExists.style.display = "inline";
             console.log("Product Already Exists");
         }
     })
 })
+
 

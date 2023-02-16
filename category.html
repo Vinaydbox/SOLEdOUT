@@ -15,7 +15,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Karma Shop</title>
+	<title>Karma Shop | Shop</title>
 
 	<!--
             CSS
@@ -121,7 +121,7 @@
 				</div>
 			</nav>
 		</div>
-		<div class="search_input" id="search_input_box">
+		<!-- <div class="search_input" id="search_input_box">
 			<div class="container">
 				<form class="d-flex justify-content-between">
 					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
@@ -129,7 +129,7 @@
 					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
 				</form>
 			</div>
-		</div>
+		</div> -->
 	</header>
 	<!-- End Header Area -->
 
@@ -320,19 +320,17 @@
 				<div class="sidebar-categories">
 					<div class="head">Browse Categories</div>
 					<ul class="main-categories">
-						<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable"
+						<li class="main-nav-list" id="sneakerBrandList"><a data-toggle="collapse" href="#fruitsVegetable"
 								aria-expanded="false" aria-controls="fruitsVegetable"><span
 									class="lnr lnr-arrow-right"></span>Sneakers<span class="number"></span></a>
 							<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false"
 								aria-controls="fruitsVegetable">
-								<li class="main-nav-list child"><a id="nike" href="#">Nike<span
+								<!-- <li class="main-nav-list child"><a id="nike" href="#">Nike<span
 											class="number"></span></a></li>
 								<li class="main-nav-list child"><a id="adidas" href="#">Adidas<span
 											class="number"></span></a></li>
-								<!-- <li class="main-nav-list child"><a href="#">Sketchers<span class="number"></span></a></li> -->
-								<!-- <li class="main-nav-list child"><a href="#">Jordan<span class="number"></span></a></li> -->
 								<li class="main-nav-list child"><a id="puma" href="#">Puma<span
-											class="number"></span></a></li>
+											class="number"></span></a></li> -->
 							</ul>
 						</li>
 				</div>
@@ -349,7 +347,7 @@
 								<div class="input-group">
 									<div class="form-outline">
 										<!-- <label class="form-label" for="form1">Search</label> -->
-										<input id="searchInput" type="text" onkeyup="sendData(this)" placeholder="Enter your sneaker"
+										<input id="searchInput" type="text" placeholder="Enter your sneaker"
 											id="form1" class="form-control lnr lnr-magnifier" />
 										</div>
 										<button type="submit" id="searchBtn" type="button" class="btn btn-warning">
@@ -386,6 +384,9 @@
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
 					<div id="productSection" class="row">
+
+					</div>
+					<div class="row" id="filterSection">
 
 					</div>
 				</section>
@@ -603,9 +604,13 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<!-- <script src="jquery-3.6.3.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/renderprod.js"></script>
+	<script src="./js/addToCart.js"></script>
 
 	<script src="./js/filter.js"></script>
 	<script src="./js/search.js"></script>

@@ -3,8 +3,7 @@ $("#productImg")
 $("#productName")
 $("#productPrice")
 */
-
-// $("#addToCartBtn").click(() => {
+    
 
 function addToCart() {
     if (localStorage.getItem("userloggedin") == 1) {
