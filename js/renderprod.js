@@ -34,14 +34,18 @@ $.get(url, function (data) {
         container.innerHTML += x;
     }
     console.log(temparr)
-    // console.log(localStorage.getItem("onclickRecomms").length);
-    if(localStorage.getItem("onclickRecomms").length===0){
+    console.log(localStorage.getItem("onclickRecomms"));
+    if(localStorage.getItem("onclickRecomms").length < 3){
         // console.log("IM HERE");
         // temparr=JSON.parse(temparr);
         console.log(JSON.stringify(temparr));
         localStorage.setItem("onclickRecomms",JSON.stringify(temparr));
-
     }
+    console.log(localStorage.getItem("searchRecomms"))
+    if(localStorage.getItem("searchRecomms").length<3){
+        localStorage.setItem("searchRecomms", JSON.stringify(temparr));        
+    }
+
 })
 
 
@@ -123,6 +127,7 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
      </div>
  </div>`
 }
+
 
 
 //! brands sec under sneakers

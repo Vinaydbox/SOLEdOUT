@@ -1,8 +1,11 @@
+let clickdata=localStorage.getItem("onclickRecomms");
+let searchRecomms=localStorage.getItem("searchRecomms");
 window.onload = function () {
     var id = window.location.hash.substring(1);
     let url = "http://localhost:3003/getProdDetailsByID/" + id;
     // let singleProductArea = document.getElementById("singleProductArea")
     $.get(url, (data, status) => {
+        console.log(clickdata)
         $("#singleProductArea").append(
             `<div class="container">
             <div class="row s_product_inner">
@@ -33,7 +36,23 @@ window.onload = function () {
             </div>
         </div>`
         )
-
+        // console.log(JSON.parse(searchRecomms));
+        clickdata = JSON.parse(clickdata);
+        console.log(clickdata);
+        for(let i=0;i<clickdata.length;i++){
+            if(clickdata[i].pid === data.pid){
+                clickdata[i].cnt +=1;
+            } 
+        }
+        if(clickdata.length>8){
+            clickdata = clickdata.slice(0,9);
+        }
+        console.log(clickdata);
+        let tempi= clickdata.sort(function(a, b) {
+            return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
+          });
+          console.log(tempi);
+        localStorage.setItem("onclickRecomms",JSON.stringify(tempi));
     })
 
 }

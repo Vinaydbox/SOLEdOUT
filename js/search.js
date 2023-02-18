@@ -3,6 +3,8 @@ let searchResults = document.getElementById("searchResults")
 let filterSection = document.getElementById("filterSection")
 let productSection = document.getElementById("productSection")
 // let brandSection = document.getElementById("brandSection")
+let localSearch=localStorage.getItem("searchRecomms");
+
 
 searchInput.addEventListener("keyup", (e) => {
     console.log(searchInput.value)
@@ -25,6 +27,29 @@ searchInput.addEventListener("keyup", (e) => {
                         filterSection.innerHTML += renderCard(data.result[i].pid, data.result[i].productName, data.result[i].price, data.result[i].productURL);
                     }
                 }
+                searchRecomms=JSON.parse(searchRecomms)
+                for(let i=0;i<data.result.length;i++){
+                    let fl=0;
+                    for(let j=0;j<searchRecomms.length;j++){
+                        // console.log(searchRecomms[j]);
+                        if(searchRecomms[j].pid === data.result[i].pid){
+                            fl=1;
+                            // console.log("agaya")
+                            searchRecomms[j].cnt+=1;
+                        }
+                    }
+                    if(fl==0){
+                        searchRecomms.push({pid:data.result[i].pid,cnt:1});
+                    }
+                }
+                if(searchRecomms.length>8){
+                    searchRecomms=searchRecomms.slice(0,9);
+                }
+                let tempi= searchRecomms.sort(function(a, b) {
+                    return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
+                  });
+                  localStorage.setItem("searchRecomms",JSON.stringify(searchRecomms));
+                  console.log(searchRecomms);
             }
             else if (e.keyCode === 8) {
                 filterSection.style.display = "none";

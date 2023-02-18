@@ -48,14 +48,8 @@ check.addEventListener("click", () => {
                     localStorage.setItem("username", data[0].username);
                     console.log("username set")
                     localStorage.setItem("loggedinUserEmail", data[0].email);
-                    if(data[0].userRecomms.onclickRecomms.length<1){
-                        let temp=[];
-                        localStorage.setItem("onclickRecomms",temp);
-                    }
-                    else{
-                        localStorage.setItem("onclickRecomms",data[0].userRecomms.onclickRecomms);
-                    }
-                    localStorage.setItem("searchRecomms",data[0].userRecomms.searchRecomms);
+                    localStorage.setItem("onclickRecomms",JSON.stringify(data[0].userRecomms.onclickRecomms));
+                    localStorage.setItem("searchRecomms",JSON.stringify(data[0].userRecomms.searchRecomms));
                     window.location.href = "./index.html";
             
                     profilebtn.innerHTML = localStorage.getItem("username");
