@@ -24,6 +24,12 @@ const userSchema = mongoose.Schema({
     address: {
         type: String,
     },
+    mobileNumber:{
+        type:Number,
+    },
+    address: {
+        type: String,
+    },
     userCart:[{
         productName: {type:String},
         price: {type:String},

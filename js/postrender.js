@@ -11,9 +11,13 @@ let productAlreadyExists = document.getElementById('productAlreadyExists');
 
 let button = document.getElementById('pushProduct');
 
+console.log(localStorage.getItem("brandsArr"));
 if (localStorage.getItem("brandsArr") == null) {
     localStorage.setItem("brandsArr", JSON.stringify(["Nike", "Puma", "Adidas"]));
 }
+
+
+
 
 button.addEventListener('click', () => {
     $.get("http://localhost:3003/fetchProdByID/" + pid.value, (data) => {

@@ -4,6 +4,7 @@ $("#productName")
 $("#productPrice")
 */
 productAddedToCart = document.getElementById("productAddedToCart");
+productAddedToCart = document.getElementById("productAddedToCart");
 function addToCart() {
     // alert("Product Added to cart Successfully!");
     // productAddedToCart.style.display = "inline";
