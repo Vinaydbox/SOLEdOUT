@@ -18,6 +18,12 @@ const userSchema = mongoose.Schema({
     userCategory: {
         type: String,
     },
+    mobileNumber:{
+        type:Number,
+    },
+    address: {
+        type: String,
+    },
     userCart:[{
         productName: {type:String},
         price: {type:String},
@@ -25,7 +31,19 @@ const userSchema = mongoose.Schema({
         count:{type:Number},
         brand:{type:String},
         pid:{type:Number}
-    }]
+    }],
+
+    //! for recomendation engine
+    userRecommendations:{
+        onclickRecommendations:[{
+            pid: {type:Number},
+            count: {type:Number}
+        }],
+        searchRecommendations:[{
+            pid:{type:Number},
+            count: {type:Number}
+        }]
+    }
 })
 
 let userModel = mongoose.model('userdetails', userSchema);

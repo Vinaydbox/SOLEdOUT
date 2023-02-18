@@ -1,11 +1,19 @@
-IMPORTANT
+IMPORTANT TODO
+
+2)Recommendation engine
+6)Add Wishlist
+- vendors 
+ $100 $200 
+ user select product, 
+ drop down to select vendor
+
+DONE
 
 1)Search Functionality(submit action pending)
-2)Recommendation engine
+5)Profile page(if time permits add edit button)
 3)Dynamic rendering of product brands(in shop page)
 4)Dynamic addeventlisteners for every brand (in shop page)
-5)Profile page(if time permits add edit button)
-6)Add Wishlist
 
 ADDITIONAL
-1)
+
+1)Faster rendering of products (in shop page)

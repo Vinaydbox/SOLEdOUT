@@ -18,8 +18,15 @@ window.onload = function () {
                             <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                         </ul>
                         <p>${data.productDesc}</p>
+                        <div id="productAddedToCart" style="display:none;"
+											class="alert alert-warning alert-dismissible fade show " role="alert">
+											<strong class="text-success">Product Successfully Added to the Cart</strong>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
                         <div class="card_area d-flex align-items-center">
-                            <div id="addToCartBtn" onclick="addToCart()" class="primary-btn" >Add to Cart</div>
+                            <div id="addToCartBtn" onclick="addToCart()" data-toggle="modal" data-target="#adeddSucessfully" class="primary-btn">Add to Cart</div>
                         </div>         
                     </div>
                 </div>
@@ -30,3 +37,5 @@ window.onload = function () {
     })
 
 }
+
+// $("#addToCartBtn").click();

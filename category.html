@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="./adminAssets/css/adminStyle.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -320,9 +321,13 @@
 				<div class="sidebar-categories">
 					<div class="head">Browse Categories</div>
 					<ul class="main-categories">
-						<li class="main-nav-list" id="sneakerBrandList"><a data-toggle="collapse" href="#fruitsVegetable"
-								aria-expanded="false" aria-controls="fruitsVegetable"><span
-									class="lnr lnr-arrow-right"></span>Sneakers<span class="number"></span></a>
+						<li class="main-nav-list" id="sneakerBrandList"><a data-toggle="collapse"
+								href="#fruitsVegetable" aria-expanded="false"
+								aria-controls="fruitsVegetable"><span></span>Sneakers<span class="number"></span>
+								<!-- <button type="button" class="btn btn-light btn-floating btn-lg">
+									<i class="lnr lnr-arrow-up"></i>
+								</button> -->
+							</a>
 							<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false"
 								aria-controls="fruitsVegetable">
 								<!-- <li class="main-nav-list child"><a id="nike" href="#">Nike<span
@@ -344,27 +349,27 @@
 					<div class="sorting mr-auto">
 						<div class="search-bar">
 							<!-- <form id="searchEnter"> -->
-								<div class="input-group">
-									<div class="form-outline">
-										<!-- <label class="form-label" for="form1">Search</label> -->
-										<input id="searchInput" type="text" placeholder="Enter your sneaker"
-											id="form1" class="form-control lnr lnr-magnifier" />
-										</div>
-										<button type="submit" id="searchBtn" type="button" class="btn btn-warning">
-											<i class="lnr lnr-magnifier"></i>
-										</button>
-									</div>
-								<!-- </form> -->
-								<!-- <form class="search-form d-flex align-items-center"> -->
-									<!-- <input id="searchInputField" type="text" name="query" onkeyup="sendData(this)" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
+							<div class="input-group">
+								<div class="form-outline">
+									<!-- <label class="form-label" for="form1">Search</label> -->
+									<input id="searchInput" type="text" placeholder="Search your sneaker" id="form1"
+										class="form-control lnr lnr-magnifier" />
+								</div>
+								<button type="submit" id="searchBtn" type="button" class="btn btn-warning">
+									<i class="lnr lnr-magnifier"></i>
+								</button>
+							</div>
+							<!-- </form> -->
+							<!-- <form class="search-form d-flex align-items-center"> -->
+							<!-- <input id="searchInputField" type="text" name="query" onkeyup="sendData(this)" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
 										<section id="searchResults">
 											
 										</section>
 										<button id="searchBtn" class="btn " type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button> -->
-										<!-- </form> -->
-									</div>
-								</div>
-								
+							<!-- </form> -->
+						</div>
+					</div>
+
 
 					<div class="pagination">
 						<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
@@ -580,6 +585,7 @@
 		logout.addEventListener("click", () => {
 			localStorage.setItem("userloggedin", "0");
 			localStorage.setItem("username", "")
+			localStorage.setItem("loggedinUserEmail", "")
 			loginbtn.style.display = "inline";
 			dropdownbtn.style.display = "none";
 			window.location.href = "./index.html"

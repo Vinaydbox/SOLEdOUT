@@ -39,6 +39,7 @@ async function addToCart(req, res) {
 
 		}
 	});
+	res.send("addedToCart");
 }
 // let productData = cartgen({
 //     productName: req.body.productName,
