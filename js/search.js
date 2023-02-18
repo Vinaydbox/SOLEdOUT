@@ -2,6 +2,7 @@ let searchInput = document.getElementById("searchInput")
 let searchResults = document.getElementById("searchResults")
 let filterSection = document.getElementById("filterSection")
 let productSection = document.getElementById("productSection")
+// let brandSection = document.getElementById("brandSection")
 
 searchInput.addEventListener("keyup", (e) => {
     console.log(searchInput.value)
@@ -18,6 +19,7 @@ searchInput.addEventListener("keyup", (e) => {
                 filterSection.style.display = "";
                 searchResults.innerHTML = "";
                 filterSection.innerHTML = "";
+                brandSection.innerHTML = "";
                 if (data.result.length > 0) {
                     for (let i = 0; i < data.result.length; i++) {
                         filterSection.innerHTML += renderCard(data.result[i].pid, data.result[i].productName, data.result[i].price, data.result[i].productURL);

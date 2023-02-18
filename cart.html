@@ -554,6 +554,8 @@
         }
         logout.addEventListener("click", () => {
             localStorage.setItem("userloggedin", "0");
+            localStorage.setItem("username","")
+            localStorage.setItem("loggedinUserEmail", "")
             loginbtn.style.display = "inline";
             dropdownbtn.style.display = "none";
             window.location.href = "./index.html"

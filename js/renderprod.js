@@ -1,11 +1,16 @@
+// const { isTypeOnlyImportOrExportDeclaration } = require("typescript");
+
 let container = document.getElementById('productSection');
 
 let brands = [];
 let url = "http://localhost:3003/getproducts";
+let onclickd=localStorage.getItem("onclickRecomms");
+let searchRecomms = localStorage.getItem("searchRecomms");
+
+temparr=[]
 $.get(url, function (data) {
     // console.log(data);
     data = JSON.parse(data);
-
     // console.log(data);
     for (i = 0; i < data.length; i++) {
         pid = data[i].pid;
@@ -14,6 +19,8 @@ $.get(url, function (data) {
         category = data[i].brand;
         productDesc = data[i].productDesc;
         purl = data[i].productURL;
+        let datad={pid:data[i].pid,cnt:1};
+        temparr.push(datad);
         let x;
         if (i % 3 == 0) {
             x = renderCard1(pid, productName, price, category, productDesc, purl);
@@ -26,7 +33,17 @@ $.get(url, function (data) {
         }
         container.innerHTML += x;
     }
+    console.log(temparr)
+    // console.log(localStorage.getItem("onclickRecomms").length);
+    if(localStorage.getItem("onclickRecomms").length===0){
+        // console.log("IM HERE");
+        // temparr=JSON.parse(temparr);
+        console.log(JSON.stringify(temparr));
+        localStorage.setItem("onclickRecomms",JSON.stringify(temparr));
+
+    }
 })
+
 
 function renderCard1(pid, pname, price, category, pdesc, imgurl) {
     return `<div class="col-lg-4 col-md-6">
@@ -111,7 +128,7 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
 //! brands sec under sneakers
 let sneakerBrandList = document.getElementById("sneakerBrandList")
 var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
-
+console.log(brandsArr);
 sneakerBrandList.addEventListener("click", function () {
     $("#fruitsVegetable").html("");
     for (let i = 0; i < brandsArr.length; i++) {
