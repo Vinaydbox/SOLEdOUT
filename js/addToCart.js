@@ -5,8 +5,8 @@ $("#productPrice")
 */
 productAddedToCart = document.getElementById("productAddedToCart");
 function addToCart() {
-    alert("Product Added to cart Successfully!");
-    productAddedToCart.style.display = "inline";
+    // alert("Product Added to cart Successfully!");
+    // productAddedToCart.style.display = "inline";
     if (localStorage.getItem("userloggedin") == 1) {
         let currPID = window.location.hash.substring(1);
         console.log(currPID)
@@ -26,12 +26,9 @@ function addToCart() {
             data: JSON.stringify(productData),
             xhrFields: { withCredentials: false, },
             headers: {},
-
             success: function (productData) {
                 alert("product added to cart successfully")
                 console.log("success",productData);
-                
-
             },
             error: () => {
                 console.log("We are sorry but our servers are having an issue right now");

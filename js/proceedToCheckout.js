@@ -1,8 +1,7 @@
 //! proceed to checkout
-
 let proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
 proceedToCheckoutBtn.addEventListener('click', () => {
-    alert('prceed to checkout')
+    console.log('clicked proceed to checkout')
     let url = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
     $.get(url, (data) => {
         // objdata = data
@@ -13,7 +12,7 @@ proceedToCheckoutBtn.addEventListener('click', () => {
             // console.log(obj)
             $.ajax({
                 type: "post",
-                url: "http://localhost:3003/decrementProductCount/"+data[0].userCart[x].pid,
+                url: "http://localhost:3003/decrementProductCount/" + data[0].userCart[x].pid,
                 contentType: "application/json",
                 data: JSON.stringify(obj),
                 // data:{},
@@ -21,7 +20,6 @@ proceedToCheckoutBtn.addEventListener('click', () => {
                 xhrFields: { withCredentials: false, },
                 headers: {},
                 success: function (data) {
-                    alert("in product decrement");
                     console.log("product count decremented successfully");
                 },
                 error: () => {
@@ -29,5 +27,6 @@ proceedToCheckoutBtn.addEventListener('click', () => {
                 }
             })
         }
+        alert("Order Placed successfully...")
     })
 });

@@ -13,6 +13,7 @@ DONE
 5)Profile page(if time permits add edit button)
 3)Dynamic rendering of product brands(in shop page)
 4)Dynamic addeventlisteners for every brand (in shop page)
+5)stock
 
 ADDITIONAL
 

@@ -78,6 +78,9 @@ window.onload = function () {
     }
 }
 
+
+//! apply coupon functionality
+let finalPrice = 0;
 applyCouponBtn.addEventListener("click", () => {
     let url = "http://localhost:3003/fetchCoupon/" + couponEntered.value;
     $.get(url, (data) => {
@@ -89,7 +92,7 @@ applyCouponBtn.addEventListener("click", () => {
             alert("Coupon not found")
         }
         else {
-            let finalPrice = 0;
+            // let finalPrice = 0;
             for (let i = 0; i < doc[0].userCart.length; i++) {
                 let tempBrand = doc[0].userCart[i].brand
                 console.log(tempBrand)
@@ -121,5 +124,5 @@ applyCouponBtn.addEventListener("click", () => {
             )
         }
     })
-})
+} ,{once: true })
 

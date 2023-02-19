@@ -10,7 +10,7 @@ window.onload = function () {
         console.log(docs)
         response = docs[0];
         console.log(response)
-        $("#twitterUsername").html("@"+response.username)
+        $("#twitterUsername").html("@" + response.username)
         $("#instagramUsername").html(response.username)
         $("#facebookUsername").html(response.username)
         $("#mainUsernameField").html(response.username)
@@ -44,6 +44,7 @@ function editProfile() {
         // document.getElementById("edit4").contentEditable = true;
         document.getElementById("editCity").contentEditable = true;
         document.getElementById("uploadImage").style.display = "inline"
+        document.getElementById("uploadImage").contentEditable = true;
         document.getElementById("editProfileBtn").innerHTML = "Save Changes";
         flag_es = 1;
     }
@@ -62,21 +63,32 @@ function editProfile() {
     console.log("end of ediprofile func")
 }
 
+let picurl = document.getElementById("profileImage");
+
 function updateData() {
     // alert("update data functio")
-    let data = {
-        email: localStorage.getItem('loggedinUserEmail'),
-        username: $("#editUsername").text(),
-        mobileNumber: $("#editMobileNum").text(),
-        address: $("#editCity").text()
-    }
+    let fd = new FormData();
+    fd.append("email", localStorage.getItem('loggedinUserEmail'));
+    fd.append("username", $("#editUsername").text());
+    fd.append("mobileNumber", $("#editMobileNum").text());
+    fd.append("address", $("#editCity").text(),);
+    fd.append("profileImage", picurl.files[0]);
+   
+    // let data = {
+    //     email: localStorage.getItem('loggedinUserEmail'),
+    //     username: $("#editUsername").text(),
+    //     mobileNumber: $("#editMobileNum").text(),
+    //     address: $("#editCity").text(),
+    //     profileImage: $("#profileImage").
+    // }
     // console.log("data: " + JSON.stringify(data))
     $.ajax({
         type: "post",
         // url: url,
-        url : "http://localhost:3003/updateUser/" + localStorage.getItem("loggedinUserEmail"),
+        url: "http://localhost:3003/updateUser/" + localStorage.getItem("loggedinUserEmail"),
         contentType: "application/json",
-        data: JSON.stringify(data),
+        // data: JSON.stringify(data),
+        data:fd,
         xhrFields: { withCredentials: false, },
         headers: {},
         success: function (data) {
@@ -86,10 +98,10 @@ function updateData() {
             if (data == "success") {
                 console.log("updated successfully");
 
-            } else if(data == "failed") {
+            } else if (data == "failed") {
                 console.log("could not update");
             }
-            
+
         },
         error: function () {
             console.log("Issue with server.");
