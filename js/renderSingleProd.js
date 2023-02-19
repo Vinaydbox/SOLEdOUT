@@ -1,11 +1,26 @@
 let clickdata=localStorage.getItem("onclickRecomms");
 let searchRecomms=localStorage.getItem("searchRecomms");
+
 window.onload = function () {
     var id = window.location.hash.substring(1);
     let url = "http://localhost:3003/getProdDetailsByID/" + id;
     // let singleProductArea = document.getElementById("singleProductArea")
     $.get(url, (data, status) => {
         console.log(clickdata)
+        let stockAvailablity = "";
+        let color = ""
+        if(data.count > 5){
+            stockAvailablity = "In Stock"
+            color ="green"
+        }
+        else if(data.count >0 && data.count < 5){
+            stockAvailablity = "Hurry Up!!! Only Few Left..."
+            color="red"
+        }
+        else{
+            stockAvailablity = "Out Of Stock";
+            color="red"
+        }
         $("#singleProductArea").append(
             `<div class="container">
             <div class="row s_product_inner">
@@ -18,7 +33,7 @@ window.onload = function () {
                         <h2 id="productPrice">$${data.price}</h2>
                         <ul class="list">
                             <li><a class="active" id="productBrand" href="#"><span >Brand</span> : ${data.brand}</a></li>
-                            <li><a href="#"><span>Availibility</span> : In Stock</a></li>
+                            <li><a href="#"><span>Availibility</span> : <h5 style="color:${color};display:inline">${stockAvailablity}</h5></a></li>
                         </ul>
                         <p>${data.productDesc}</p>
                         <div id="productAddedToCart" style="display:none;"
@@ -47,11 +62,11 @@ window.onload = function () {
         if(clickdata.length>8){
             clickdata = clickdata.slice(0,9);
         }
-        console.log(clickdata);
+        console.log("clicked data",clickdata);
         let tempi= clickdata.sort(function(a, b) {
             return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
           });
-          console.log(tempi);
+          console.log("onclick recomms after sort",tempi);
         localStorage.setItem("onclickRecomms",JSON.stringify(tempi));
     })
 

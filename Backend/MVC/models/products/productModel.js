@@ -20,6 +20,9 @@ const productSchema = mongoose.Schema({
     },
     productURL:{
         type:String
+    },
+    count:{
+        type:Number
     }
 })
 

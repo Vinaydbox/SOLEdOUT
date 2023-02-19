@@ -33,6 +33,7 @@ function addProd(req, res) {
                         brand: req.body.brand,
                         productDesc: req.body.productDesc,
                         productURL: req.file.path,
+                        count : req.body.count
                     })
                     console.log("chalraha hai");
                     prodData.save((err, result) => {

@@ -7,7 +7,7 @@ async function fetchOneProduct(req, res){
         }
         else{
             // console.log(docs[0].brand);
-            console.log(docs[0].brand)
+            // console.log(docs)
             res.send(docs)
         }
     })

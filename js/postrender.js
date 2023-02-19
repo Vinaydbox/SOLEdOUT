@@ -16,9 +16,6 @@ if (localStorage.getItem("brandsArr") == null) {
     localStorage.setItem("brandsArr", JSON.stringify(["Nike", "Puma", "Adidas"]));
 }
 
-
-
-
 button.addEventListener('click', () => {
     $.get("http://localhost:3003/fetchProdByID/" + pid.value, (data) => {
         // console.log("data"+data);
@@ -31,6 +28,7 @@ button.addEventListener('click', () => {
             fd.append("productURL", picurl.files[0]);
             fd.append("productDesc", desc.value);
             fd.append("brand", brand.value);
+            fd.append("count",1);
             // console.log(brand.value)
             // alert(brand.value)
             var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
@@ -60,8 +58,22 @@ button.addEventListener('click', () => {
             })
         }
         else {
-            productAlreadyExists.style.display = "inline";
-            console.log("Product Already Exists");
+            //! if product already exists, increment the count of the product
+            $.ajax({
+                type: "post",
+                url: "http://localhost:3003/updateProductCount/"+pid.value,
+                contentType: false,
+                data: {},
+                processData: false,
+                xhrFields: { withCredentials: false, },
+                headers: {},
+                success: function (data) {
+                    console.log("product count incremented successfully");
+                },
+                error: () => {
+                    console.log("We are sorry but our servers are having an issue right now");
+                }
+            })
         }
     })
 })

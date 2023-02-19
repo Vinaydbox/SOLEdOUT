@@ -49,7 +49,7 @@ searchInput.addEventListener("keyup", (e) => {
                     return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
                   });
                   localStorage.setItem("searchRecomms",JSON.stringify(searchRecomms));
-                  console.log(searchRecomms);
+                  console.log("search recomms",searchRecomms);
             }
             else if (e.keyCode === 8) {
                 filterSection.style.display = "none";

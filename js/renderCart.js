@@ -72,7 +72,7 @@ window.onload = function () {
         `)
         });
     }
-    else{
+    else {
         alert("Please Login to view your cart...")
         window.location.href = "./index.html";
     }
@@ -122,3 +122,4 @@ applyCouponBtn.addEventListener("click", () => {
         }
     })
 })
+

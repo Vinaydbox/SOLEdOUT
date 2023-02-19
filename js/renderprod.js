@@ -33,6 +33,8 @@ $.get(url, function (data) {
         }
         container.innerHTML += x;
     }
+
+    //! setting local recomms and search recommns in local storage
     console.log(temparr)
     console.log(localStorage.getItem("onclickRecomms"));
     if(localStorage.getItem("onclickRecomms").length < 3){
