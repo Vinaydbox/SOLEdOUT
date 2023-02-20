@@ -1,3 +1,5 @@
+// const { startSession } = require("mongoose");
+
 let applyCouponBtn = document.getElementById("applyCoupon");
 let couponEntered = document.getElementById("couponEntered");
 let cartFooter = document.getElementById("cartfooter");

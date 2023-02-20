@@ -42,9 +42,9 @@ searchInput.addEventListener("keyup", (e) => {
                         searchRecomms.push({pid:data.result[i].pid,cnt:1});
                     }
                 }
-                if(searchRecomms.length>8){
-                    searchRecomms=searchRecomms.slice(0,9);
-                }
+                // if(searchRecomms.length>8){
+                //     searchRecomms=searchRecomms.slice(0,9);
+                // }
                 let tempi= searchRecomms.sort(function(a, b) {
                     return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
                   });

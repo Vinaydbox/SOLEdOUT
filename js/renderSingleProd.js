@@ -59,9 +59,9 @@ window.onload = function () {
                 clickdata[i].cnt +=1;
             } 
         }
-        if(clickdata.length>8){
-            clickdata = clickdata.slice(0,9);
-        }
+        // if(clickdata.length>8){
+        //     clickdata = clickdata.slice(0,9);
+        // }
         console.log("clicked data",clickdata);
         let tempi= clickdata.sort(function(a, b) {
             return (a.cnt > b.cnt) ? -1 : ((b.cnt > a.cnt) ? 1 : 0)
