@@ -15,9 +15,12 @@ window.onload = function () {
             // alert(data[0].userCart[0].productURL)
             // console.log(data[0].userCart);
             let totalprice = 0;
+
+
             for (let x = 0; x < data[0].userCart.length; x++) {
                 // console.log(data[0].userCart[x].count)
                 // console.log(data[0].userCart[x].price)
+
                 $("#cartItem1").append(`
                 <tr>
                 <td>
@@ -56,6 +59,7 @@ window.onload = function () {
             </tr> 
              
         `);
+
             }
             for (let x = 0; x < data[0].userCart.length; x++) {
                 totalprice = totalprice + (data[0].userCart[x].price.substring(1) * data[0].userCart[x].count);
@@ -124,5 +128,5 @@ applyCouponBtn.addEventListener("click", () => {
             )
         }
     })
-} ,{once: true })
+}, { once: true })
 

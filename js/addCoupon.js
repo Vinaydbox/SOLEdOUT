@@ -1,5 +1,3 @@
-
-//GET function
 //! need to change all this into jquery
 adminlogout = document.getElementById('adminlogout');
 adminlogout.addEventListener('click', function () {
@@ -25,17 +23,19 @@ addCouponBtn.addEventListener("click", function () {
 
 let couponCode = document.getElementById("couponCode");
 let couponDiscount = document.getElementById("couponDiscount");
-// let arr = document.getElementsByClassName("brandName");
 let pushCouponBtn = document.getElementById("pushCoupon");
 let couponAddedField = document.getElementById("couponAddedField")
-// let brandarr = [];
-// for (let i = 0; i < arr.length; i++) {
-//     if(arr[i].checked) {
 
-//         console.log(arr[i].value)
-//         brandarr.push(arr[i].value);
-//     }
-// }
+// dynamic loading of brands
+let brarr= JSON.parse(localStorage.getItem("brandsArr")); 
+let cntnr =document.getElementById("brandMultiSelect");
+
+for(let i=0;i<brarr.length;i++) {
+    cntnr.innerHTML +=`<option value="${brarr[i]}">${brarr[i]}</option>`
+}
+
+
+
 
 pushCouponBtn.addEventListener("click", () => {
     const availableBrands = document.querySelector("#brandMultiSelect");

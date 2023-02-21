@@ -11,6 +11,8 @@ const deleteProductFromCart = require('../controllers/products/delProdFromCart')
 const getSneakers = require('../controllers/products/searchBar');
 const updateProductCount = require('../controllers/products/updateProductCount');
 const decrementProductCount = require('../controllers/products/decrementProductCount');
+const clearCart = require('../controllers/products/clearCart');
+
 
 routes.get('/getproducts',getusers.fetchAllProducts);
 routes.post('/addProduct',addProducts.addProd);
@@ -22,5 +24,6 @@ routes.post('/deleteProductFromCart/',deleteProductFromCart.deleteProdFromCart)
 routes.post('/getSneakers/', getSneakers.searchSneakers)
 routes.post('/updateProductCount/:pid', updateProductCount.updateProductCount)
 routes.post('/decrementProductCount/:pid', decrementProductCount.decrementProductCount)
+routes.post('/clearCart/:email', clearCart.clearCart)
 
 module.exports = routes;

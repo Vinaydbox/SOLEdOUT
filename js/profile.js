@@ -63,6 +63,8 @@ function editProfile() {
     console.log("end of ediprofile func")
 }
 
+
+//!update profile data
 let picurl = document.getElementById("profileImage");
 
 function updateData() {

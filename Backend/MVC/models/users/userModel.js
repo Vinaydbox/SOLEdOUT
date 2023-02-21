@@ -35,6 +35,14 @@ const userSchema = mongoose.Schema({
         brand:{type:String},
         pid:{type:Number}
     }],
+    prevOrders:[{
+        productName: {type:String},
+        price: {type:String},
+        productURL: {type:String},
+        count:{type:Number},
+        brand:{type:String},
+        pid:{type:Number}
+    }],
 
     //! for recomendation engine
     userRecomms:{

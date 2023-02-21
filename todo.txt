@@ -18,3 +18,18 @@ DONE
 ADDITIONAL
 
 1)Faster rendering of products (in shop page)
+
+
+//
+
+1)ensure that count doesnt go into negative
+2)disable add to cart if out of stock
+3)on clicking proceedto checkout, clear the cart
+4)add css to search results
+5)profile image upload 
+
+
+//ADDITIONAL
+1)on clicking proceedto checkout, clear the cart and 
+    add to previously ordered products
+2)plus minus button in cart
