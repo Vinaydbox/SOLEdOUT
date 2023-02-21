@@ -8,7 +8,10 @@ const fetchOneUser = require('../controllers/users/fetchOneUser')
 const getUserCart = require('../controllers/users/getUserCart')
 const fetchUser = require('../controllers/users/fetchUser')
 const updateUser = require('../controllers/users/updateUser')
+const updateRecomms = require('../controllers/users/userrecomms')
 
+
+routes.post('/userRecommendations',updateRecomms.userRecommendations);
 routes.post('/validate', validateUser.validate)
 routes.post('/addUser', addUser.addUser)
 routes.get('/fetchAllUsers', fetchAllUsers.fetchAllUsers)

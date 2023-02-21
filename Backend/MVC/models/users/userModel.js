@@ -45,14 +45,14 @@ const userSchema = mongoose.Schema({
     }],
 
     //! for recomendation engine
-    userRecomms:{
-        onclickRecomms:[{
+    userRecommendations:{
+        onclickRecommendations:[{
             pid: {type:Number},
-            count: {type:Number}
+            cnt: {type:Number}
         }],
-        searchRecomms:[{
+        searchRecommendations:[{
             pid:{type:Number},
-            count: {type:Number}
+            cnt: {type:Number}
         }]
     }
 })
