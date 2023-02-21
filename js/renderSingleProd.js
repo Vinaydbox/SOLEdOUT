@@ -54,10 +54,15 @@ window.onload = function () {
         // console.log(JSON.parse(searchRecomms));
         clickdata = JSON.parse(clickdata);
         console.log(clickdata);
+        let fl=0;
         for(let i=0;i<clickdata.length;i++){
             if(clickdata[i].pid === data.pid){
+                fl=1;
                 clickdata[i].cnt +=1;
             } 
+        }
+        if(fl===0){
+            clickdata.push({pid:data.pid,cnt:1});
         }
         // if(clickdata.length>8){
         //     clickdata = clickdata.slice(0,9);
