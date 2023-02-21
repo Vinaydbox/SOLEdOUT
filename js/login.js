@@ -30,7 +30,6 @@ check.addEventListener("click", () => {
             // console.log(data[0].username);
             if (data.length == 0) {
                 invalidPasswordField.style.display = "inline";
-
             }
             else {
                 // localStorage.setItem("username", data[0].username);
@@ -50,8 +49,9 @@ check.addEventListener("click", () => {
                     heroEmail==data[0].email;
                     console.log("username set")
                     localStorage.setItem("loggedinUserEmail", data[0].email);
-                    localStorage.setItem("onclickRecomms",JSON.stringify(data[0].userRecomms.onclickRecomms));
-                    localStorage.setItem("searchRecomms",JSON.stringify(data[0].userRecomms.searchRecomms));
+                    console.log(data[0].userRecommendations.onclickRecommendations);
+                    localStorage.setItem("onclickRecomms",JSON.stringify(data[0].userRecommendations.onclickRecommendations));
+                    localStorage.setItem("searchRecomms",JSON.stringify(data[0].userRecommendations.searchRecommendations));
                     window.location.href = "./index.html";
             
                     profilebtn.innerHTML = localStorage.getItem("username");
