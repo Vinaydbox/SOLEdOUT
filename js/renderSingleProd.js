@@ -13,7 +13,7 @@ window.onload = function () {
             stockAvailablity = "In Stock"
             color ="green"
         }
-        else if(data.count >0 && data.count < 5){
+        else if(data.count >    0 && data.count < 5){
             stockAvailablity = "Hurry Up!!! Only Few Left..."
             color="red"
         }

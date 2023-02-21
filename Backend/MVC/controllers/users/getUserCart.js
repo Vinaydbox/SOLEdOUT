@@ -7,7 +7,10 @@ async function getUserCart(req, res) {
         if (err) {
             res.send("Error")
         } else {
-            res.send(docs)
+            console.log("osthundi");
+            console.log(docs[0].userCart);
+            // console.log(docs[0].userCart)
+            res.send(docs[0].userCart)
         }
     })
 }

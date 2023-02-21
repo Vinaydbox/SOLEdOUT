@@ -117,17 +117,18 @@
 			</li> -->
 			<!-- End Profile Page Nav -->
 
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 				<a class="nav-link collapsed" href="./category.html">
 					<i class="bi bi-question-circle"></i>
 					<span>Sneakers</span>
 				</a>
-			</li><!-- End F.A.Q Page Nav -->
+			</li> -->
+			<!-- End F.A.Q Page Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="#">
+				<a class="nav-link collapsed" id="sneakersListBtn" href="#sneakersList">
 					<i class="bi bi-airplane"></i>
-					<span>Portfolio</span>
+					<span>Sneakers List</span>
 				</a>
 			</li>
 			<!-- End Contact Page Nav -->
@@ -193,7 +194,7 @@
 											<i class="bi bi-people"></i>
 										</div>
 										<div class="ps-3">
-											<h6>1544</h6>
+											<h6 id="customersCount"></h6>
 											<!-- <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span> -->
 
 										</div>
@@ -220,7 +221,7 @@
 											<i class="bi bi-bar-chart-fill"></i>
 										</div>
 										<div class="ps-3">
-											<h6>4</h6>
+											<h6 id="sneakerCount"></h6>
 											<!-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
 
 										</div>
@@ -246,7 +247,7 @@
 											<i class="bi bi-person-circle"></i>
 										</div>
 										<div class="ps-3">
-											<h6>9</h6>
+											<h6 id="vendorsCount"></h6>
 											<!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
 
 										</div>
@@ -256,6 +257,32 @@
 							</div>
 						</div>
 						<!-- End Emp Card -->
+
+						<!-- Sneakers LIST -->
+						<div id="sneakersList" style="display:none" class="col-12">
+							<div class="card recent-sales overflow-auto">
+								<div class="card-body">
+									<h5 class="card-title">Sneakers List</h5>
+
+									<table id="sneakersTable" class="table " style="width:100%">
+										<thead>
+											<tr>
+												<th>product ID</th>
+												<th>Product Name</th>
+												<th>Product Price</th>
+												<th>Product Brand</th>
+												<!-- <th>First Name</th>
+												<th>Last Name</th>
+												<th>Avatar</th> -->
+											</tr>
+										</thead>
+									</table>
+
+								</div>
+
+							</div>
+						</div>
+						<!-- Sneakers LIST -->
 
 
 						<!--Add products Begins-->
@@ -379,7 +406,7 @@
 												<!-- !Brands -->
 												<div class="col-md-12" id="brandsApplicable">
 													<label for="brandMultiSelect">Brands Applicable: </label><br>
-													<select name="brandsarr[]" id="brandMultiSelect"
+													<select name="brandsarr[]" id="brandMultiSelect" 
 														class="selectpicker" multiple>
 														<!-- <option value="Nike">Nike</option>
 														<option value="Puma">Puma</option>

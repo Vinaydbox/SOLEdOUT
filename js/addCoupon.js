@@ -6,25 +6,51 @@ adminlogout.addEventListener('click', function () {
 })
 
 
+window.onload = function () {
+    $.get("http://localhost:3003/fetchAllUsers", (data) => {
+        let customersCount = 0;
+        let vendorcnt = 0;
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].userCategory == "Vendor") vendorcnt++;
+            else if (data[i].userCategory == "Customer") customersCount++;
+        }
+        document.getElementById("customersCount").innerHTML = customersCount - 1;
+        document.getElementById("vendorsCount").innerHTML = vendorcnt;
+    })
+    document.getElementById("sneakerCount").innerHTML = localStorage.getItem("sneakerCnt");
+}
+
+
 // userListbtn = document.getElementById("userListbtn");
 addCouponBtn = document.getElementById("addCouponBtn");
 addServicebtn = document.getElementById("addServicebtn");
+sneakersListbtn = document.getElementById("sneakersListBtn");
 
 
 addServicebtn.addEventListener("click", function () {
     document.getElementById("addCoupon").style.display = "none";
     document.getElementById("addService").style.display = "inline";
+    document.getElementById("sneakersList").style.display = "none"
 })
 
 addCouponBtn.addEventListener("click", function () {
     document.getElementById("addCoupon").style.display = "inline";
     document.getElementById("addService").style.display = "none";
+    document.getElementById("sneakersList").style.display = "none"
+})
+
+sneakersListbtn.addEventListener("click",()=>{
+    document.getElementById("addCoupon").style.display = "none";
+    document.getElementById("addService").style.display = "none";
+    document.getElementById("sneakersList").style.display = "inline"
 })
 
 let couponCode = document.getElementById("couponCode");
 let couponDiscount = document.getElementById("couponDiscount");
 let pushCouponBtn = document.getElementById("pushCoupon");
 let couponAddedField = document.getElementById("couponAddedField")
+
+
 
 // dynamic loading of brands
 let brarr= JSON.parse(localStorage.getItem("brandsArr")); 

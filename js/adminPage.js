@@ -35,26 +35,36 @@ adminlogout.addEventListener('click', function () {
 userListbtn = document.getElementById("userListbtn");
 addUserbtn = document.getElementById("addUserbtn");
 addServicebtn = document.getElementById("addServicebtn");
+sneakersListbtn = document.getElementById("sneakersListBtn");
 // addCouponBtn = document.getElementById("addCouponBtn");
 
 
 userListbtn.addEventListener("click", function () {
     // document.getElementById("addCoupon").style.display = "none";
     document.getElementById("addUser").style.display = "none";
+    document.getElementById("sneakerList").style.display = "none"
     document.getElementById("addService").style.display = "none";
     document.getElementById("userList").style.display = "inline";
 })
 addUserbtn.addEventListener("click", function () {
     // document.getElementById("addCoupon").style.display = "none";
+    document.getElementById("sneakerList").style.display = "none"
     document.getElementById("userList").style.display = "none";
     document.getElementById("addService").style.display = "none";
     document.getElementById("addUser").style.display = "inline";
 })
 addServicebtn.addEventListener("click", function () {
     // document.getElementById("addCoupon").style.display = "none";
+    document.getElementById("sneakerList").style.display = "none"
     document.getElementById("userList").style.display = "none";
     document.getElementById("addUser").style.display = "none";
     document.getElementById("addService").style.display = "inline";
+})
+sneakersListbtn.addEventListener("click", function () {
+    document.getElementById("userList").style.display = "none";
+    document.getElementById("addUser").style.display = "none";
+    document.getElementById("addService").style.display = "none";
+    document.getElementById("sneakerList").style.display = "inline"
 })
 
 // addCouponBtn.addEventListener("click", function () {
@@ -63,3 +73,17 @@ addServicebtn.addEventListener("click", function () {
 //     document.getElementById("userList").style.display = "none";
 //     document.getElementById("addUser").style.display = "none";
 // })
+
+window.onload = function () {
+    $.get("http://localhost:3003/fetchAllUsers", (data) => {
+        let customersCount = 0;
+        let vendorcnt = 0;
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].userCategory == "Vendor") vendorcnt++;
+            else if (data[i].userCategory == "Customer") customersCount++;
+        }
+        document.getElementById("customersCount").innerHTML = customersCount - 1;
+        document.getElementById("vendorsCount").innerHTML = vendorcnt;
+    })
+    document.getElementById("sneakerCount").innerHTML = localStorage.getItem("sneakerCnt");
+}

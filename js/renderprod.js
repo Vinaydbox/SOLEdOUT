@@ -12,6 +12,7 @@ $.get(url, function (data) {
     // console.log(data);
     data = JSON.parse(data);
     // console.log(data);
+    localStorage.setItem("sneakerCnt",data.length);
     for (i = 0; i < data.length; i++) {
         pid = data[i].pid;
         productName = data[i].productName;

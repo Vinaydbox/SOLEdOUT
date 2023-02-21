@@ -1,7 +1,8 @@
 const express = require('express');
 const routes = express.Router()
 
-const  addProducts = require('../controllers/products/addprod');
+
+const addProducts = require('../controllers/products/addprod');
 const getusers=require('../controllers/products/fetchall');
 const fetchOneProduct=require('../controllers/products/fetchOneProduct');
 const addToCart = require('../controllers/products/addToCart');
@@ -12,6 +13,7 @@ const getSneakers = require('../controllers/products/searchBar');
 const updateProductCount = require('../controllers/products/updateProductCount');
 const decrementProductCount = require('../controllers/products/decrementProductCount');
 const clearCart = require('../controllers/products/clearCart');
+const addToPrevOrders = require('../controllers/products/addToPrevOrders')
 
 
 routes.get('/getproducts',getusers.fetchAllProducts);
@@ -25,5 +27,6 @@ routes.post('/getSneakers/', getSneakers.searchSneakers)
 routes.post('/updateProductCount/:pid', updateProductCount.updateProductCount)
 routes.post('/decrementProductCount/:pid', decrementProductCount.decrementProductCount)
 routes.post('/clearCart/:email', clearCart.clearCart)
+routes.post('/addToPrevOrders/:email', addToPrevOrders.addToPrevOrders)
 
 module.exports = routes;

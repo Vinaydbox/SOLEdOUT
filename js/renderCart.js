@@ -13,13 +13,10 @@ window.onload = function () {
             // alert("render cart")
             doc = data;
             console.log(data);
-            // alert("renderin cart")
-            // alert(data[0].userCart[0].productURL)
-            // console.log(data[0].userCart);
             let totalprice = 0;
 
 
-            for (let x = 0; x < data[0].userCart.length; x++) {
+            for (let x = 0; x < data.length; x++) {
                 // console.log(data[0].userCart[x].count)
                 // console.log(data[0].userCart[x].price)
 
@@ -28,11 +25,11 @@ window.onload = function () {
                 <td>
                 <div class="media">
                 <div class="d-flex">
-                <a href="./single-product.html#${data[0].userCart[x].pid}">
-                            <img src="${data[0].userCart[x].productURL}" alt="" width="150px" height="150px">
+                <a href="./single-product.html#${data[x].pid}">
+                            <img src="${data[x].productURL}" alt="" width="150px" height="150px">
                         </div>
                         <div class="media-body">
-                            <p class="text-dark">${data[0].userCart[x].productName}</p>
+                            <p class="text-dark">${data[x].productName}</p>
                             </a>
                         </div>
                     </div>
@@ -40,7 +37,7 @@ window.onload = function () {
                 </td>
                 <td>
                     <div class="product_count">
-                        <input type="text" name="qty" id="sst" maxlength="12" value="${data[0].userCart[x].count}" title="Quantity:"
+                        <input type="text" name="qty" id="sst" maxlength="12" value="${data[x].count}" title="Quantity:"
                                                 class="input-text qty">
                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
                                                 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
@@ -49,13 +46,13 @@ window.onload = function () {
                         </div>
                     </td>
                     <td>
-                        <h5>${data[0].userCart[x].price}</h5>
+                        <h5>${data[x].price}</h5>
                     </td>
                 <td>
-                    <h5>$${data[0].userCart[x].price.substring(1) * data[0].userCart[x].count}</h5>
+                    <h5>$${data[x].price.substring(1) * data[x].count}</h5>
                 </td>
                 <td>
-                <button onclick="deleteProdFromCart(${data[0].userCart[x].pid})" class="btn btn-outline-danger"><i class="lnr lnr-trash"></i></button>
+                <button onclick="deleteProdFromCart(${data[x].pid})" class="btn btn-outline-danger"><i class="lnr lnr-trash"></i></button>
                 
                 </td>  
             </tr> 
@@ -63,8 +60,8 @@ window.onload = function () {
         `);
 
             }
-            for (let x = 0; x < data[0].userCart.length; x++) {
-                totalprice = totalprice + (data[0].userCart[x].price.substring(1) * data[0].userCart[x].count);
+            for (let x = 0; x < data.length; x++) {
+                totalprice = totalprice + (data[x].price.substring(1) * data[x].count);
             }
             $("#cartItem1").append(`<td></td>
         <td></td>

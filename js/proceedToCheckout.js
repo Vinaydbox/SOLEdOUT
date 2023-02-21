@@ -1,18 +1,44 @@
-//! proceed to checkout
 let proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
-proceedToCheckoutBtn.addEventListener('click', () => {
-    console.log('clicked proceed to checkout')
-    let url = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
-    $.get(url, (data) => {
+
+//!add cart items to prevorders
+let cartdata;
+proceedToCheckoutBtn.addEventListener("click", () => {
+    let geturl = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+    let url = "http://localhost:3003/addToPrevOrders/" + localStorage.getItem("loggedinUserEmail")
+    $.get(geturl, (cartdata) => {
+        // alert("in get call prevorders")
+        // if(err){
+        //     console.log("err");
+        // }
+        // else{
+        console.log(cartdata);
+        $.ajax({
+            type: "post",
+            url: url,
+            contentType: "application/json",
+            data: JSON.stringify(doc),
+            xhrFields: { withCredentials: false },
+            headers: {},
+            success: function (data) {
+                console.log("cart items added to prev ordered items")
+            },
+            error: function () {
+                console.log("error")
+            }
+        })
+        // }
+    })
+    let urls = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+    $.get(urls, (data) => {
         // objdata = data
-        for (let x = 0; x < data[0].userCart.length; x++) {
+        for (let x = 0; x < data.length; x++) {
             let obj = {
-                count: data[0].userCart[x].count,
+                count: data[x].count,
             }
             // console.log(obj)
             $.ajax({
                 type: "post",
-                url: "http://localhost:3003/decrementProductCount/" + data[0].userCart[x].pid,
+                url: "http://localhost:3003/decrementProductCount/" + data[x].pid,
                 contentType: "application/json",
                 data: JSON.stringify(obj),
                 // data:{},
@@ -29,60 +55,28 @@ proceedToCheckoutBtn.addEventListener('click', () => {
         }
         alert("Order Placed successfully...")
     })
-});
+    let urlk = "http://localhost:3003/clearCart/" + localStorage.getItem("loggedinUserEmail");
+    let obj = {
+        email: localStorage.getItem("loggedinUserEmail"),
 
-
-
-//!add cart items to prevorders
-// proceedToCheckoutBtn.addEventListener("click",()=>{
-//     let doc;
-//     console.log("proced to checkout clicked to add cart to prevordereditems")
-//     let url = "http://localhost:3003/addToPrevOrders/" + localStorage.getItem("loggedinUserEmail")
-//         $.get(url, (data) => { 
-//             doc = data;
-//         })  
-//     $.ajax({
-//         type:"post",
-//         url:url,
-//         contentType:"application/json",
-//         data : JSON.stringify(doc),
-//         xhrFields:{withCredentials:false},
-//         headers:{},
-//         success:function(data){
-//             console.log("cart items added to prev ordered items")
-//         },
-//         error:function(){
-//             console.log("error")
-//         }
-//     })
-
-// })
-
-
-proceedToCheckoutBtn.addEventListener("click",()=>{
-    //!clear cart items
-    console.log("proceed to checkout clicked to clear cart items");
-    let url = "http://localhost:3003/clearCart/" + localStorage.getItem("loggedinUserEmail");
-    let obj={ 
-        email :localStorage.getItem("loggedinUserEmail"),
-        
     }
     $.ajax({
-        type:"post",
-        url:url,
+        type: "post",
+        url: urlk,
         contentType: "application/json",
         data: JSON.stringify(obj),
         xhrFields: { withCredentials: false, },
         headers: {},
-        success: function(data){
+        success: function (data) {
             console.log("Successfully cleared the cart")
 
         },
-        error:function(){
+        error: function () {
             console.log("Error")
         }
     })
     window.location.href = "./cart.html"
 
 })
+
 
