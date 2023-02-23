@@ -1,6 +1,7 @@
 const productgen = require('../../models/products/productModel').productModel;
 
 async function fetchOneProduct(req, res){
+    
     productgen.find({brand:req.params.brand},(err,docs)=>{
         if(err){
             res.send("Error")

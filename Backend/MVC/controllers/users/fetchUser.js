@@ -7,6 +7,7 @@ async function fetchUser(req, res) {
         if (err) {
             res.send("Error")
         } else {
+            console.log(docs)
             res.send(docs)
         }
     })

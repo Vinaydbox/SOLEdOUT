@@ -9,6 +9,7 @@ const getUserCart = require('../controllers/users/getUserCart')
 const fetchUser = require('../controllers/users/fetchUser')
 const updateUser = require('../controllers/users/updateUser')
 const updateRecomms = require('../controllers/users/userrecomms')
+const getPrevOrders = require('../controllers/users/getPrevOrders')
 
 
 routes.post('/userRecommendations',updateRecomms.userRecommendations);
@@ -19,5 +20,6 @@ routes.get('/fetchOneUser/:email', fetchOneUser.fetchOneUser);
 routes.get('/getUserCart/:email', getUserCart.getUserCart)
 routes.get('/fetchUser/:email', fetchUser.fetchUser)
 routes.post('/updateUser/:email', updateUser.updateUser)
+routes.get('/getPrevOrders/:email', getPrevOrders.getPrevOrders)
 
 module.exports = routes;

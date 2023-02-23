@@ -7,30 +7,7 @@ adminlogout.addEventListener('click', function () {
     window.location.href = './index.html';
 })
 
-// const httRequest = new XMLHttpRequest();
-// let tablebody = document.getElementById("tablebody");
-// httRequest.open("GET","http:127.0.0.1:3000/userdata");
-// httRequest.send();
-// var data = "empty"
-// httRequest.onload = function() {
-//     data = JSON.parse(httRequest.responseText);
-//     console.log(data);
-//     users_data = data.data;
-//     for(var i=0; i<users_data.length; i++){
-//         tablebody.innerHTML += renderUser(users_data[i].email,users_data[i].first_name,users_data[i].last_name);
-//     }
-// }
 
-// function renderUser(email, first_name,last_name)
-// {
-//     return `
-//     <tr>
-//     <td>${first_name}</td>
-//     <td>${last_name}</td>
-//     <td>${email}</td>
-//     </tr>
-//     `
-// }
 
 userListbtn = document.getElementById("userListbtn");
 addUserbtn = document.getElementById("addUserbtn");
@@ -74,6 +51,34 @@ sneakersListbtn.addEventListener("click", function () {
 //     document.getElementById("addUser").style.display = "none";
 // })
 
+var xValues = JSON.parse(localStorage.getItem("brandsArr"));
+let yValues = [];
+async function findYValues(xValues) {
+    for (let i = 0; i < xValues.length; i++) {
+        let data = await $.get("http://localhost:3003/fetchOneProduct/" + xValues[i])
+        yValues.push(data.length)
+    }
+    var barColors = ["blue"];
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues,
+                label: "Products Summary"
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Products Summary"
+            }
+        },
+    });
+}
+
 window.onload = function () {
     $.get("http://localhost:3003/fetchAllUsers", (data) => {
         let customersCount = 0;
@@ -86,4 +91,10 @@ window.onload = function () {
         document.getElementById("vendorsCount").innerHTML = vendorcnt;
     })
     document.getElementById("sneakerCount").innerHTML = localStorage.getItem("sneakerCnt");
+
+    findYValues(xValues)
+
 }
+
+console.log(yValues)
+
