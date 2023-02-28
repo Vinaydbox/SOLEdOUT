@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const url = "mongodb://localhost:27017/SOLEdOUT"
+const url = "mongodb+srv://vinay:12345@cluster0.dwee6wh.mongodb.net/SOLEdOUT?retryWrites=true&w=majority"
 
 mongoose.connect(url)
 mongoose.Promise = global.Promise
