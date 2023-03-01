@@ -47,6 +47,7 @@ async function addToCart(req, res) {
 				}
 			})
 		}
+		console.log("here");
 		res.send("addedToCart");
 	}
 	catch(err){
