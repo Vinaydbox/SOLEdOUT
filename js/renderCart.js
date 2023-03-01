@@ -59,32 +59,31 @@ window.onload = function () {
             </tr>   
         `);
 
-                let deletebuttons = document.querySelectorAll(".delbuttons");
-                deletebuttons.forEach(function (btn) {
-                    btn.addEventListener("click", () => {
-                        var pid = btn.getAttribute("data-index");
-                        let obj = {
-                            userEmail: localStorage.getItem("loggedinUserEmail"),
-                            pid: pid
-                        }
-                        $.ajax({
-                            type: "post",
-                            url: elasticIP + "/deleteProductFromCart/",
-                            contentType: "application/json",
-                            data: JSON.stringify(obj),
-                            xhrFields: { withCredentials: false, },
-                            headers: {},
-                            success: function (data) {
-                                console.log("Successfully deleted")
-
-                            },
-                            error: function () {
-                                console.log("Error")
-                            }
-                        })
-                        window.location.href = "./cart.html"
-                    })
-                });
+        let deletebuttons = document.querySelectorAll(".delbuttons");
+        deletebuttons.forEach(function (btn) {
+            btn.addEventListener("click", () => {
+                var pid = btn.getAttribute("data-index");
+                let obj = {
+                    userEmail: localStorage.getItem("loggedinUserEmail"),
+                    pid: pid
+                }
+                $.ajax({
+                    type: "post",
+                    url: elasticIP + "/deleteProductFromCart/",
+                    contentType: "application/json",
+                    data: JSON.stringify(obj),
+                    xhrFields: { withCredentials: false, },
+                    headers: {},
+                    success: function (data) {
+                        console.log("Successfully deleted")
+                    },
+                    error: function () {
+                        console.log("Error")
+                    }
+                })
+                window.location.href = "./cart.html"
+            })
+        });
 
                 // let deleteProductFromCartBtn = document.getElementById("deleteProductFromCartBtn")
                 // deleteProductFromCartBtn.addEventListener("click", () => {
@@ -115,15 +114,13 @@ window.onload = function () {
                 totalprice = totalprice + (data[x].price.substring(1) * data[x].count);
             }
             $("#cartItem1").append(`<td></td>
-        <td></td>
-        <td>
-            <h5>Subtotal</h5>
-        </td>
-        <td>
-            <h5>$${totalprice}</h5>
-        </td>
-        
-        `)
+                <td></td>
+                <td>
+                    <h5>Subtotal</h5>
+                </td>
+                <td>
+                    <h5>$${totalprice}</h5>
+                </td>`)
         });
     }
     else {
@@ -155,7 +152,6 @@ applyCouponBtn.addEventListener("click", () => {
                 console.log(tempBrand)
                 let flag = false;
                 for (let j = 0; j < data[0].brand.length; j++) {
-
                     if (data[0].brand[j] == tempBrand) {
                         flag = true;
                         console.log("in 2nd for loop if")

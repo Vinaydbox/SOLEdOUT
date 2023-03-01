@@ -4,38 +4,9 @@ const elasticIP = head();
 let nike = document.getElementById("Nike")
 let adidas = document.getElementById("Adidas")
 let puma = document.getElementById("Puma")
-let mainsec = document.getElementById("productSection");
-let brandSection = document.getElementById("brandSection");
 
-function getBrandItems(brandName) {
-    mainsec.style.display = "none";
-    let url = elasticIP + "/fetchOneProduct/" + brandName;
-    $.get(url, (data) => {
-        // console.log(JSON.stringify(data));
-        // data = JSON.parse(data);HTML
-        console.log(data);
-        brandSection.innerHTML = "";
-        for (i = 0; i < data.length; i++) {
-            let pid = data[i].pid;
-            let productName = data[i].productName;
-            let price = data[i].price;
-            let category = data[i].brand;
-            let productDesc = data[i].productDesc;
-            let purl = data[i].productURL;
-            let x;
-            if (i % 3 == 0) {
-                x = renderCard3(pid, productName, price, category, productDesc, purl);
-            }
-            if (i % 3 == 1) {
-                x = renderCard2(pid, productName, price, category, productDesc, purl);
-            }
-            if (i % 3 == 2) {
-                x = renderCard3(pid, productName, price, category, productDesc, purl);
-            }
-            brandSection.innerHTML += x;
-        }
-    })
-}
+
+
 
 // function renderCard1(pid, pname, price, category, pdesc, imgurl) {
 //     return `<div class="col-lg-4 col-md-6">

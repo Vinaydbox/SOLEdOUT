@@ -133,6 +133,8 @@ function renderCard3(pid, pname, price, category, pdesc, imgurl) {
 }
 
 
+let mainsec = document.getElementById("productSection");
+let brandSection = document.getElementById("brandSection");
 
 //! brands sec under sneakers
 let sneakerBrandList = document.getElementById("sneakerBrandList")
@@ -141,9 +143,55 @@ console.log(brandsArr);
 sneakerBrandList.addEventListener("click", function () {
     $("#fruitsVegetable").html("");
     for (let i = 0; i < brandsArr.length; i++) {
-        $("#fruitsVegetable").append(`<li style="cursor:pointer" class="main-nav-list child"><a onclick="getBrandItems('${brandsArr[i]}')">${brandsArr[i]}<span
+        $("#fruitsVegetable").append(`<li style="cursor:pointer" data-index=${brandsArr[i]} class="main-nav-list child brandClicker"><a  id="brandElement${brandsArr[i]}" )">${brandsArr[i]}<span
     class="number"></span></a></li>`)
     }
+    let brandClick = document.querySelectorAll(".brandClicker");
+        brandClick.forEach(function(btn){
+            btn.addEventListener("click", ()=>{
+            var brandid = btn.getAttribute("data-index");
+            var brandName = brandid;
+            console.log(brandid)
+            let url = elasticIP + "/fetchOneProduct/" + brandName;
+            $.get(url, (data) => {
+                // console.log(JSON.stringify(data));
+                // data = JSON.parse(data);HTML
+                console.log("printing Here")
+                console.log(data);
+                mainsec.innerHTML = ""; 
+                for (let i = 0; i < data.length; i++) {
+                    let pid = data[i].pid;
+                    let productName = data[i].productName;
+                    let price = data[i].price;
+                    let category = data[i].brand;
+                    let productDesc = data[i].productDesc;
+                    let purl = data[i].productURL;
+                    let x;
+                    if (i % 3 == 0) {
+                        x = renderCard3(pid, productName, price, category, productDesc, purl);
+                    }
+                    if (i % 3 == 1) {
+                        x = renderCard2(pid, productName, price, category, productDesc, purl);
+                    }
+                    if (i % 3 == 2) {
+                        x = renderCard3(pid, productName, price, category, productDesc, purl);
+                    }
+                    mainsec.innerHTML += x;
+                }
+            })
+        })
+    })
 })
+            
+
+
+
+
+// function getBrandItems(brandName) {
+//     mainsec.style.display = "none";
+    
+// }
+
+
 
 
