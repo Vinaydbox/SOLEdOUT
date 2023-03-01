@@ -1,12 +1,11 @@
+const { isTemplateLiteralTypeNode } = require('typescript');
+
 const productgen = require('../../models/products/productModel').productModel;
 //! to check if the user is already existing in the database
 
-async function fetchProdByID(req, res) {
-    productgen.find({ pid: req.params.pid }, (err, docs) => {
-        if (err) {
-            res.send("Error")
-        } else {
-            // docs = JSON.stringify(docs)
+function fetchProdByID(req, res) {
+    const data = productgen.find({ pid: req.params.pid }, (err, docs) => {
+        try{
             if (docs.length >= 1) {
                 res.send("Exists")
                 console.log("Exists")
@@ -15,6 +14,9 @@ async function fetchProdByID(req, res) {
                 res.send("DoNotExist")
                 console.log("DoNotExist")
             }
+        }
+        catch(err){
+            console.log(err);
         }
     })
 }
