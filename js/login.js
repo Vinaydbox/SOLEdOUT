@@ -28,8 +28,8 @@ check.addEventListener("click", () => {
             console.log("Success");
             localStorage.setItem("userloggedin", "1");
 
-            data = JSON.parse(data);
-            console.log(data);
+            // data = JSON.parse(data);
+            // console.log(data);
             // console.log(data[0].username);
             if (data.length == 0) {
                 invalidPasswordField.style.display = "inline";
