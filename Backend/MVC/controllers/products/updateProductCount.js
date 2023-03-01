@@ -1,7 +1,7 @@
 const productgen = require('../../models/products/productModel').productModel;
 
 async function updateProductCount(req, res){
-    productgen.updateOne({pid:req.params.pid},
+    await productgen.updateOne({pid:req.params.pid},
         {
             $inc:{"count":1}
         },

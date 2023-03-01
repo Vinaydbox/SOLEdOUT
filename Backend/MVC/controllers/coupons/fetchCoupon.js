@@ -1,7 +1,7 @@
 const couponModelCtrl = require('../../models/products/couponModel')
 
-function fetchCoupon(req, res) {
-    const data = couponModelCtrl.couponModel.find({ couponCode: req.params.couponCode })
+async function fetchCoupon(req, res) {
+    const data = await couponModelCtrl.couponModel.find({ couponCode: req.params.couponCode })
     try {
         res.send(data);
     }

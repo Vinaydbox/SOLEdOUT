@@ -2,7 +2,7 @@ const productgen = require('../../models/products/productModel').productModel;
 
 async function decrementProductCount(req, res){
     console.log(req.body)
-    productgen.updateOne({pid:req.params.pid},
+    await productgen.updateOne({pid:req.params.pid},
         {
             $inc:{"count":-parseInt(req.body.count)}
         },

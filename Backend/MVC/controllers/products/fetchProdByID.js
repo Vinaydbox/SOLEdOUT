@@ -3,8 +3,8 @@
 const productgen = require('../../models/products/productModel').productModel;
 //! to check if the user is already existing in the database
 
-function fetchProdByID(req, res) {
-    const data = productgen.find({ pid: req.params.pid }, (err, docs) => {
+async function fetchProdByID(req, res) {
+    const data = await productgen.find({ pid: req.params.pid }, (err, docs) => {
         try{
             if (docs.length >= 1) {
                 res.send("Exists")
