@@ -1,7 +1,7 @@
 const userModelCtrl = require('../../models/users/userModel')
 
 async function fetchAllUsers(req, res){
-    userModelCtrl.userModel.find({},(err, docs)=>{
+    await userModelCtrl.userModel.find({},(err, docs)=>{
         if(err){
             res.send("something went wrong");
         }
