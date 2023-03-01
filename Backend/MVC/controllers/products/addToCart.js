@@ -18,14 +18,7 @@ async function addToCart(req, res) {
 		}
 		console.log(found);
 		if (found == true) {
-			usergen.updateOne({ email: req.body.loggedinUserEmail }, { $set: { userCart: doc[0].userCart } }, { upsert: true }, (err, docs) => {
-				if (err) {
-					console.log(err);
-				}
-				else {
-					console.log(docs);
-				}
-			});
+			await usergen.updateOne({ email: req.body.loggedinUserEmail }, { $set: { userCart: doc[0].userCart } }, { upsert: true });
 		}
 		if (found != true) {
 			console.log("coming");
@@ -37,15 +30,7 @@ async function addToCart(req, res) {
 				brand: req.body.brand,
 				pid: req.body.pid,
 			}
-			// console.log(obj);
-			usergen.updateOne({ email: req.body.loggedinUserEmail }, { $push: { userCart: obj } }, { upsert: true }, (err, docs) => {
-				if (err) {
-					console.log(err);
-				}
-				else {
-					console.log(docs);
-				}
-			})
+			await usergen.updateOne({ email: req.body.loggedinUserEmail }, { $push: { userCart: obj } }, { upsert: true });
 		}
 		console.log("here");
 		res.send("addedToCart");
