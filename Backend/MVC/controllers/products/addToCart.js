@@ -52,6 +52,7 @@ async function addToCart(req, res) {
 		res.send("addedToCart");
 	}
 	catch(err){
+		console.log(err);
 		res.send(err);
 	}
 	
