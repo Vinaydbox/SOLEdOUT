@@ -10,6 +10,7 @@ async function addToCart(req, res) {
 	try{
 		let found = false;
 		doc = data;
+		console.log("finding here");
 		for (let t = 0; t < doc[0].userCart.length; t++) {
 			if (doc[0].userCart[t].productName === req.body.productName) {
 				doc[0].userCart[t].count++;
