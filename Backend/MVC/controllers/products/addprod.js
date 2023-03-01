@@ -6,19 +6,6 @@ const multerS3 = require('multer-s3');
 const dotenv = require('dotenv');
 const { S3Client } = require('@aws-sdk/client-s3');
 
-
-// var storage = multer.diskStorage({
-//     destination: (req, file, cb) => { 
-//         cb(null, '../../uploads')
-//     }, 
-//     filename: (req, file, cb) => { 
-//         cb(null, file.originalname);},
-//     })
-// var upload = multer({ storage: storage }).single('productURL');
-
-
-
-
 dotenv.config();
 
 let s3 = new S3Client({
@@ -31,9 +18,6 @@ let s3 = new S3Client({
     s3ForcePathStyle: true,
     signatureVersion: 'v4',
 });
-// console.log("keys")
-// console.log(process.env.AWS_ACCESS_KEY_ID);
-// console.log(process.env.AWS_SECRET_ACCESS_KEY);
 
 const upload = multer({
     storage: multerS3({
@@ -68,7 +52,7 @@ async function addProd(req, res) {
                 count: req.body.count
             })
             console.log("chalraha hai");
-            const resu = prodData.save();
+            prodData.save();
         }
         catch(error){
             res.send(error);
