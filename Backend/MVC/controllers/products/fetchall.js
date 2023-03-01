@@ -1,6 +1,6 @@
 const productgen = require('../../models/products/productModel').productModel;
 
-async function fetchAllProducts(req, res){
+function fetchAllProducts(req, res){
     productgen.find({},(err, docs)=>{
         if(err){
             res.send("something went wrong");
