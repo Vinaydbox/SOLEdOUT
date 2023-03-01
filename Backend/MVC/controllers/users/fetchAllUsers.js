@@ -1,14 +1,15 @@
 const userModelCtrl = require('../../models/users/userModel')
 
 async function fetchAllUsers(req, res){
-    await userModelCtrl.userModel.find({},(err, docs)=>{
-        if(err){
-            res.send("something went wrong");
-        }
-        else{
-            res.send(docs);
-        }
-    })
+    const docs = await userModelCtrl.userModel.find({});
+    try{
+        res.send(docs);
+    }
+    catch(err){
+        console.log(err);
+        res.send(err);
+
+    }
 }
 
 module.exports = {fetchAllUsers};
