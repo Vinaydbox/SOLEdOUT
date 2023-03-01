@@ -53,7 +53,7 @@ let uploadurl = upload.single("productURL");
 
 
 
-function addProd(req, res) {
+async function addProd(req, res) {
     uploadurl(req, res, (err) => {
         console.log("in upload");
         try {
