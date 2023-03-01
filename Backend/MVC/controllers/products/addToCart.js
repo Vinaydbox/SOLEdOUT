@@ -2,12 +2,11 @@ const cartgen = require('../../models/cart/cartModel').cartModel;
 const usergen = require('../../models/users/userModel').userModel;
 
 
-function addToCart(req, res) {
+async function addToCart(req, res) {
 	// console.log("this is backend");
-	let doc;
 	// console.log(req.body.loggedinUserEmail);
 	console.log(req.body.loggedinUserEmail);
-	usergen.findOne({email: req.body.loggedinUserEmail},(err, data) => {
+	const doc = await usergen.find({email: req.body.loggedinUserEmail});
 		if (err) {
 			console.log("err");
 		} else {
@@ -52,7 +51,6 @@ function addToCart(req, res) {
 			}
 			res.send("addedToCart");
 		}
-	});
 }
 
 
