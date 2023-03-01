@@ -1,15 +1,15 @@
 const productgen = require('../../models/products/productModel').productModel;
 
-function fetchAllProducts(req, res){
-    productgen.find({},(err, docs)=>{
-        if(err){
+async function fetchAllProducts(req, res) {
+    await productgen.find({}, (err, docs) => {
+        if (err) {
             res.send("something went wrong");
         }
-        else{
+        else {
             console.log("products milgaye");
             res.send(JSON.stringify(docs));
         }
     })
 }
 
-module.exports = {fetchAllProducts};
+module.exports = { fetchAllProducts };
