@@ -1,4 +1,4 @@
-const { isTemplateLiteralTypeNode } = require('typescript');
+// const { isTemplateLiteralTypeNode } = require('typescript');
 
 const productgen = require('../../models/products/productModel').productModel;
 //! to check if the user is already existing in the database
