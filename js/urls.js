@@ -1,5 +1,5 @@
 function head(){
-    let elasticIP="http://localhost:3003";
+    let elasticIP="http://3.6.140.23";
     return elasticIP;
 }
 export default head;
