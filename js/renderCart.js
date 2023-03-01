@@ -1,5 +1,7 @@
 // const { startSession } = require("mongoose");
+import head from "./urls.js";
 
+const elasticIP = head();
 let applyCouponBtn = document.getElementById("applyCoupon");
 let couponEntered = document.getElementById("couponEntered");
 let cartFooter = document.getElementById("cartfooter");
@@ -8,7 +10,7 @@ let doc;
 
 window.onload = function () {
     if (localStorage.getItem("userloggedin") == 1) {
-        let url = "http://localhost:3003/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+        let url = elasticIP+"/getUserCart/" + localStorage.getItem("loggedinUserEmail");
         $.get(url, (data) => {
             // alert("render cart")
             doc = data;
@@ -85,7 +87,7 @@ window.onload = function () {
 //! apply coupon functionality
 let finalPrice = 0;
 applyCouponBtn.addEventListener("click", () => {
-    let url = "http://localhost:3003/fetchCoupon/" + couponEntered.value;
+    let url = elasticIP+"/fetchCoupon/" + couponEntered.value;
     $.get(url, (data) => {
 
         console.log("this is my data")

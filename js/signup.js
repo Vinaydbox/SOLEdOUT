@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let fullName = document.getElementById("fullname")
 let signupEmail = document.getElementById("signupEmail")
 let signupPassword = document.getElementById("signupPassword")
@@ -8,7 +11,7 @@ let userAlreadyExists = document.getElementById("userAlreadyExists")
 
 
 signupbtn.addEventListener("click", () => {
-    $.get("http://localhost:3003/fetchOneUser/"+signupEmail.value, (data) => {
+    $.get(elasticIP+"/fetchOneUser/"+signupEmail.value, (data) => {
         console.log(data);
         if (data == "DoNotExist") {
             if (signupPassword.value === confirmPassword.value) {
@@ -21,7 +24,7 @@ signupbtn.addEventListener("click", () => {
                 }
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:3003/addUser",
+                    url: elasticIP+"/addUser",
                     contentType: "application/json",
                     data: JSON.stringify(data),
                     xhrFields: { withCredentials: false, },

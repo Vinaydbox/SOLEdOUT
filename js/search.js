@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let searchInput = document.getElementById("searchInput")
 let searchResults = document.getElementById("searchResults")
 let filterSection = document.getElementById("filterSection")
@@ -10,7 +13,7 @@ searchInput.addEventListener("keyup", (e) => {
     console.log(searchInput.value)
     $.ajax({
         type: "post",
-        url: "http://localhost:3003/getSneakers",
+        url: elasticIP+"/getSneakers",
         contentType: "application/json",
         data: JSON.stringify({ query: searchInput.value }),
         xhrFields: { withCredentials: false, },

@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let container = document.getElementById('productSection');
 let pname = document.getElementById('productName');
 let price = document.getElementById('price');
@@ -17,7 +20,7 @@ if (localStorage.getItem("brandsArr") == null) {
 }
 
 button.addEventListener('click', () => {
-    $.get("http://localhost:3003/fetchProdByID/" + pid.value, (data) => {
+    $.get(elasticIP+"/fetchProdByID/" + pid.value, (data) => {
         // console.log("data"+data);
         if (data == "DoNotExist") {
             console.log("clicked");
@@ -29,7 +32,7 @@ button.addEventListener('click', () => {
             fd.append("productDesc", desc.value);
             fd.append("brand", brand.value);
             fd.append("count",1);
-            // console.log(brand.value)
+            console.log(picurl.files[0]);
             // alert(brand.value)
             var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
             // console.log("before",brandsArr)
@@ -41,9 +44,9 @@ button.addEventListener('click', () => {
             console.log("after",brandsArr)
             $.ajax({
                 type: "post",
-                url: "http://localhost:3003/addProduct",
-                contentType: false,
+                url: elasticIP+"/addProduct",
                 data: fd,
+                contentType: false,
                 processData: false,
                 xhrFields: { withCredentials: false, },
                 headers: {},
@@ -61,7 +64,7 @@ button.addEventListener('click', () => {
             //! if product already exists, increment the count of the product
             $.ajax({
                 type: "post",
-                url: "http://localhost:3003/updateProductCount/"+pid.value,
+                url: elasticIP+"/updateProductCount/"+pid.value,
                 contentType: false,
                 data: {},
                 processData: false,

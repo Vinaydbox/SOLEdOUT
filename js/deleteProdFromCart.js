@@ -1,4 +1,6 @@
+import head from "./urls.js";
 
+const elasticIP = head();
 function deleteProdFromCart(pid){
     let obj={ 
         userEmail :localStorage.getItem("loggedinUserEmail"),
@@ -6,7 +8,7 @@ function deleteProdFromCart(pid){
     }
     $.ajax({
         type:"post",
-        url:"http://localhost:3003/deleteProductFromCart/",
+        url:elasticIP+"/deleteProductFromCart/",
         contentType: "application/json",
         data: JSON.stringify(obj),
         xhrFields: { withCredentials: false, },

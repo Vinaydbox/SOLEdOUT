@@ -1,4 +1,7 @@
 //! need to change all this into jquery
+import head from "./urls.js";
+
+const elasticIP = head();
 adminlogout = document.getElementById('adminlogout');
 adminlogout.addEventListener('click', function () {
     localStorage.setItem('userloggedin', '0')
@@ -7,7 +10,7 @@ adminlogout.addEventListener('click', function () {
 
 
 window.onload = function () {
-    $.get("http://localhost:3003/fetchAllUsers", (data) => {
+    $.get(elasticIP+"/fetchAllUsers", (data) => {
         let customersCount = 0;
         let vendorcnt = 0;
         for (let i = 0; i < data.length; i++) {
@@ -77,7 +80,7 @@ pushCouponBtn.addEventListener("click", () => {
     console.log("INISIDE PUSH COUPON BTN ADDEVENT", couponData);
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:3003/addCoupon",
+        url: elasticIP+"/addCoupon",
         contentType: "application/json",
         // couponData:"data sent from frontend to backend",
         data: JSON.stringify(couponData),

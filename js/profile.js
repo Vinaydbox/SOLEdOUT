@@ -1,6 +1,9 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 window.onload = function () {
     //! rendering profile details
-    var url = "http://localhost:3003/fetchUser/" + localStorage.getItem("loggedinUserEmail");
+    var url = elasticIP+"/fetchUser/" + localStorage.getItem("loggedinUserEmail");
     // let userData = $.get(url);
     // console.log(userData);
     $.get(url, (docs) => {
@@ -119,7 +122,7 @@ window.onload = function () {
     })
 
     //!rendering prev orders
-    let url2 = "http://localhost:3003/getPrevOrders/" + localStorage.getItem("loggedinUserEmail");
+    let url2 = elasticIP+"/getPrevOrders/" + localStorage.getItem("loggedinUserEmail");
         $.get(url2, (data) => {
             // alert("render cart")
             doc = data;
@@ -241,7 +244,7 @@ function updateData() {
     console.log(fd.toString());
     $.ajax({
         type: "post",
-        url: "http://localhost:3003/updateUser/" + localStorage.getItem("loggedinUserEmail"),
+        url: elasticIP+"/updateUser/" + localStorage.getItem("loggedinUserEmail"),
         contentType: "application/json",
         data:fd,
         xhrFields: { withCredentials: false, },

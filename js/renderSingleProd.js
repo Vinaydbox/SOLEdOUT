@@ -1,9 +1,12 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let clickdata=localStorage.getItem("onclickRecomms");
 let searchRecomms=localStorage.getItem("searchRecomms");
 
 window.onload = function () {
     var id = window.location.hash.substring(1);
-    let url = "http://localhost:3003/getProdDetailsByID/" + id;
+    let url = elasticIP+"/getProdDetailsByID/" + id;
     // let singleProductArea = document.getElementById("singleProductArea")
     $.get(url, (data, status) => {
         console.log(clickdata)

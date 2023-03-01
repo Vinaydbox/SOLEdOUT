@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 newUserName = document.getElementById('newUserName1')
 newEmail = document.getElementById('userEmail1')
 newPwd = document.getElementById('userpwd1')
@@ -6,7 +9,7 @@ userAdded = document.getElementById('userAdded')
 userAlreadyExists = document.getElementById("userAlreadyExists")
 
 addUserbtn.addEventListener("click", () => {
-    $.get("http://localhost:3003/fetchOneUser/" + newEmail.value, (res) => {
+    $.get(elasticIP+"/fetchOneUser/" + newEmail.value, (res) => {
         if (res == "DoNotExist") {
             console.log("in add user");
             // console.log(newUserName.value)
@@ -19,7 +22,7 @@ addUserbtn.addEventListener("click", () => {
             console.log(data)
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3003/addUser",
+                url: elasticIP+"/addUser",
 
                 contentType: "application/json",
                 data: JSON.stringify(data),

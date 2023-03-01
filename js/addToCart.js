@@ -3,6 +3,9 @@ $("#productImg")
 $("#productName")
 $("#productPrice")
 */
+import head from "./urls.js";
+
+const elasticIP = head();
 let productAddedToCart = document.getElementById("productAddedToCart");
 function addToCart() {
     // alert("Product Added to cart Successfully!");
@@ -10,8 +13,8 @@ function addToCart() {
     let currPID = window.location.hash.substring(1);
     if (localStorage.getItem("userloggedin") == 1) {
         console.log(currPID)
-        // $.get("http://localhost:3003/getProductDetailsByID/"+currPID,(data)=>{
-        $.get("http://localhost:3003/getProdDetailsByID/" + currPID, (data) => {
+        // $.get(elasticIP+"/getProductDetailsByID/"+currPID,(data)=>{
+        $.get(elasticIP+"/getProdDetailsByID/" + currPID, (data) => {
             if (data.count > 0) {
 
                 let productData = {
@@ -25,7 +28,7 @@ function addToCart() {
                 console.log(productData)
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:3003/addToCart",
+                    url: elasticIP+"/addToCart",
                     contentType: "application/json",
                     data: JSON.stringify(productData),
                     xhrFields: { withCredentials: false, },

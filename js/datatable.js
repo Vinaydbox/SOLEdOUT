@@ -1,8 +1,11 @@
 //data table
+import head from "./urls.js";
+
+const elasticIP = head();
 //! getting data in postman but not in admin page -userlist
 $("#example").DataTable({
     ajax: {
-        url: 'http://127.0.0.1:3003/fetchAllUsers',
+        url: elasticIP+'/fetchAllUsers',
         dataSrc: '',
     },
     columns: [
@@ -13,7 +16,7 @@ $("#example").DataTable({
 
 $("#sneakersTable").DataTable({
     ajax: {
-        url: 'http://127.0.0.1:3003/getProducts',
+        url: elasticIP+'/getProducts',
         dataSrc: '',
     },
     columns: [

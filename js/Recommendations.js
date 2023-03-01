@@ -1,9 +1,12 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let onclickRecomms = JSON.parse(localStorage.getItem("onclickRecomms"));
 let searchRecomms = JSON.parse(localStorage.getItem("searchRecomms"));
 
 let onclickcontainer = document.getElementById("onclickSection")
 let searchContainer = document.getElementById("SearchSection");
-let url = "http://localhost:3003/getproducts";
+let url = elasticIP+"/getproducts";
 
 
 

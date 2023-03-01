@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let nike = document.getElementById("Nike")
 let adidas = document.getElementById("Adidas")
 let puma = document.getElementById("Puma")  
@@ -7,7 +10,7 @@ let brandSection = document.getElementById("brandSection");
 function getBrandItems(brandName){
     // alert("jjfdslkj")
     mainsec.style.display = "none";
-    let url = "http://localhost:3003/fetchOneProduct/" + brandName ;
+    let url = elasticIP+"/fetchOneProduct/" + brandName ;
     $.get(url, (data) => {
         // console.log(JSON.stringify(data));
         // data = JSON.parse(data);HTML

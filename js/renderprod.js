@@ -1,9 +1,11 @@
 // const { isTypeOnlyImportOrExportDeclaration } = require("typescript");
+import head from "./urls.js";
 
+const elasticIP = head();
 let container = document.getElementById('productSection');
 
 let brands = [];
-let url = "http://localhost:3003/getproducts";
+let url = elasticIP+"/getproducts";
 let onclickd=localStorage.getItem("onclickRecomms");
 let searchRecomms = localStorage.getItem("searchRecomms");
 

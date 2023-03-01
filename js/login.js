@@ -1,3 +1,6 @@
+import head from "./urls.js";
+
+const elasticIP = head();
 let loginEmail = document.getElementById("loginEmail");
 let loginPassword = document.getElementById("loginPassword");
 let loginbtn = document.getElementById('loginSignup');
@@ -16,7 +19,7 @@ check.addEventListener("click", () => {
     };
     $.ajax({
         type: "post",
-        url: "http://localhost:3003/validate",
+        url: elasticIP+"/validate",
         contentType: "application/json",
         data: JSON.stringify(data),
         xhrFields: { withCredentials: false, },
@@ -94,7 +97,7 @@ logout.addEventListener("click", () => {
     console.log(data);
     $.ajax({
         type: "post",
-        url: "http://localhost:3003/userRecommendations",
+        url: elasticIP+"/userRecommendations",
         contentType: "application/json",
         data: JSON.stringify(data),
         xhrFields: { withCredentials: false, },

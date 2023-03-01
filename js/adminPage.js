@@ -1,4 +1,6 @@
+import head from "./urls.js";
 
+const elasticIP = head();
 //GET function
 //! need to change all this into jquery
 adminlogout = document.getElementById('adminlogout');
@@ -55,7 +57,7 @@ var xValues = JSON.parse(localStorage.getItem("brandsArr"));
 let yValues = [];
 async function findYValues(xValues) {
     for (let i = 0; i < xValues.length; i++) {
-        let data = await $.get("http://localhost:3003/fetchOneProduct/" + xValues[i])
+        let data = await $.get(elasticIP+"/fetchOneProduct/" + xValues[i])
         yValues.push(data.length)
     }
     var barColors = ["blue"];
@@ -80,7 +82,7 @@ async function findYValues(xValues) {
 }
 
 window.onload = function () {
-    $.get("http://localhost:3003/fetchAllUsers", (data) => {
+    $.get(elasticIP+"/fetchAllUsers", (data) => {
         let customersCount = 0;
         let vendorcnt = 0;
         for (let i = 0; i < data.length; i++) {
