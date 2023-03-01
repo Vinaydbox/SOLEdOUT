@@ -2,15 +2,14 @@ const userModelCtrl = require('../../models/users/userModel')
 
 //! to check if the user is already existing in the database
 
-async function fetchUser(req, res) {
-    userModelCtrl.userModel.find({ email: req.params.email }, (err, docs) => {
-        if (err) {
-            res.send("Error")
-        } else {
-            console.log(docs)
-            res.send(docs)
-        }
-    })
+function fetchUser(req, res) {
+    const data = userModelCtrl.userModel.find({ email: req.params.email });
+    try{
+        res.send(data);
+    }
+    catch(err){
+        res.send(err);
+    }
 }
 
 

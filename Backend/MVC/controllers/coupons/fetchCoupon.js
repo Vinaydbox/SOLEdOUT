@@ -1,14 +1,13 @@
 const couponModelCtrl = require('../../models/products/couponModel')
 
-async function fetchCoupon(req, res){
-    couponModelCtrl.couponModel.find({couponCode:req.params.couponCode},(err, docs)=>{
-        if(err){
-            res.send("something went wrong");
-        }
-        else{
-            res.send(docs);
-        }
-    })
-}
+function fetchCoupon(req, res) {
+    const data = couponModelCtrl.couponModel.find({ couponCode: req.params.couponCode })
+    try {
+        res.send(data);
+    }
+    catch (err) {
+        res.send(err);
 
-module.exports = {fetchCoupon};
+    }
+}
+module.exports = { fetchCoupon };

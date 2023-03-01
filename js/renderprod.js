@@ -50,7 +50,6 @@ $.get(url, function (data) {
     if (localStorage.getItem("searchRecomms").length < 3) {
         localStorage.setItem("searchRecomms", JSON.stringify(temparr));
     }
-
 })
 
 

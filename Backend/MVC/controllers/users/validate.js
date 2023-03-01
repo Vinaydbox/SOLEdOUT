@@ -1,15 +1,14 @@
 const userModelCtrl = require('../../models/users/userModel')
 
-async function validate(req, res) {
+function validate(req, res) {
 
-    userModelCtrl.userModel.find({ email: req.body.email, password: req.body.password }, (err, docs) => {
-        if (err) {
-            res.send("Error")
-        } else {
-            console.log(docs);
-            res.send(JSON.stringify(docs));
-        }
-    })
+    const data = userModelCtrl.userModel.find({ email: req.body.email, password: req.body.password })
+    try{
+        res.send(data);
+    }
+    catch(err){
+        res.send(err)
+    }
 }
 
 module.exports = { validate }
