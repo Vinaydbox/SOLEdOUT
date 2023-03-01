@@ -12,14 +12,14 @@ async function addUser(req, res) {
         userCategory: req.body.userCategory
     })
 
-    userData.save((err, result) => {
-        if (err) {
-            res.send("Error " + err)
-        }
-        else {
-            res.send(result)
-        }
-    })
+    const pushed = await userData.save();
+    try{
+        res.send(pushed);
+    }
+    catch(err){
+        console.log(err);
+        res.send(err);
+    }
 
 }
 

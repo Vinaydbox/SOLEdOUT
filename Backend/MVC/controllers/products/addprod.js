@@ -58,32 +58,29 @@ async function addProd(req, res) {
         console.log("in upload");
         try {
             // console.log(req.body);
-            let cnt = addp.count({}, (err, data) => {
-                if (err) {
-                    console.log("err");
+            let data  = addp.count({});
+            try{
+                let prodData = addp({
+                    pid: data + 1000 + 1,
+                    productName: req.body.pname,
+                    price: req.body.price,
+                    brand: req.body.brand,
+                    productDesc: req.body.productDesc,
+                    productURL: req.file.location,
+                    count: req.body.count
+                })
+                console.log("chalraha hai");
+                const resu = prodData.save();
+                try{
+                    res.send(resu);
                 }
-                else {
-                    console.log(req.body);
-                    let prodData = addp({
-                        pid: data + 1000 + 1,
-                        productName: req.body.pname,
-                        price: req.body.price,
-                        brand: req.body.brand,
-                        productDesc: req.body.productDesc,
-                        productURL: req.file.location,
-                        count: req.body.count
-                    })
-                    console.log("chalraha hai");
-                    prodData.save((err, result) => {
-                        if (err) {
-                            res.send("Error " + err)
-                        }
-                        else {
-                            res.send("Pushed the card");
-                        }
-                    })
+                catch(err){
+                    res.send(err);
                 }
-            })
+            }
+            catch(error){
+                res.send(error);
+            }
         }
         catch (err) {
             res.send("err");
