@@ -56,34 +56,22 @@ let uploadurl = upload.single("productURL");
 async function addProd(req, res) {
     uploadurl(req, res, (err) => {
         console.log("in upload");
-        try {
-            // console.log(req.body);
-            let data  = addp.count({});
-            try{
-                let prodData = addp({
-                    pid: data + 1000 + 1,
-                    productName: req.body.pname,
-                    price: req.body.price,
-                    brand: req.body.brand,
-                    productDesc: req.body.productDesc,
-                    productURL: req.file.location,
-                    count: req.body.count
-                })
-                console.log("chalraha hai");
-                const resu = prodData.save();
-                try{
-                    res.send(resu);
-                }
-                catch(err){
-                    res.send(err);
-                }
-            }
-            catch(error){
-                res.send(error);
-            }
+        let data  = addp.count({});
+        try{
+            let prodData = addp({
+                pid: data + 1000 + 1,
+                productName: req.body.pname,
+                price: req.body.price,
+                brand: req.body.brand,
+                productDesc: req.body.productDesc,
+                productURL: req.file.location,
+                count: req.body.count
+            })
+            console.log("chalraha hai");
+            const resu = prodData.save();
         }
-        catch (err) {
-            res.send("err");
+        catch(error){
+            res.send(error);
         }
     })
 }
