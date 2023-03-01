@@ -9,7 +9,6 @@ async function addToCart(req, res) {
 	const doc = await usergen.find({email: req.body.loggedinUserEmail});
 	try{
 		let found = false;
-		doc = data;
 		console.log("finding here");
 		for (let t = 0; t < doc[0].userCart.length; t++) {
 			if (doc[0].userCart[t].productName === req.body.productName) {
