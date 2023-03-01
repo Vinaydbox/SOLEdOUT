@@ -1,12 +1,12 @@
 import head from "./urls.js";
 
 const elasticIP = head();
-newUserName = document.getElementById('newUserName1')
-newEmail = document.getElementById('userEmail1')
-newPwd = document.getElementById('userpwd1')
-addUserbtn = document.getElementById('pushNewUser')
-userAdded = document.getElementById('userAdded')
-userAlreadyExists = document.getElementById("userAlreadyExists")
+let newUserName = document.getElementById('newUserName1')
+let newEmail = document.getElementById('userEmail1')
+let newPwd = document.getElementById('userpwd1')
+let addUserbtn = document.getElementById('pushNewUser')
+let userAdded = document.getElementById('userAdded')
+let userAlreadyExists = document.getElementById("userAlreadyExists")
 
 addUserbtn.addEventListener("click", () => {
     $.get(elasticIP+"/fetchOneUser/" + newEmail.value, (res) => {

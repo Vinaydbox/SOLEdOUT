@@ -4,12 +4,12 @@ const elasticIP = head();
 let proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
 
 //!add cart items to prevorders
-let cartdata;
+let doc;
 proceedToCheckoutBtn.addEventListener("click", async () => {
     console.log(" clicked proced to checkout to add cart items to prevordereditems")
-    let geturl = elasticIP+"/getUserCart/" + localStorage.getItem("loggedinUserEmail");
-    let url = elasticIP+"/addToPrevOrders/" + localStorage.getItem("loggedinUserEmail")
-    
+    let geturl = elasticIP + "/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+    let url = elasticIP + "/addToPrevOrders/" + localStorage.getItem("loggedinUserEmail")
+
     await $.get(geturl, (cartdata) => {
         // alert("in get call prevorders")
         doc = cartdata;
@@ -32,7 +32,7 @@ proceedToCheckoutBtn.addEventListener("click", async () => {
 
     console.log("call1");
     console.log('clicked proceed to checkout to decerement count')
-    let url2 = elasticIP+"/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+    let url2 = elasticIP + "/getUserCart/" + localStorage.getItem("loggedinUserEmail");
     let data = await $.get(url2)
     // alert("in prod decrement")
     console.log(data)
@@ -42,7 +42,7 @@ proceedToCheckoutBtn.addEventListener("click", async () => {
         }
         await $.ajax({
             type: "post",
-            url: elasticIP+"/decrementProductCount/" + data[x].pid,
+            url: elasticIP + "/decrementProductCount/" + data[x].pid,
             contentType: "application/json",
             data: JSON.stringify(obj),
             // data:{},
@@ -62,7 +62,7 @@ proceedToCheckoutBtn.addEventListener("click", async () => {
 
     // console.log("call 3");
     console.log(" clicked proceed to checkout to clear cart items");
-    let url3 = elasticIP+"/clearCart/" + localStorage.getItem("loggedinUserEmail");
+    let url3 = elasticIP + "/clearCart/" + localStorage.getItem("loggedinUserEmail");
     let obj = {
         email: localStorage.getItem("loggedinUserEmail"),
 

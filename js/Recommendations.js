@@ -13,13 +13,13 @@ let url = elasticIP+"/getproducts";
 $.get(url, function (data) {
     data = JSON.parse(data);
     for (let j = 0; j < 8; j++) {
-        for (i = 0; i < data.length; i++) {
-            pid = data[i].pid;
-            productName = data[i].productName;
-            price = data[i].price;
-            category = data[i].brand;
-            productDesc = data[i].productDesc;
-            purl = data[i].productURL;
+        for (let i = 0; i < data.length; i++) {
+            let pid = data[i].pid;
+            let productName = data[i].productName;
+            let price = data[i].price;
+            let category = data[i].brand;
+            let productDesc = data[i].productDesc;
+            let purl = data[i].productURL;
             if (onclickRecomms[j].pid == data[i].pid) {
                 console.log(data[i]);
                 onclickcontainer.innerHTML += rendercard(pid, productName, price, purl);
@@ -30,10 +30,10 @@ $.get(url, function (data) {
     for (let j = 0; j < 8; j++) {
         console.log(j);
         for (let i = 0; i < data.length; i++) {
-            pid = data[i].pid;
-            productName = data[i].productName;
-            price = data[i].price;
-            purl = data[i].productURL;
+            let pid = data[i].pid;
+            let productName = data[i].productName;
+            let price = data[i].price;
+            let purl = data[i].productURL;
             if (data[i].pid == searchRecomms[j].pid) {
                 searchContainer.innerHTML += rendercard(pid, productName, price, purl);
             }

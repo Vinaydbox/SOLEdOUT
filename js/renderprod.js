@@ -5,24 +5,24 @@ const elasticIP = head();
 let container = document.getElementById('productSection');
 
 let brands = [];
-let url = elasticIP+"/getproducts";
-let onclickd=localStorage.getItem("onclickRecomms");
+let url = elasticIP + "/getproducts";
+let onclickd = localStorage.getItem("onclickRecomms");
 let searchRecomms = localStorage.getItem("searchRecomms");
 
-temparr=[]
+let temparr = []
 $.get(url, function (data) {
     // console.log(data);
     data = JSON.parse(data);
-    // console.log(data);
-    localStorage.setItem("sneakerCnt",data.length);
-    for (i = 0; i < data.length; i++) {
-        pid = data[i].pid;
-        productName = data[i].productName;
-        price = data[i].price;
-        category = data[i].brand;
-        productDesc = data[i].productDesc;
-        purl = data[i].productURL;
-        let datad={pid:data[i].pid,cnt:1};
+    console.log(data);
+    localStorage.setItem("sneakerCnt", data.length);
+    for (let i = 0; i < data.length; i++) {
+        let pid = data[i].pid;
+        let productName = data[i].productName;
+        let price = data[i].price;
+        let category = data[i].brand;
+        let productDesc = data[i].productDesc;
+        let purl = data[i].productURL;
+        let datad = { pid: data[i].pid, cnt: 1 };
         temparr.push(datad);
         let x;
         if (i % 3 == 0) {
@@ -40,15 +40,15 @@ $.get(url, function (data) {
     //! setting local recomms and search recommns in local storage
     console.log(temparr)
     console.log(localStorage.getItem("onclickRecomms"));
-    if(localStorage.getItem("onclickRecomms").length < 3){
+    if (localStorage.getItem("onclickRecomms").length < 3) {
         // console.log("IM HERE");
         // temparr=JSON.parse(temparr);
         console.log(JSON.stringify(temparr));
-        localStorage.setItem("onclickRecomms",JSON.stringify(temparr));
+        localStorage.setItem("onclickRecomms", JSON.stringify(temparr));
     }
     console.log(localStorage.getItem("searchRecomms"))
-    if(localStorage.getItem("searchRecomms").length<3){
-        localStorage.setItem("searchRecomms", JSON.stringify(temparr));        
+    if (localStorage.getItem("searchRecomms").length < 3) {
+        localStorage.setItem("searchRecomms", JSON.stringify(temparr));
     }
 
 })
@@ -57,7 +57,7 @@ $.get(url, function (data) {
 function renderCard1(pid, pname, price, category, pdesc, imgurl) {
     return `<div class="col-lg-4 col-md-6">
      <div class="single-product">
-        <a hef="./single-product.html#${pid}"> <img class="img-fluid" src="${imgurl}" alt="">
+        <a href="./single-product.html#${pid}"> <img class="img-fluid" src="${imgurl}" alt="">
          <div class="product-details">
              <h6>${pname}</h6></a>
              <div class="price">

@@ -5,12 +5,12 @@ const elasticIP = head();
 let applyCouponBtn = document.getElementById("applyCoupon");
 let couponEntered = document.getElementById("couponEntered");
 let cartFooter = document.getElementById("cartfooter");
-let doc;
+var doc;
 
 
 window.onload = function () {
     if (localStorage.getItem("userloggedin") == 1) {
-        let url = elasticIP+"/getUserCart/" + localStorage.getItem("loggedinUserEmail");
+        let url = elasticIP + "/getUserCart/" + localStorage.getItem("loggedinUserEmail");
         $.get(url, (data) => {
             // alert("render cart")
             doc = data;
@@ -54,12 +54,61 @@ window.onload = function () {
                     <h5>$${data[x].price.substring(1) * data[x].count}</h5>
                 </td>
                 <td>
-                <button onclick="deleteProdFromCart(${data[x].pid})" class="btn btn-outline-danger"><i class="lnr lnr-trash"></i></button>
-                
+                <button class="delbuttons" id="deleteProductFromCartBtn${data[x].pid}" data-index=${data[x].pid}  class="btn btn-outline-danger"><i class="lnr lnr-trash"></i></button>
                 </td>  
-            </tr> 
-             
+            </tr>   
         `);
+
+                let deletebuttons = document.querySelectorAll(".delbuttons");
+                deletebuttons.forEach(function (btn) {
+                    btn.addEventListener("click", () => {
+                        var pid = btn.getAttribute("data-index");
+                        let obj = {
+                            userEmail: localStorage.getItem("loggedinUserEmail"),
+                            pid: pid
+                        }
+                        $.ajax({
+                            type: "post",
+                            url: elasticIP + "/deleteProductFromCart/",
+                            contentType: "application/json",
+                            data: JSON.stringify(obj),
+                            xhrFields: { withCredentials: false, },
+                            headers: {},
+                            success: function (data) {
+                                console.log("Successfully deleted")
+
+                            },
+                            error: function () {
+                                console.log("Error")
+                            }
+                        })
+                        window.location.href = "./cart.html"
+                    })
+                });
+
+                // let deleteProductFromCartBtn = document.getElementById("deleteProductFromCartBtn")
+                // deleteProductFromCartBtn.addEventListener("click", () => {
+                //     let obj = {
+                //         userEmail: localStorage.getItem("loggedinUserEmail"),
+                //         pid:pid
+                //     }
+                //     $.ajax({
+                //         type: "post",
+                //         url: elasticIP + "/deleteProductFromCart/",
+                //         contentType: "application/json",
+                //         data: JSON.stringify(obj),
+                //         xhrFields: { withCredentials: false, },
+                //         headers: {},
+                //         success: function (data) {
+                //             console.log("Successfully deleted")
+
+                //         },
+                //         error: function () {
+                //             console.log("Error")
+                //         }
+                //     })
+                //     window.location.href = "./cart.html"
+                // })
 
             }
             for (let x = 0; x < data.length; x++) {
@@ -81,25 +130,28 @@ window.onload = function () {
         alert("Please Login to view your cart...")
         window.location.href = "./index.html";
     }
+
 }
 
 
 //! apply coupon functionality
 let finalPrice = 0;
 applyCouponBtn.addEventListener("click", () => {
-    let url = elasticIP+"/fetchCoupon/" + couponEntered.value;
+    let url = elasticIP + "/fetchCoupon/" + couponEntered.value;
     $.get(url, (data) => {
-
-        console.log("this is my data")
-        console.log(data)
-        console.log(doc[0])
+        console.log(doc);
+        // console.log("this is my data")
+        // console.log(data)
+        // console.log(doc[0])
+        // let doc = data;
+        // console.log(data);
         if (data.length == 0) {
             alert("Coupon not found")
         }
         else {
             // let finalPrice = 0;
-            for (let i = 0; i < doc[0].userCart.length; i++) {
-                let tempBrand = doc[0].userCart[i].brand
+            for (let i = 0; i < doc.length; i++) {
+                let tempBrand = doc[i].brand
                 console.log(tempBrand)
                 let flag = false;
                 for (let j = 0; j < data[0].brand.length; j++) {
@@ -109,12 +161,12 @@ applyCouponBtn.addEventListener("click", () => {
                         console.log("in 2nd for loop if")
                         console.log(data[0].discount)
                         //var effectivPirce = totalprice*(100-discount)/100;
-                        finalPrice += ((doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count) * (100 - data[0].discount)) / 100;
+                        finalPrice += ((doc[i].price.substring(1) * doc[i].count) * (100 - data[0].discount)) / 100;
                     }
                 }
                 console.log(finalPrice)
                 if (flag == false) {
-                    finalPrice += doc[0].userCart[i].price.substring(1) * doc[0].userCart[i].count;
+                    finalPrice += doc[i].price.substring(1) * doc[i].count;
                 }
             }
             $("#cartItem1").append(`<tr><td></td>

@@ -3,18 +3,49 @@ import head from "./urls.js";
 const elasticIP = head();
 //GET function
 //! need to change all this into jquery
-adminlogout = document.getElementById('adminlogout');
+let adminlogout = document.getElementById('adminlogout');
 adminlogout.addEventListener('click', function () {
     localStorage.setItem('userloggedin', '0')
     window.location.href = './index.html';
 })
 
+// let brandsArr=[]
+
+var xValues = JSON.parse(localStorage.getItem("brandsArr"));
+let yValues = [];
+async function findYValues(xValues) {
+    for (let i = 0; i < xValues.length; i++) {
+        let data = await $.get(elasticIP + "/fetchOneProduct/" + xValues[i])
+        yValues.push(data.length)
+    }
+    var barColors = ["blue"];
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues,
+                label: "Products Summary"
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Products Summary"
+            }
+        },
+    });
+}
 
 
-userListbtn = document.getElementById("userListbtn");
-addUserbtn = document.getElementById("addUserbtn");
-addServicebtn = document.getElementById("addServicebtn");
-sneakersListbtn = document.getElementById("sneakersListBtn");
+
+
+let userListbtn = document.getElementById("userListbtn");
+let addUserbtn = document.getElementById("addUserbtn");
+let addServicebtn = document.getElementById("addServicebtn");
+let sneakersListbtn = document.getElementById("sneakersListBtn");
 // addCouponBtn = document.getElementById("addCouponBtn");
 
 
@@ -53,36 +84,10 @@ sneakersListbtn.addEventListener("click", function () {
 //     document.getElementById("addUser").style.display = "none";
 // })
 
-var xValues = JSON.parse(localStorage.getItem("brandsArr"));
-let yValues = [];
-async function findYValues(xValues) {
-    for (let i = 0; i < xValues.length; i++) {
-        let data = await $.get(elasticIP+"/fetchOneProduct/" + xValues[i])
-        yValues.push(data.length)
-    }
-    var barColors = ["blue"];
-    new Chart("myChart", {
-        type: "bar",
-        data: {
-            labels: xValues,
-            datasets: [{
-                backgroundColor: barColors,
-                data: yValues,
-                label: "Products Summary"
-            }]
-        },
-        options: {
-            legend: { display: false },
-            title: {
-                display: true,
-                text: "Products Summary"
-            }
-        },
-    });
-}
+
 
 window.onload = function () {
-    $.get(elasticIP+"/fetchAllUsers", (data) => {
+    $.get(elasticIP + "/fetchAllUsers", (data) => {
         let customersCount = 0;
         let vendorcnt = 0;
         for (let i = 0; i < data.length; i++) {

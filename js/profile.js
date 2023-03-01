@@ -125,7 +125,7 @@ window.onload = function () {
     let url2 = elasticIP+"/getPrevOrders/" + localStorage.getItem("loggedinUserEmail");
         $.get(url2, (data) => {
             // alert("render cart")
-            doc = data;
+            // doc = data;
             console.log(data);
             let totalprice = 0;
 
@@ -182,7 +182,7 @@ window.onload = function () {
         });
 }
 
-flag_es = 0
+let flag_es = 0
 // function adrak() {
 //     flag_p = 0
 //     // var pbar = document.getElementById("bar")

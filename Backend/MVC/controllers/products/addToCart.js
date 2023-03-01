@@ -3,7 +3,7 @@ const usergen = require('../../models/users/userModel').userModel;
 
 
 async function addToCart(req, res) {
-	console.log("this is backend");
+	// console.log("this is backend");
 	let doc;
 	let obj;
 	// console.log(req.body.loggedinUserEmail);

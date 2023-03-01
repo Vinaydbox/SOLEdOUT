@@ -19,7 +19,7 @@ check.addEventListener("click", () => {
     };
     $.ajax({
         type: "post",
-        url: elasticIP+"/validate",
+        url: elasticIP + "/validate",
         contentType: "application/json",
         data: JSON.stringify(data),
         xhrFields: { withCredentials: false, },
@@ -49,14 +49,14 @@ check.addEventListener("click", () => {
                 }
                 else {
                     localStorage.setItem("username", data[0].username);
-                    heroEmail==data[0].email;
+                    heroEmail == data[0].email;
                     console.log("username set")
                     localStorage.setItem("loggedinUserEmail", data[0].email);
                     console.log(data[0].userRecommendations.onclickRecommendations);
-                    localStorage.setItem("onclickRecomms",JSON.stringify(data[0].userRecommendations.onclickRecommendations));
-                    localStorage.setItem("searchRecomms",JSON.stringify(data[0].userRecommendations.searchRecommendations));
+                    localStorage.setItem("onclickRecomms", JSON.stringify(data[0].userRecommendations.onclickRecommendations));
+                    localStorage.setItem("searchRecomms", JSON.stringify(data[0].userRecommendations.searchRecommendations));
                     window.location.href = "./index.html";
-            
+
                     profilebtn.innerHTML = localStorage.getItem("username");
                 }
             }
@@ -67,11 +67,23 @@ check.addEventListener("click", () => {
     });
 });
 
+let currBrand = []
+$.get(elasticIP + "/getProducts", (data) => {
+    data = JSON.parse(data);
+    for (let i = 0; i < data.length; i++) {
+        if (currBrand.includes(data[i].brand) == false) {
+            currBrand.push(data[i].brand)
+        }
+    }
+    console.log(currBrand);
+    localStorage.setItem("brandsArr", JSON.stringify(currBrand));
+})
 
-email=localStorage.getItem("loggedinUserEmail");
+
+let email = localStorage.getItem("loggedinUserEmail");
 // console.log("email"+heroEmail);
-onclickRecomms=localStorage.getItem("onclickRecomms");
-searchRecomms=localStorage.getItem("searchRecomms");
+let onclickRecomms = localStorage.getItem("onclickRecomms");
+let searchRecomms = localStorage.getItem("searchRecomms");
 
 
 if (localStorage.getItem("userloggedin") == "1") {
@@ -85,27 +97,27 @@ else {
     dropdownbtn.style.display = "none";
 }
 
-logout = document.getElementById("logoutbt");
+let logout = document.getElementById("logoutbt");
 logout.addEventListener("click", () => {
     console.log("hero ikkada");
-    let data={
-        email:email,
-        onclickRecomms:onclickRecomms,
-        searchRecomms:searchRecomms
+    let data = {
+        email: email,
+        onclickRecomms: onclickRecomms,
+        searchRecomms: searchRecomms
     }
     console.log(data.email);
     console.log(data);
     $.ajax({
         type: "post",
-        url: elasticIP+"/userRecommendations",
+        url: elasticIP + "/userRecommendations",
         contentType: "application/json",
         data: JSON.stringify(data),
         xhrFields: { withCredentials: false, },
         headers: {},
-        success:function(){
+        success: function () {
             console.log("Push aipoindi");
         },
-        error:function(){
+        error: function () {
             console.log("edo aindi")
         }
     })
