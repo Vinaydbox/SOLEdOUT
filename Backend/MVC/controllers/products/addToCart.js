@@ -2,13 +2,12 @@ const cartgen = require('../../models/cart/cartModel').cartModel;
 const usergen = require('../../models/users/userModel').userModel;
 
 
-async function addToCart(req, res) {
+function addToCart(req, res) {
 	// console.log("this is backend");
 	let doc;
-	let obj;
 	// console.log(req.body.loggedinUserEmail);
 	console.log(req.body.loggedinUserEmail);
-	await usergen.find({ email: req.body.loggedinUserEmail }, (err, data) => {
+	usergen.findOne({email: req.body.loggedinUserEmail},(err, data) => {
 		if (err) {
 			console.log("err");
 		} else {
