@@ -13,7 +13,7 @@ let temparr = []
 $.get(url, function (data) {
     // console.log(data);
     data = JSON.parse(data);
-    console.log(data);
+    // console.log(data);
     localStorage.setItem("sneakerCnt", data.length);
     for (let i = 0; i < data.length; i++) {
         let pid = data[i].pid;
@@ -37,16 +37,16 @@ $.get(url, function (data) {
         container.innerHTML += x;
     }
 
-    //! setting local recomms and search recommns in local storage
-    console.log(temparr)
-    console.log(localStorage.getItem("onclickRecomms"));
+    // //! setting local recomms and search recommns in local storage
+    // console.log(temparr)
+    // console.log(localStorage.getItem("onclickRecomms"));
     if (localStorage.getItem("onclickRecomms").length < 3) {
-        // console.log("IM HERE");
+        // //console.log("IM HERE");
         // temparr=JSON.parse(temparr);
-        console.log(JSON.stringify(temparr));
+        //console.log(JSON.stringify(temparr));
         localStorage.setItem("onclickRecomms", JSON.stringify(temparr));
     }
-    console.log(localStorage.getItem("searchRecomms"))
+    // console.log(localStorage.getItem("searchRecomms"))
     if (localStorage.getItem("searchRecomms").length < 3) {
         localStorage.setItem("searchRecomms", JSON.stringify(temparr));
     }
@@ -139,25 +139,25 @@ let brandSection = document.getElementById("brandSection");
 //! brands sec under sneakers
 let sneakerBrandList = document.getElementById("sneakerBrandList")
 var brandsArr = JSON.parse(localStorage.getItem("brandsArr"));
-console.log(brandsArr);
+// console.log(brandsArr);
 sneakerBrandList.addEventListener("click", function () {
     $("#fruitsVegetable").html("");
     for (let i = 0; i < brandsArr.length; i++) {
-        $("#fruitsVegetable").append(`<li style="cursor:pointer" data-index=${brandsArr[i]} class="main-nav-list child brandClicker"><a  id="brandElement${brandsArr[i]}" )">${brandsArr[i]}<span
+        $("#fruitsVegetable").append(`<li style="cursor:pointer" data-index=${i} class="main-nav-list child brandClicker"><a  id="brandElement${brandsArr[i]}" )">${brandsArr[i]}<span
     class="number"></span></a></li>`)
     }
     let brandClick = document.querySelectorAll(".brandClicker");
         brandClick.forEach(function(btn){
             btn.addEventListener("click", ()=>{
-            var brandid = btn.getAttribute("data-index");
+            var brandid = brandsArr[btn.getAttribute("data-index")];
             var brandName = brandid;
-            console.log(brandid)
+            // console.log(brandid)
             let url = elasticIP + "/fetchOneProduct/" + brandName;
             $.get(url, (data) => {
                 // console.log(JSON.stringify(data));
                 // data = JSON.parse(data);HTML
-                console.log("printing Here")
-                console.log(data);
+                // console.log("printing Here")
+                // console.log(data);
                 mainsec.innerHTML = ""; 
                 for (let i = 0; i < data.length; i++) {
                     let pid = data[i].pid;

@@ -9,6 +9,7 @@ let userAdded = document.getElementById('userAdded')
 let userAlreadyExists = document.getElementById("userAlreadyExists")
 
 addUserbtn.addEventListener("click", () => {
+    if(username.value.match(/^[A-Za-z0-9]*$/)!=null){
     $.get(elasticIP+"/fetchOneUser/" + newEmail.value, (res) => {
         if (res == "DoNotExist") {
             console.log("in add user");
@@ -52,4 +53,8 @@ addUserbtn.addEventListener("click", () => {
             }, 2000);
         }
     })
+}
+else{
+    alert("please enter acceptable characters in every field")
+}
 })

@@ -65,6 +65,7 @@ for (let i = 0; i < brarr.length; i++) {
 
 
 pushCouponBtn.addEventListener("click", () => {
+    if(discount.value.match(/^[0-9]+$/)!=null && couponCode.value.match(/^[A-Za-z0-9]*$/)!=null){
     const availableBrands = document.querySelector("#brandMultiSelect");
     const selectedBrands = Array.from(availableBrands.selectedOptions).map(option => option.value)
     console.log(selectedBrands);
@@ -93,6 +94,10 @@ pushCouponBtn.addEventListener("click", () => {
             console.log("Error")
         }
     })
+}
+else{
+    alert("please enter acceptable values in every field")
+}
 
 })
 

@@ -28,51 +28,41 @@ const upload = multer({
             cb(null, { fieldName: file.fieldname });
         },
         key: function (req, file, cb) {
+            console.log("running this");
             cb(null, Date.now().toString() + path.parse(file.originalname).name + path.extname(file.originalname))
         }
     })
 })
 
+
+
+
 let uploadurl = upload.single("productURL");
-
-
-
-function addProd(req, res) {
+async function addProd(req, res) {
     console.log("Add prod called");
-    upload(req, res, (err) => {
-        try {
-            let cnt = addp.count({}, (err, data) => {
-                if (err) {
-                    console.log("err");
-                }
-                else {
-                    console.log(req.body);
-                    let prodData = addp({
-                        pid: data + 1000 + 1,
-                        productName: req.body.pname,
-                        price: req.body.price,
-                        brand: req.body.brand,
-                        productDesc: req.body.productDesc,
-                        productURL: req.file.location,
-                        count: req.body.count
-                    })
-                    console.log("chalraha hai");
-                    prodData.save((err, result) => {
-                        if (err) {
-                            res.send("Error " + err)
-                        }
-                        else {
-                            res.send("Pushed the card");
-                        }
-                    })
-                }
-            })
-        }
-        catch (err) {
-            res.send(err);
-        }
-    })
+    try {
+        console.log("here");
+        const data = await addp.count({});
+        let prodData = await addp({
+            pid: data + 1000 + 1,
+            productName: req.body.pname,
+            price: req.body.price,
+            brand: req.body.brand,
+            productDesc: req.body.productDesc,
+            productURL: req.file.location,
+            count: req.body.count
+        })
+        console.log(req.file.location);
+        const dat = await prodData.save();
+        // console.log(dat);
+        res.send(dat);
+    }
+    catch (err) {
+        console.log(err);
+        res.send(err);
+    }
+    console.log("final");
 }
 
 
-module.exports = { addProd }
+module.exports = { uploadurl, addProd }

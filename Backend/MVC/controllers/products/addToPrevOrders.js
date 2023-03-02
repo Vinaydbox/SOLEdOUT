@@ -8,7 +8,7 @@ async function addToPrevOrders(req, res) {
         },
     }, { upsert: true });
     // console.log(req.body);
-    console.log(req.body)
+    // console.log(req.body)
     console.log("added to prev orders")
     res.send("added to prev orders")
 }
