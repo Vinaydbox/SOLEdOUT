@@ -33,7 +33,7 @@ proceedToCheckoutBtn.addEventListener("click", async () => {
     console.log("call1");
     console.log('clicked proceed to checkout to decerement count')
     let url2 = elasticIP + "/getUserCart/" + localStorage.getItem("loggedinUserEmail");
-    let data = await $.get(url2)
+    let data = $.get(url2)
     // alert("in prod decrement")
     console.log(data)
     for (let x = 0; x < data.length; x++) {
