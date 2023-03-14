@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Karma Shop | Shop</title>
+
+	<!--
+            CSS
+            ============================================= -->
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/nouislider.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="./adminAssets/css/adminStyle.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body id="category">
+
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="./index.html"><img src="img/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+							<li class="nav-item submenu dropdown active">
+								<a href="./category.html" class="nav-link dropdown-toggle" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+								<!-- <ul class="dropdown-menu">
+									<li class="nav-item active"><a class="nav-link" href="category.html">Shop
+											Category</a></li>
+									<li class="nav-item"><a class="nav-link" href="single-product.html">Product
+											Details</a></li>
+									<li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+									<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>
+									</li>
+								</ul> -->
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Blog</a>
+								<!-- <ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a>
+									</li>
+								</ul> -->
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Pages</a>
+								<!-- <ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+									<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+								</ul> -->
+							</li>
+							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+							<li class="nav-item submenu dropdown" id="loginSignup">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+									aria-haspopup="true" aria-expanded="false">Login/Signup</a>
+								<ul class="dropdown-menu">
+									<li id="loginButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#loginModal">Login</a></li>
+									<li id="signupButter" class="nav-item"><a href="#" class="nav-link"
+											data-toggle="modal" data-target="#signupModal">SignUp</a>
+									</li>
+								</ul>
+							</li>
+							<!-- Dropdown for profile and logout -->
+							<li class="nav-item submenu dropdown" id="Dropdown-list">
+								<a href="#" id="profileName" class="nav-link dropdown-toggle" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false"></a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="./profile.html">Profile</a></li>
+									<li class="nav-item"><a class="nav-link" id="logoutbt" href="#">Logout</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li class="nav-item"><a href="./cart.html" class="cart"><span
+										class="ti-shopping-cart"></span></a>
+							</li>
+							<!-- <li class="nav-item">
+								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!-- <div class="search_input" id="search_input_box">
+			<div class="container">
+				<form class="d-flex justify-content-between">
+					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
+					<button type="submit" class="btn"></button>
+					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+				</form>
+			</div>
+		</div> -->
+	</header>
+	<!-- End Header Area -->
+
+	<!-- login begins -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header border-bottom-0">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				</div>
+				<!-- <div id="welcomemsg" class="d-none"> -->
+				<!-- form is used to retreieve usernames, currently not functioning -->
+				<!-- <form action="welcome.html" class="d-flex justify-content-center align-content-center" id="welcomemsg">
+				
+			</form> -->
+				<!-- </div> -->
+				<a href="#" class="d-flex justify-content-center align-content-center" id="welcomemsg"></a>
+				<!-- ! Invalid username or password -->
+				<div class="modal-body d-block text-center" id="loginpage">
+					<div id="invalidPassword" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
+						<strong class="text-danger">Invalid Username/Password </strong>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							<br>
+						</button>
+					</div>
+					<div class="form-title text-center">
+						<br>
+						<h4>Login</h4>
+					</div>
+					<div class="d-flex flex-column text-center">
+						<form>
+							<div class="form-group">
+								<input type="email" class="form-control" id="loginEmail" placeholder="Email address"
+									required>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="loginPassword" placeholder=" password"
+									required>
+							</div>
+							<button id="loginbt" type="button" class="btn btn-info btn-block btn-round">Login</button>
+						</form>
+
+						<div class="text-center text-muted delimiter">or use a social network</div>
+						<div class="d-flex justify-content-center social-buttons">
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-1"
+								data-toggle="tooltip" data-placement="top" title="Twitter">
+								<i class="fab fa-twitter"></i>
+							</button>
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-0.5"
+								data-toggle="tooltip" data-placement="top" title="Facebook">
+								<i class="fab fa-facebook"></i>
+							</button>
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-1"
+								data-toggle="tooltip" data-placement="top" title="Linkedin">
+								<i class="fab fa-linkedin"></i>
+							</button>
+							</di>
+						</div>
+					</div>
+					<!-- <div class="modal-footer d-flex justify-content-center">
+						<div class="signup-section">Not a member yet? <a href="signup.html" class="text-info"> Sign
+								Up</a>.</div>
+					</div> -->
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+	<!-- login ends -->
+
+
+	<!-- Signup begins -->
+	<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header border-bottom-0">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				</div>
+				<!-- <div id="welcomemsg" class="d-none"> -->
+				<!-- form is used to retreieve usernames, currently not functioning -->
+				<!-- <form action="welcome.html" class="d-flex justify-content-center align-content-center" id="welcomemsg">
+				
+			</form> -->
+				<!-- </div> -->
+				<a href="#" class="d-flex justify-content-center align-content-center" id="welcomemsg"></a>
+
+				<div class="modal-body d-block text-center" id="signuppage">
+					<!-- ! Password mismatch field -->
+					<div id="passwordMismatch" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
+						<strong class="text-danger">Password Mismatch!!! </strong> check your passwords.
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+
+						</button>
+					</div>
+					<!-- ! User already exists field -->
+					<div id="userAlreadyExists" style="display:none;"
+						class="alert alert-warning alert-dismissible fade show " role="alert">
+						<strong class="text-danger">User Already Exists!!!</strong> Try with other email.
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+
+						</button>
+					</div>
+
+					<div class="form-title text-center">
+						<br>
+						<h4>Create your account</h4>
+					</div>
+					<div class="d-flex flex-column text-center">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" id="fullname" placeholder="FullName" required>
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" id="signupEmail" placeholder="Email address"
+									required>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="signupPassword" placeholder=" password"
+									required>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="signupPasswordConfirm"
+									placeholder="confirm password" required>
+							</div>
+							<!-- !Signup button -->
+							<button id="signupbt" type="button" class="btn btn-info btn-block btn-round">Signup</button>
+						</form>
+
+						<div class="text-center text-muted delimiter">or use a social network</div>
+						<div class="d-flex justify-content-center social-buttons">
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-1"
+								data-toggle="tooltip" data-placement="top" title="Twitter">
+								<i class="fab fa-twitter"></i>
+							</button>
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-0.5"
+								data-toggle="tooltip" data-placement="top" title="Facebook">
+								<i class="fab fa-facebook"></i>
+							</button>
+							<button type="button" class="btn btn-secondary btn-round rounded-circle mx-1"
+								data-toggle="tooltip" data-placement="top" title="Linkedin">
+								<i class="fab fa-linkedin"></i>
+							</button>
+							</di>
+						</div>
+					</div>
+					<!-- <div class="modal-footer d-flex justify-content-center">
+						<div class="signup-section">Already have an account? <a href="#">Login</a>.</div>
+					</div> -->
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+	<!-- Signup ends -->
+
+	<!-- Start Banner Area -->
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Shop Category page</h1>
+					<nav class="d-flex align-items-center">
+						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">Fashon Category</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 col-md-5">
+				<div class="sidebar-categories">
+					<div class="head">Browse Categories</div>
+					<ul class="main-categories">
+						<li class="main-nav-list" id="sneakerBrandList"><a data-toggle="collapse"
+								href="#fruitsVegetable" aria-expanded="false"
+								aria-controls="fruitsVegetable"><span></span>Sneakers<span class="number"></span>
+								<!-- <button type="button" class="btn btn-light btn-floating btn-lg">
+									<i class="lnr lnr-arrow-up"></i>
+								</button> -->
+							</a>
+							<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false"
+								aria-controls="fruitsVegetable">
+
+							</ul>
+						</li>
+				</div>
+			</div>
+			<div class="col-xl-9 col-lg-8 col-md-7">
+				<!-- Start Filter Bar -->
+				<div class="filter-bar d-flex flex-wrap align-items-center">
+					<div class="sorting">
+					</div>
+					<!-- ! Search bar in shop -->
+					<div class="sorting mr-auto">
+						<div class="search-bar">
+							<!-- <form id="searchEnter"> -->
+							<div class="input-group">
+								<div class="form-outline">
+									<!-- <label class="form-label" for="form1">Search</label> -->
+									<input id="searchInput" type="text" placeholder="Search your sneaker" id="form1"
+										class="form-control lnr lnr-magnifier" />
+								</div>
+								<button type="submit" id="searchBtn" type="button" class="btn btn-warning">
+									<i class="lnr lnr-magnifier"></i>
+								</button>
+							</div>
+							<!-- </form> -->
+							<!-- <form class="search-form d-flex align-items-center"> -->
+							<!-- <input id="searchInputField" type="text" name="query" onkeyup="sendData(this)" placeholder="Search" title="Enter search keyword" style="width: 300px;height:40px;border-radius: 5px;">
+										<section id="searchResults">
+											
+										</section>
+										<button id="searchBtn" class="btn " type="submit" title="Search"><i class="lnr lnr-magnifier"></i></button> -->
+							<!-- </form> -->
+						</div>
+					</div>
+
+
+					<div class="pagination">
+						<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+						<a href="#" class="active">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+						<a href="#">6</a>
+						<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+
+				<section class="ml-5" id="searchResults">
+
+				</section>
+				<!-- End Filter Bar -->
+				<!-- Start Best Seller -->
+				<section class="lattest-product-area pb-40 category-list">
+					<div id="productSection" class="row">
+
+					</div>
+					<div class="row" id="filterSection">
+
+					</div>
+				</section>
+				<section class="lattest-product-area pb-40 category-list">
+					<div id="brandSection" class="row">
+
+					</div>
+				</section>
+				<!-- End Best Seller -->
+				<!-- Start Filter Bar -->
+
+				<!-- End Filter Bar -->
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>About Us</h6>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+							ut labore dolore
+							magna aliqua.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>Newsletter</h6>
+						<p>Stay update with our latest</p>
+						<div class="" id="mc_embed_signup">
+
+							<form target="_blank" novalidate="true"
+								action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+								method="get" class="form-inline">
+
+								<div class="d-flex flex-row">
+
+									<input class="form-control" name="EMAIL" placeholder="Enter Email"
+										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+										required="" type="email">
+
+
+									<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
+											aria-hidden="true"></i></button>
+									<div style="position: absolute; left: -5000px;">
+										<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+											type="text">
+									</div>
+
+									<!-- <div class="col-lg-4 col-md-4">
+													<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+												</div>  -->
+								</div>
+								<div class="info"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">Instragram Feed</h6>
+						<ul class="instafeed d-flex flex-wrap">
+							<li><img src="img/i1.jpg" alt=""></li>
+							<li><img src="img/i2.jpg" alt=""></li>
+							<li><img src="img/i3.jpg" alt=""></li>
+							<li><img src="img/i4.jpg" alt=""></li>
+							<li><img src="img/i5.jpg" alt=""></li>
+							<li><img src="img/i6.jpg" alt=""></li>
+							<li><img src="img/i7.jpg" alt=""></li>
+							<li><img src="img/i8.jpg" alt=""></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>Follow Us</h6>
+						<p>Let us be social</p>
+						<div class="footer-social d-flex align-items-center">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+				<p class="footer-text m-0">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
+					made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+						target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+	<!-- Modal Quick Product View -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="container relative">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="product-quick-view">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="quick-view-carousel">
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="quick-view-content">
+								<div class="top">
+									<h3 class="head">Mill Oil 1000W Heater, White</h3>
+									<div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span
+											class="ml-10">$149.99</span></div>
+									<div class="category">Category: <span>Household</span></div>
+									<div class="available">Availibility: <span>In Stock</span></div>
+								</div>
+								<div class="middle">
+									<p class="content">Mill Oil is an innovative oil filled radiator with the most
+										modern technology. If you are
+										looking for something that can make your interior look awesome, and at the same
+										time give you the pleasant
+										warm feeling during the winter.</p>
+									<a href="#" class="view-full">View full Details <span
+											class="lnr lnr-arrow-right"></span></a>
+								</div>
+								<div class="bottom">
+									<div class="color-picker d-flex align-items-center">Color:
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+									</div>
+									<div class="quantity-container d-flex align-items-center mt-15">
+										Quantity:
+										<input type="text" class="quantity-amount ml-15" value="1" />
+										<div class="arrow-btn d-inline-flex flex-column">
+											<button class="increase arrow" type="button" title="Increase Quantity"><span
+													class="lnr lnr-chevron-up"></span></button>
+											<button class="decrease arrow" type="button" title="Decrease Quantity"><span
+													class="lnr lnr-chevron-down"></span></button>
+										</div>
+
+									</div>
+									<div class="d-flex mt-20">
+										<a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
+										<a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
+										<a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		let loginbtn = document.getElementById('loginSignup');
+		let profilebtn = document.getElementById("profileName")
+		let dropdownbtn = document.getElementById("Dropdown-list")
+		logout = document.getElementById("logoutbt");
+		if (localStorage.getItem("username") != null && localStorage.getItem("userloggedin") == 1) {
+			loginbtn.style.display = "none";
+			dropdownbtn.style.display = "inline";
+			profilebtn.innerHTML = localStorage.getItem("username");
+		}
+		logout.addEventListener("click", () => {
+			localStorage.setItem("userloggedin", "0");
+			localStorage.setItem("username", "")
+			localStorage.setItem("loggedinUserEmail", "")
+			loginbtn.style.display = "inline";
+			dropdownbtn.style.display = "none";
+			window.location.href = "./index.html"
+		})
+
+
+
+		// search bar
+
+	</script>
+
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<!-- <script src="jquery-3.6.3.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="./js/filter.js" type="text/javascript"></script>
+	<script src="js/renderprod.js" type="module"></script>
+	<!-- <script src="./js/postrender.js"></script> -->
+	<script src="./js/addToCart.js" type="module"></script>
+
+	<script src="./js/search.js" type="module"></script>
+	<!-- <script src="./js/login.js"></script> -->
+</body>
+
+</html>

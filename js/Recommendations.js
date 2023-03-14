@@ -1,0 +1,69 @@
+import head from "./urls.js";
+
+const elasticIP = head();
+let onclickRecomms = JSON.parse(localStorage.getItem("onclickRecomms"));
+let searchRecomms = JSON.parse(localStorage.getItem("searchRecomms"));
+
+let onclickcontainer = document.getElementById("onclickSection")
+let searchContainer = document.getElementById("SearchSection");
+let url = elasticIP+"/getproducts";
+
+
+
+$.get(url, function (data) {
+    data = JSON.parse(data);
+    for (let j = 0; j < 8; j++) {
+        for (let i = 0; i < data.length; i++) {
+            let pid = data[i].pid;
+            let productName = data[i].productName;
+            let price = data[i].price;
+            let category = data[i].brand;
+            let productDesc = data[i].productDesc;
+            let purl = data[i].productURL;
+            if (onclickRecomms[j].pid == data[i].pid) {
+                console.log(data[i]);
+                onclickcontainer.innerHTML += rendercard(pid, productName, price, purl);
+            }
+        }
+    }
+    searchContainer.innerHTML = "";
+    for (let j = 0; j < 8; j++) {
+        console.log(j);
+        for (let i = 0; i < data.length; i++) {
+            let pid = data[i].pid;
+            let productName = data[i].productName;
+            let price = data[i].price;
+            let purl = data[i].productURL;
+            if (data[i].pid == searchRecomms[j].pid) {
+                searchContainer.innerHTML += rendercard(pid, productName, price, purl);
+            }
+        }
+    }
+})
+
+
+
+function rendercard(pid, productName, price, purl) {
+    return `<div class="col-lg-3 col-md-6">
+        <div class="single-product">
+        <a href="./single-product.html#${pid}">
+            <img class="img-fluid" src="${purl}" alt="">
+            <div class="product-details">
+                <h6>${productName}</h6>
+                <div class="price">
+                    <h6>$${price}</h6>
+                    <h6 class="l-through">$${price + price * 40 / 100}</h6>
+                </div>
+                <div class="prd-bottom">
+                    <a href="" class="social-info">
+                        <span class="ti-bag"></span>
+                        <p class="hover-text">add to bag</p>
+                    </a>
+                    <a href="" class="social-info">
+                        <span class="lnr lnr-heart"></span>
+                        <p class="hover-text">Wishlist</p>
+                    </a>
+            </div>
+        </div>
+    </div>`
+}

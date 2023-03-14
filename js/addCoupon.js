@@ -1,0 +1,103 @@
+//! need to change all this into jquery
+import head from "./urls.js";
+
+const elasticIP = head();
+let adminlogout = document.getElementById('adminlogout'); //vendor logout
+adminlogout.addEventListener('click', function () {
+    localStorage.setItem('userloggedin', '0')
+    window.location.href = './index.html';
+})
+
+
+window.onload = function () {
+    $.get(elasticIP + "/fetchAllUsers", (data) => {
+        let customersCount = 0;
+        let vendorcnt = 0;
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].userCategory == "Vendor") vendorcnt++;
+            else if (data[i].userCategory == "Customer") customersCount++;
+        }
+        document.getElementById("customersCount").innerHTML = customersCount - 1;
+        document.getElementById("vendorsCount").innerHTML = vendorcnt;
+    })
+    document.getElementById("sneakerCount").innerHTML = localStorage.getItem("sneakerCnt");
+}
+
+
+// userListbtn = document.getElementById("userListbtn");
+let addCouponBtn = document.getElementById("addCouponBtn");
+let addServicebtn = document.getElementById("addServicebtn");
+let sneakersListbtn = document.getElementById("sneakersListBtn");
+
+
+addServicebtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "none";
+    document.getElementById("addService").style.display = "inline";
+    document.getElementById("sneakersList").style.display = "none"
+})
+
+addCouponBtn.addEventListener("click", function () {
+    document.getElementById("addCoupon").style.display = "inline";
+    document.getElementById("addService").style.display = "none";
+    document.getElementById("sneakersList").style.display = "none"
+})
+
+sneakersListbtn.addEventListener("click", () => {
+    document.getElementById("addCoupon").style.display = "none";
+    document.getElementById("addService").style.display = "none";
+    document.getElementById("sneakersList").style.display = "inline"
+})
+
+let couponCode = document.getElementById("couponCode");
+let couponDiscount = document.getElementById("couponDiscount");
+let pushCouponBtn = document.getElementById("pushCoupon");
+let couponAddedField = document.getElementById("couponAddedField")
+
+
+
+// dynamic loading of brands
+let brarr = JSON.parse(localStorage.getItem("brandsArr"));
+let cntnr = document.getElementById("brandMultiSelect");
+
+for (let i = 0; i < brarr.length; i++) {
+    cntnr.innerHTML += `<option value="${brarr[i]}">${brarr[i]}</option>`
+}
+
+
+pushCouponBtn.addEventListener("click", () => {
+    if(discount.value.match(/^[0-9]+$/)!=null && couponCode.value.match(/^[A-Za-z0-9]*$/)!=null){
+    const availableBrands = document.querySelector("#brandMultiSelect");
+    const selectedBrands = Array.from(availableBrands.selectedOptions).map(option => option.value)
+    console.log(selectedBrands);
+    let couponData = {
+        couponCode: couponCode.value,
+        brand: selectedBrands,
+        discount: couponDiscount.value
+    };
+    console.log(couponData.brand);
+    console.log(JSON.stringify(couponData));
+    console.log("INISIDE PUSH COUPON BTN ADDEVENT", couponData);
+    $.ajax({
+        type: "POST",
+        url: elasticIP + "/addCoupon",
+        contentType: "application/json",
+        // couponData:"data sent from frontend to backend",
+        data: JSON.stringify(couponData),
+        xhrFields: { withCredintials: false },
+        headers: {},
+        success: function (couponData) {
+            console.log("coupon data successfully added");
+            // couponAddedField.style.display = "inline";
+            alert("Coupon added successfully")
+        },
+        error: function () {
+            console.log("Error")
+        }
+    })
+}
+else{
+    alert("please enter acceptable values in every field")
+}
+
+})
+
